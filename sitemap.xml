@@ -1,81 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://18-one-last-chapter.fan/</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/world-cup-2023-portrait-bat-on-shoulder-alex-davidson.webp</image:loc>
+      <image:title>Virat Kohli — 18 One Last Chapter Farewell Tribute</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/portrait-solitary-champion-batsman.png</image:loc>
+      <image:title>Virat Kohli Cinematic Monolith Portrait</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://18-one-last-chapter.fan/18_one_last_chapter_hero/code.html</loc>
+    <loc>https://18-one-last-chapter.fan/stats</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/world-cup-2023-portrait-fist-roar-alex-davidson.jpg</image:loc>
+      <image:title>Virat Kohli International Cricket Career Record Ledger</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://18-one-last-chapter.fan/innings</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/mcg-2022-kohli-flick-six-shot-william-west.webp</image:loc>
+      <image:title>Virat Kohli 82* vs Pakistan at Melbourne Cricket Ground</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp</image:loc>
+      <image:title>Virat Kohli 50th ODI Century at Wankhede Stadium 2023</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/eden-gardens-2023-century-49-celebration-surjeet-yadav.webp</image:loc>
+      <image:title>Virat Kohli 49th ODI Century at Eden Gardens 2023</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/dhaka-2012-kohli-183-bat-raised-roar.jpg</image:loc>
+      <image:title>Virat Kohli 183 vs Pakistan at Dhaka Asia Cup 2012</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/mohali-2016-australia-82-finger-to-sky.jpeg</image:loc>
+      <image:title>Virat Kohli 82* vs Australia at Mohali T20 World Cup 2016</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/edgbaston-2018-kohli-149-roar-celebration.jpg</image:loc>
+      <image:title>Virat Kohli 149 vs England at Edgbaston 2018</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://18-one-last-chapter.fan/editorial</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/solitary-batsman-tunnel-walk.png</image:loc>
+      <image:title>The Last Chapter — India Relentless Chaser Retrospective</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://18-one-last-chapter.fan/journey</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/delhi-airport-2008-u19-world-cup-trophy-arrival-timescontent.webp</image:loc>
+      <image:title>Virat Kohli 2008 U19 World Cup Victory Arrival</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/kuala-lumpur-2008-u19-world-cup-trophy-petronas-towers-icc-getty.jpg</image:loc>
+      <image:title>Virat Kohli U19 Trophy with Petronas Towers</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://18-one-last-chapter.fan/remaining-odis</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/stadium-passionate-crowd-floodlights.png</image:loc>
+      <image:title>Remaining India ODI Fixtures &amp; 100 Centuries Countdown</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://18-one-last-chapter.fan/18_career_stats_international/code.html</loc>
+    <loc>https://18-one-last-chapter.fan/world-cup-2027</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/stadium-colossal-arena-panoramic.png</image:loc>
+      <image:title>ICC World Cup 2027 Africa Campaign</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://18-one-last-chapter.fan/18_the_last_chapter_desktop_editorial/code.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://18-one-last-chapter.fan/18_the_journey_horizontal_documentary_timeline/code.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://18-one-last-chapter.fan/18_the_innings_we_ll_never_forget_desktop/code.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://18-one-last-chapter.fan/18_the_last_ones_remaining_odis/code.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://18-one-last-chapter.fan/18_world_cup_2027_destination/code.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://18-one-last-chapter.fan/18_82_vs_pakistan_melbourne_2022/code.html</loc>
+    <loc>https://18-one-last-chapter.fan/82-melbourne</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/mcg-2022-kohli-prayer-finger-to-sky-martin-keep.webp</image:loc>
+      <image:title>Virat Kohli Prayer Finger to Sky MCG 2022</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://18-one-last-chapter.fan/18_match_details_india_vs_australia/code.html</loc>
+    <loc>https://18-one-last-chapter.fan/match-details</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/stadium-night-pitch-atmospheric-mist.png</image:loc>
+      <image:title>India vs Australia Fixture Dossier</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://18-one-last-chapter.fan/18_be_there_for_it_desktop/code.html</loc>
+    <loc>https://18-one-last-chapter.fan/be-there</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/stadium-electric-packed-stands.png</image:loc>
+      <image:title>Be There — Stadium Dossiers &amp; Witness Guide</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://18-one-last-chapter.fan/18_we_were_there_fan_memories_keepsake/code.html</loc>
+    <loc>https://18-one-last-chapter.fan/we-were-there</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/mcg-2022-india-pakistan-fans-pose-william-west.jpg</image:loc>
+      <image:title>We Were There — Global Fan Memories Archive</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://18-one-last-chapter.fan/18_i_was_there_commemorative_keepsake_generator/code.html</loc>
+    <loc>https://18-one-last-chapter.fan/keepsake</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://18-one-last-chapter.fan/assets/images/vintage-youthful-cricket-batsman.png</image:loc>
+      <image:title>Virat Kohli Commemorative Keepsake Ticket Generator</image:title>
+    </image:image>
   </url>
 </urlset>

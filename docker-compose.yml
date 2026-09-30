@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: virat-kohli-18-tribute
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_PORT=80

@@ -307,12 +307,7 @@
             ${primaryItems}
           </nav>
           
-          <div class="px-4 py-2 font-mono text-[10px] text-primary tracking-widest uppercase bg-surface-container-lowest/80 border-y border-[#1f1f1f] mt-4">
-            ARCHIVAL DOSSIERS & DETAILS
-          </div>
-          <nav aria-label="Mobile Detail Navigation" class="flex flex-col">
-            ${detailItems}
-          </nav>
+
 
           <div class="px-4 py-2 font-mono text-[10px] text-primary tracking-widest uppercase bg-surface-container-lowest/80 border-y border-[#1f1f1f] mt-4">
             ARCHIVE INFORMATION
@@ -492,10 +487,7 @@
               <span>ABOUT</span>
             </button>
 
-            <!-- DOSSIERS DROPDOWN (DESKTOP) -->
-            <div class="hidden sm:block">
-              ${renderDossiersDropdown(currentFolder)}
-            </div>
+            <!-- DOSSIERS DROPDOWN (HIDDEN PER USER REQUEST) -->
 
             <!-- MOBILE TOGGLE BUTTON -->
             <button id="vk-mobile-toggle" 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://18-one-last-chapter.fan/sitemap.xml

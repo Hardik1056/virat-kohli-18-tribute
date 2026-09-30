@@ -1,0 +1,26 @@
+{
+  "name": "virat-kohli-one-last-chapter",
+  "version": "1.0.0",
+  "description": "18 | ONE LAST CHAPTER — Cinematic Tribute and Archival Retrospective for Virat Kohli",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 3018",
+    "serve": "npx -y serve . -l 3018",
+    "build:css": "tailwindcss -i ./shared/input.css -o ./shared/compiled-tailwind.css --minify",
+    "build": "npm run build:css",
+    "check": "python3 scripts/verify-deployment.py"
+  },
+  "keywords": [
+    "virat-kohli",
+    "cricket",
+    "tribute",
+    "cinematic",
+    "sports-editorial",
+    "obsidian-gold"
+  ],
+  "author": "Antigravity & Pair",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

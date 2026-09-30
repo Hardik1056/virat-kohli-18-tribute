@@ -1,0 +1,311 @@
+/**
+ * Obsidian & Gold Editorial - Master Design System Stylesheet
+ * Tribute to Virat Kohli: "18 | ONE LAST CHAPTER"
+ * Extracted and centralized from Google Stitch Master Design Specification (DESIGN.md)
+ */
+
+/* ==========================================================================
+   1. FONT IMPORTS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+/* ==========================================================================
+   2. DESIGN TOKENS (CSS CUSTOM PROPERTIES)
+   ========================================================================== */
+:root {
+  /* Surface & Base Roles (Solemn Twilight Obsidian) */
+  --color-canvas: #070709;
+  --color-background: #0d0d0f;
+  --color-surface: #0d0d0f;
+  --color-surface-dim: #09090b;
+  --color-surface-bright: #303036;
+  --color-surface-container-lowest: #070709;
+  --color-surface-container-low: #131316;
+  --color-surface-container: #18181c;
+  --color-surface-container-high: #212126;
+  --color-surface-container-highest: #2b2b31;
+  --color-surface-variant: #2b2b31;
+  --color-surface-tint: #cda851;
+
+  /* Typography Colors (Weathered Museum Parchment) */
+  --color-on-surface: #ded9d0;
+  --color-on-surface-variant: #a9a293;
+  --color-on-background: #ded9d0;
+  --color-inverse-surface: #ded9d0;
+  --color-inverse-on-surface: #26262b;
+
+  /* Burnished Antique Gold / Twilight Ember Accent */
+  --color-primary: #cda851;
+  --color-on-primary: #2d2200;
+  --color-primary-container: #a98230;
+  --color-on-primary-container: #473600;
+  --color-inverse-primary: #634e00;
+  --color-primary-fixed: #dfbe78;
+  --color-primary-fixed-dim: #b89342;
+  --color-on-primary-fixed: #1e1500;
+  --color-on-primary-fixed-variant: #493900;
+
+  /* Secondary / Melancholic Cold Titanium */
+  --color-secondary: #9da2ac;
+  --color-on-secondary: #26292e;
+  --color-secondary-container: #3c3f46;
+  --color-on-secondary-container: #a6abb5;
+  --color-secondary-fixed: #d2d5dc;
+  --color-secondary-fixed-dim: #9da2ac;
+  --color-on-secondary-fixed: #14171a;
+  --color-on-secondary-fixed-variant: #383b40;
+
+  /* Tertiary / Distant Stadium Fog Slate */
+  --color-tertiary: #b0b7c3;
+  --color-on-tertiary: #20262f;
+  --color-tertiary-container: #9198a6;
+  --color-on-tertiary-container: #2f3642;
+  --color-tertiary-fixed: #cdd4e1;
+  --color-tertiary-fixed-dim: #a8b0bd;
+  --color-on-tertiary-fixed: #0f141a;
+  --color-on-tertiary-fixed-variant: #333a44;
+
+  /* Outline & Architectural Hairlines
+     Contrast-tuned for WCAG 2.2 AA. Measured against the LIGHTEST surface in
+     this palette (#2b2b31, surface-container-highest) so the ratio holds on
+     every surface below it.
+       --color-outline          text + borders  4.50:1  (1.4.3 AA, normal text)
+       --color-outline-variant  borders         3.02:1  (1.4.11 non-text)
+       --border-graphite        borders         3.02:1  (1.4.11 non-text)
+     Note: --color-outline-variant is consumed as TEXT in some legacy markup via
+     a bare `text-outline-variant` utility; those sites were repointed to
+     `text-outline` because no border-grade value can also carry normal text. */
+  --color-outline: #989184;
+  --color-outline-variant: #747476;
+  --border-graphite: #747476;
+
+  /* Alert / Error */
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  /* Typography Families */
+  /* Unreferenced as a custom property — no rule and no markup reads
+     var(--font-display). The FONT is very much in use, but through
+     shared/tailwind.config.js fontFamily keys (monument-hero, headline-xl,
+     data-display, ...), not through this variable. Kept so a future build can
+     adopt it; do not delete the Google Fonts import on the strength of this
+     variable being unused. */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing Scale */
+  --space-gutter: 1.5rem;
+  --space-gutter-mobile: 1rem;
+  --space-margin: 4rem;
+  --space-margin-mobile: 1.25rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.75rem;
+  --space-xl: 3rem;
+  --space-xxl: 5rem;
+}
+
+/* ==========================================================================
+   3. BASE RESETS & EDITORIAL FOUNDATION
+   ========================================================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+/* Safe area padding for edge-to-edge mobile devices */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Layout vertical discipline */
+main > :first-child {
+  margin-top: 0 !important;
+}
+main > :last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Hide scrollbars globally while preserving scroll functionality */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Global selection color */
+::selection {
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+/* ==========================================================================
+   4. SHARED REUSABLE COMPONENTS
+
+   STATUS: UNREFERENCED — READ BEFORE BUILDING ON THIS SECTION.
+   Every class below was verified to have ZERO references across all 11 pages
+   and all shared JS (grep for the class name returns only this file):
+     .btn-archival-primary  .btn-archival-secondary  .card-archival
+     .corner-registration   .animate-gold-pulse      .vignette-bleed
+     .pb-safe               .pt-safe
+   The markup styles itself entirely with utility classes, so nothing here
+   reaches a page. Two consequences worth knowing:
+
+     1. These are the ONLY rules that consume the CSS custom properties in
+        section 2. Because no page loads this file's tokens into a utility
+        either — shared/compiled-tailwind.css bakes literal colours and never
+        reads var(--color-*) — the token layer in section 2 is currently
+        decorative. Editing a token changes no page.
+     2. They were kept rather than deleted because this project has no git
+        history, so a deletion is unrecoverable. They are preserved as the
+        documented component vocabulary for a future build.
+
+   If you adopt this section, note that compiled-tailwind.css (loaded after this
+   file) wins on equal specificity, so a utility class on the same element will
+   override these rules.
+   ========================================================================== */
+
+/* --- Buttons --- */
+.btn-archival-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 0px;
+  border: 1px solid var(--color-primary-container);
+  padding: 1rem 1.75rem;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+  text-decoration: none;
+}
+.btn-archival-primary:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-archival-primary:active {
+  transform: scale(0.99);
+}
+
+.btn-archival-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: transparent;
+  color: var(--color-secondary-fixed);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 0px;
+  border: 1px solid var(--border-graphite);
+  padding: 1rem 1.75rem;
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+  text-decoration: none;
+}
+.btn-archival-secondary:hover {
+  border-color: var(--color-primary-container);
+  color: #ffffff;
+  background-color: var(--color-surface-container-low);
+}
+
+/* --- Cards & Containers --- */
+.card-archival {
+  background-color: var(--color-surface-container-low);
+  border: 1px solid var(--border-graphite);
+  border-radius: 0px;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+.card-archival:hover {
+  border-color: var(--color-primary-container);
+}
+
+/* --- Architectural Registration & Corner Notches --- */
+.corner-registration {
+  position: relative;
+}
+/* Was incomplete: the two boxes had no `background`/`border` and no offsets, so
+   they inherited the element's static position and painted nothing — the class
+   was a silent no-op even if something had used it. Now draws a pair of gold
+   registration brackets. */
+.corner-registration::before,
+.corner-registration::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  border: 1px solid var(--color-primary);
+}
+.corner-registration::before {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.corner-registration::after {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+/* --- Shared Animations --- */
+@keyframes goldPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.animate-gold-pulse {
+  animation: goldPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* --- Chiaroscuro Vignette Bleeds --- */
+.vignette-bleed {
+  position: relative;
+}
+.vignette-bleed::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--color-surface-container-lowest), transparent 60%);
+}

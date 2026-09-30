@@ -1,0 +1,156 @@
+/**
+ * CONTRAST OVERRIDES — WCAG 2.2 AA remediation
+ * ---------------------------------------------------------------------------
+ * WHY THIS FILE EXISTS
+ *   shared/compiled-tailwind.css is a frozen Tailwind build artifact: every
+ *   colour utility in it is a LITERAL rgb()/rgba()/hsla() value (verified: zero
+ *   `var(--color-*)` references). The design tokens in shared/design-system.css
+ *   therefore do NOT reach the utility classes actually served to the browser.
+ *   This sheet is linked AFTER compiled-tailwind.css so equal-specificity
+ *   overrides win by source order. It changes only colour — no layout, spacing,
+ *   typography or structural property is touched, so it cannot reflow a page.
+ *
+ * MEASUREMENT BASIS
+ *   Ratios below are the WORST CASE across all five surfaces in the palette
+ *   (#070709, #131316, #18181c, #212126, #2b2b31). Alpha utilities are
+ *   composited over each surface before measuring, not compared raw.
+ *   Targeting the lightest surface (#2b2b31) means every ratio also holds on
+ *   the darker surfaces above it.
+ *
+ * WHAT IS DELIBERATELY NOT CHANGED (WCAG 1.4.11 scope)
+ *   1.4.11 applies to non-text content "required to understand" the content —
+ *   UI component boundaries and states. It does not reach purely decorative
+ *   paint. Left as authored:
+ *     - gradient stops (to-black/40, from-*/via-* and every --tw-gradient-*)
+ *     - vignette / scrim / glow overlays and bg-*/<alpha> washes
+ *     - border-white/5 and border-white/10 section separators (they delineate
+ *       nothing operable and no state)
+ *     - border-outline-variant/<alpha> (86+ uses). These CANNOT meet 3:1 at any
+ *       alpha: measured max is 1.87 at /40 and 3.43 even at /80, because
+ *       compositing a grey hairline toward the surface always lands near the
+ *       surface. Reaching 3:1 requires dropping the alpha entirely, which turns
+ *       86 hairlines solid and reads as a wireframe. Flagged, not silently
+ *       half-fixed. The SOLID border-outline-variant IS fixed below.
+ *
+ * REGENERATING compiled-tailwind.css
+ *   If it is ever rebuilt, these overrides still apply on top, but the
+ *   underlying token fix is in shared/design-system.css :root — port the values
+ *   below back into shared/tailwind.config.js theme.extend.colors so a rebuild
+ *   emits them natively.
+ */
+
+  .text-outline                      { color: #989184; }   /* 4.50:1  AA */
+  .text-outline-variant              { color: #989184; }   /* 4.50:1  AA */
+  .text-outline\/40                  { color: #989184; }   /* 4.50:1  AA */
+  .text-primary\/60                  { color: rgba(205, 168, 81, 0.8); }   /* 4.56:1  AA */
+  .text-primary\/70                  { color: rgba(205, 168, 81, 0.8); }   /* 4.56:1  AA */
+  .text-primary-container\/70        { color: #cda851; }   /* 6.24:1  AA */
+  .text-primary-container\/80        { color: #cda851; }   /* 6.24:1  AA */
+  .text-primary-container\/90        { color: #cda851; }   /* 6.24:1  AA */
+  .text-secondary\/40                { color: #9da2ac; }   /* 5.49:1  AA */
+  .text-secondary\/60                { color: #9da2ac; }   /* 5.49:1  AA */
+  .text-secondary\/70                { color: #9da2ac; }   /* 5.49:1  AA */
+  .text-secondary\/80                { color: #9da2ac; }   /* 5.49:1  AA */
+  .text-secondary-fixed-dim\/60      { color: #9da2ac; }   /* 5.49:1  AA */
+  .text-secondary-fixed-dim\/70      { color: #9da2ac; }   /* 5.49:1  AA */
+  .text-primary-fixed-dim\/90        { color: #c9a659; }   /* 6.08:1  AA */
+  .text-primary-fixed-dim\/95        { color: #c9a659; }   /* 6.08:1  AA */
+  .text-on-surface-variant\/40       { color: rgba(169, 162, 147, 0.9); }   /* 4.78:1  AA */
+  .text-on-surface-variant\/70       { color: rgba(169, 162, 147, 0.9); }   /* 4.78:1  AA */
+  .text-on-surface-variant\/80       { color: rgba(169, 162, 147, 0.9); }   /* 4.78:1  AA */
+  .text-white\/20                    { color: rgba(255, 255, 255, 0.5); }   /* 4.71:1  AA */
+  .text-white\/30                    { color: rgba(255, 255, 255, 0.5); }   /* 4.71:1  AA */
+  .text-white\/40                    { color: rgba(255, 255, 255, 0.5); }   /* 4.71:1  AA */
+  .border-outline-variant            { border-color: #747476; }   /* 3.02:1  non-text AA */
+
+/* ===========================================================================
+   FORM CONTROLS — WCAG 1.4.11 (non-text contrast, UI component boundaries)
+   ---------------------------------------------------------------------------
+   Two distinct defects found here, both fixed by this block:
+
+   1. Placeholder colour never applied. Verified: shared/compiled-tailwind.css
+      contains NO `.placeholder\:*` rule at all, yet 7 placeholder utilities are
+      used across the markup (`placeholder:text-outline` x5,
+      `placeholder:text-outline-variant` x2). Because the class was never
+      generated, placeholders fell back to the browser default instead of the
+      design's token. Defined here at 4.50:1.
+
+   2. Input boundaries were invisible. The fields paint
+      bg-surface-container-lowest (#070709) on a card of #131316-18181c, i.e.
+      roughly 1.1:1 — the control's own boundary was not perceivable. 1.4.11
+      requires 3:1 to identify a UI component, so the field edge is a real
+      requirement, unlike the decorative hairlines exempted above.
+      Tailwind preflight sets `box-sizing: border-box`, so this 1px border does
+      not change the element's outer box and cannot reflow the grid.
+   =========================================================================== */
+.placeholder\:text-outline::placeholder,
+.placeholder\:text-outline-variant::placeholder {
+  color: #989184;   /* 4.50:1 worst-case over the five palette surfaces */
+  opacity: 1;       /* Firefox applies its own placeholder opacity by default */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="url"],
+textarea,
+select {
+  border: 1px solid #747476;   /* 3.02:1 worst-case — 1.4.11 */
+}
+
+/* ===========================================================================
+   CLASSES REFERENCED BY MARKUP THAT THE FROZEN BUILD NEVER EMITTED
+   ---------------------------------------------------------------------------
+   shared/compiled-tailwind.css is stale relative to the markup. Audited every
+   class referenced across the 11 pages and navigation.js against the 1052
+   classes the artifact actually defines; these are the ones that resolve to
+   NOTHING — no rule, anywhere. They were written expecting to render, so
+   restoring them is restating the author's intent, not inventing a design.
+
+   Only classes with a FUNCTIONAL consequence are restored below. Deliberately
+   left dead and reported instead (no defensible value can be inferred):
+     - milestone-card (10 uses)   no styling intent is recoverable from the name
+     - bg-radial, bg-radial-at-c, bg-radial-gradient, contrast-105, contrast-110
+                                  Tailwind v4 utility names that do not exist in
+                                  a v3 build; the intended values are unknowable
+     - bg-[radial-gradient(...)]  needs a companion background-size to avoid
+                                  painting a solid wash instead of the intended
+                                  pattern
+     - the eight gold/black glow shadows (see the report); they are decorative
+                                  atmosphere, and enabling 8 never-rendered
+                                  glows at once is a design change, not a fix.
+   The real remedy for all of them is regenerating compiled-tailwind.css from
+   shared/tailwind.config.js, which needs a Tailwind CLI (`npm`) this project
+   does not have. Regenerate when one is available and delete this section.
+   =========================================================================== */
+
+/* Mobile drawer background. `bg-[#0c0c0c]/98` was never generated, so the
+   drawer painted NO background at all and page content showed through it
+   beneath the backdrop blur. */
+.bg-\[\#0c0c0c\]\/98 { background-color: rgba(12, 12, 12, 0.98); }
+
+/* The drawer's drop shadow, on the same element. */
+.shadow-\[0_0_60px_rgba\(0\,0\,0\,0\.95\)\] {
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.95);
+}
+
+/* Nav label upsizing at the widest breakpoint. Verified: compiled-tailwind.css
+   contains no `2xl:` rules at all, so every 2xl utility in the nav was inert.
+   Scoped via .vk-nav-link rather than restating the escaped `2xl:text-[11.5px]`
+   selector — a class name may not begin with a digit, so that selector needs a
+   `\32 ` hex escape and is easy to get subtly wrong. The mobile drawer (the
+   only other .vk-nav-link container) is unreachable at this width because its
+   toggle is xl:hidden, so this cannot leak into it. */
+@media (min-width: 1536px) {
+  .vk-nav-link { font-size: 11.5px; }
+}
+
+/* Brand wordmark visibility (see the note at the span in navigation.js).
+   Uses a real class rather than `hidden 2xl:inline`: compiled-tailwind.css has
+   NO `2xl:` rules, so the `2xl:inline` half would be inert and the wordmark
+   would stay hidden at every width. */
+.vk-brand-wordmark { display: none; }
+@media (min-width: 1536px) {
+  .vk-brand-wordmark { display: inline; }
+}

@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/18_one_last_chapter_hero/code.html" },
+    { "source": "/stats", "destination": "/18_career_stats_international/code.html" },
+    { "source": "/editorial", "destination": "/18_the_last_chapter_desktop_editorial/code.html" },
+    { "source": "/journey", "destination": "/18_the_journey_horizontal_documentary_timeline/code.html" },
+    { "source": "/innings", "destination": "/18_the_innings_we_ll_never_forget_desktop/code.html" },
+    { "source": "/remaining-odis", "destination": "/18_the_last_ones_remaining_odis/code.html" },
+    { "source": "/world-cup-2027", "destination": "/18_world_cup_2027_destination/code.html" },
+    { "source": "/82-melbourne", "destination": "/18_82_vs_pakistan_melbourne_2022/code.html" },
+    { "source": "/match-details", "destination": "/18_match_details_india_vs_australia/code.html" },
+    { "source": "/be-there", "destination": "/18_be_there_for_it_desktop/code.html" },
+    { "source": "/we-were-there", "destination": "/18_we_were_there_fan_memories_keepsake/code.html" },
+    { "source": "/keepsake", "destination": "/18_i_was_there_commemorative_keepsake_generator/code.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/shared/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    }
+  ]
+}

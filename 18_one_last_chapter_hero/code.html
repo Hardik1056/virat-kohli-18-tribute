@@ -185,191 +185,210 @@
 </div>
 <main class="flex flex-col relative w-full bg-surface min-h-screen max-md:min-h-[100svh]"><div class="flex flex-col w-full relative overflow-hidden bg-surface-container-lowest text-on-surface">
 <!-- Documentary Full-Bleed Atmosphere Backdrop -->
-<div class="relative w-full overflow-hidden flex flex-col justify-between min-h-[115vh] max-md:min-h-[110svh] pb-12">
+<div class="relative w-full overflow-hidden flex flex-col justify-between min-h-screen max-md:min-h-[100svh]">
 <!-- Background Image Scrim Stack -->
 <div class="absolute inset-0 z-0">
 <img decoding="async" alt="Virat Kohli in documentary silhouette under stadium floodlights" class="w-full h-full filter grayscale contrast-125 brightness-95 scale-100 sm:scale-105 transition-all duration-700 pointer-events-none" style="object-fit: cover; object-position: 50% 0%;" data-vk-image="hero.mainBackdrop" src="../assets/images/world-cup-2023-portrait-bat-on-shoulder-alex-davidson.webp"/>
 <!-- Grain Texture Layer (Subtle Noise) -->
 <div class="absolute inset-0 opacity-15 pointer-events-none mix-blend-overlay bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<!-- Editorial Scrim: Soft Left Vignette for Typography on Desktop -->
+<div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/60 to-transparent pointer-events-none" style="width: 52%;"></div>
 <!-- Vignettes & Editorial Masking (Linear Tonal Depth) -->
-<div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/75 via-transparent to-[#0a0a0a] pointer-events-none"></div>
-<div class="absolute inset-0 bg-radial-at-c from-transparent via-[#0a0a0a]/15 to-[#0a0a0a]/90 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-transparent to-[#0a0a0a] pointer-events-none"></div>
+<div class="absolute inset-0 bg-radial-at-c from-transparent via-[#0a0a0a]/10 to-[#0a0a0a]/80 pointer-events-none"></div>
 </div>
+
 <!-- Editorial Header / Archival Registration Stamp -->
-<header class="relative z-10 w-full px-5 pt-16 sm:pt-20 pb-3 flex items-center justify-between max-md:flex-wrap max-md:gap-y-1.5">
+<header class="relative z-10 w-full px-4 sm:px-6 pt-16 sm:pt-18 pb-2 flex items-center justify-between max-md:flex-wrap max-md:gap-y-1.5">
 <a class="flex items-center space-x-2 hover:opacity-80 transition-opacity" href="../18_the_last_chapter_desktop_editorial/code.html">
 <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-<p class="font-label-caps text-label-caps text-on-surface-variant tracking-[0.22em] max-md:tracking-[0.14em] uppercase">
+<p class="font-label-caps text-label-caps text-on-surface-variant tracking-[0.22em] max-md:tracking-[0.14em] uppercase text-xs">
           ARCHIVAL RETROSPECTIVE <span class="text-primary-container mx-1">•</span> THE TWILIGHT ERA // ACT V
         </p>
 </a>
-<a class="flex items-center space-x-1.5 bg-surface-container-low hover:bg-surface-container px-2 py-0.5 transition-colors" href="../18_the_journey_horizontal_documentary_timeline/code.html">
-<span class="font-meta-sm text-meta-sm text-tertiary tracking-widest font-mono">SER. #4518</span>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.2em] font-semibold">STANDS OF RECORD</span>
+<span class="block font-meta-sm text-[10px] text-secondary-fixed-dim tracking-wider">WANKHEDE • ADELAIDE • EDGBASTON</span>
+</div>
+<a class="flex items-center space-x-1.5 bg-surface-container-low hover:bg-surface-container px-2 py-0.5 border border-outline-variant/30 transition-colors" href="../18_the_journey_horizontal_documentary_timeline/code.html">
+<span class="font-meta-sm text-meta-sm text-tertiary tracking-widest font-mono text-xs">SER. #4518</span>
 </a>
+</div>
 </header>
-<!-- Monumental Typography & Narrative Centerpiece -->
-<section class="relative z-10 w-full px-5 mt-auto mb-2 flex flex-col pt-12 sm:pt-20">
+
+<!-- Monumental Editorial Zone (Left-Anchored to Keep Kohli's Face Unobstructed in Center) -->
+<section class="relative z-10 w-full px-4 sm:px-6 flex flex-col justify-center my-auto pt-2 pb-3">
+<div class="w-full max-w-xl flex flex-col">
 <!-- Top Chronology Stamp -->
-<div class="flex items-center space-x-3 mb-2">
+<div class="flex items-center space-x-3 mb-1.5">
 <span class="h-px w-6 bg-outline-variant"></span>
-<span class="font-label-caps text-label-caps text-tertiary tracking-[0.25em] uppercase">
+<span class="font-label-caps text-[11px] text-tertiary tracking-[0.25em] uppercase font-mono">
           DEPARTURE HORIZON • 2008—PRESENT
         </span>
 </div>
 <!-- Monument Display Title -->
-<div class="relative flex flex-col">
-<div class="flex items-baseline justify-between select-none">
-<h1 class="font-monument-hero-mobile text-monument-hero-mobile tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-on-surface via-on-surface-variant to-secondary-container leading-none -mb-3">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-3 select-none">
+<h1 class="font-monument-hero-mobile text-monument-hero-mobile tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-on-surface via-on-surface-variant to-secondary-container leading-none text-5xl sm:text-6xl lg:text-7xl font-bold">
             18
           </h1>
-<div class="text-right">
-<span class="block font-label-caps text-label-caps text-primary-container uppercase tracking-[0.2em]">STANDS OF RECORD</span>
-<span class="block font-meta-sm text-meta-sm text-secondary-fixed-dim max-md:tracking-normal">WANKHEDE • ADELAIDE • EDGBASTON</span>
+<div class="flex flex-col">
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile tracking-wide text-on-surface uppercase text-xl sm:text-2xl lg:text-3xl font-extrabold leading-tight">
+              ONE LAST CHAPTER
+            </h2>
+<span class="sm:hidden font-meta-sm text-[9px] text-secondary-fixed-dim tracking-widest uppercase mt-0.5">
+              WANKHEDE • ADELAIDE • EDGBASTON
+            </span>
 </div>
 </div>
-<h2 class="font-headline-xl-mobile text-headline-xl-mobile tracking-wide text-on-surface uppercase -mt-2">
-          ONE LAST CHAPTER
-        </h2>
 </div>
 <!-- Haunting Documentary Sub-title -->
-<blockquote class="mt-3 mb-6 pl-3.5 border-l-2 border-primary/50 bg-surface-container-lowest/60 py-2.5 max-w-xl">
-<p class="font-body-md text-base sm:text-body-md italic text-on-surface-variant leading-relaxed">
+<blockquote class="mt-2.5 mb-4 pl-3.5 border-l-2 border-primary/60 bg-[#0c0c0c]/80 backdrop-blur-sm py-2 px-3 shadow-lg">
+<p class="font-body-md text-xs sm:text-sm italic text-on-surface-variant leading-relaxed">
           “The twilight has set in. Soon the blue jersey will be folded away, the deafening cheers will turn into memories, and every cover drive we witness today is one less left in our lifetimes.”
         </p>
-<footer class="font-label-caps text-[9.5px] tracking-widest text-primary/80 uppercase mt-2 flex items-center gap-1.5">
+<footer class="font-label-caps text-[9px] tracking-widest text-primary/90 uppercase mt-1.5 flex items-center gap-1.5 font-semibold">
 <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
 <span>CHERISH EVERY REMAINING DELIVERY • THE FINAL CHAPTER IS UNFOLDING</span>
 </footer>
 </blockquote>
 
-<!-- Two-Column Side-by-Side Telemetry Suite on Desktop (Pushed Lower to Keep Face Visible) -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-6 w-full items-stretch mt-12 sm:mt-24 lg:mt-32">
+<!-- Action Suite (Integrated in Left Column) -->
+<div class="flex flex-wrap items-center gap-2.5 w-full">
+<a class="bg-primary-container hover:bg-primary text-on-primary font-label-caps text-xs uppercase tracking-[0.16em] py-2.5 px-4 inline-flex items-center gap-2.5 transition-all duration-150 active:scale-[0.99] font-bold shadow-[0_4px_14px_rgba(205,168,81,0.25)]" href="../18_the_last_chapter_desktop_editorial/code.html">
+<span>WITNESS THE LAST CHAPTER</span>
+<span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+</a>
+<a class="bg-surface-container-high/90 hover:bg-surface-variant text-secondary-fixed font-label-caps text-xs uppercase tracking-[0.16em] py-2.5 px-3.5 inline-flex items-center gap-1.5 border border-outline-variant/40 hover:border-primary/50 transition-colors duration-150" href="../18_the_innings_we_ll_never_forget_desktop/code.html">
+<span class="material-symbols-outlined text-sm" aria-hidden="true">history_edu</span>
+<span>EXPLORE INNINGS</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Bottom Telemetry HUD Dock (Docked at Base over Jersey, Below Kohli's Face) -->
+<div class="relative z-10 w-full px-4 sm:px-6 mt-auto pb-3">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-3 max-w-7xl mx-auto w-full items-stretch">
   <!-- Minimalist Countdown Module -->
-  <div class="w-full bg-surface-container-low/95 backdrop-blur-md p-4 max-md:p-3 relative shadow-2xl border border-outline-variant/40 flex flex-col justify-between">
+  <div class="w-full bg-[#0a0a0a]/92 backdrop-blur-md p-3 relative shadow-2xl border border-outline-variant/40 flex flex-col justify-between">
     <!-- Accent Corner Notches -->
     <div class="absolute -top-1 -left-1 w-2 h-2 bg-primary"></div>
     <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-primary"></div>
-    <div class="flex items-center justify-between pb-3 mb-3 max-md:flex-wrap max-md:gap-y-1">
-      <div class="flex flex-col">
-        <div class="flex items-center space-x-2">
-          <span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
-          <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.16em] max-md:tracking-[0.12em]" id="hero-countdown-title">
-            THE FAREWELL HORIZON // 2027 FINAL
-          </span>
-        </div>
-        <span class="font-meta-sm text-meta-sm text-outline italic text-[11px] ml-4" id="hero-countdown-note">The last time he may ever take the field in India's blue</span>
+    <div class="flex items-center justify-between pb-1.5 mb-1.5 border-b border-outline-variant/30">
+      <div class="flex items-center space-x-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+        <span class="font-label-caps text-[10.5px] text-on-surface-variant uppercase tracking-[0.16em] font-semibold" id="hero-countdown-title">
+          THE FAREWELL HORIZON // 2027 FINAL
+        </span>
       </div>
-      <span class="font-label-caps text-[10px] text-primary tracking-widest uppercase">THE HOURGLASS RUNS OUT</span>
+      <span class="font-label-caps text-[9px] text-primary tracking-widest uppercase hidden sm:inline">THE HOURGLASS RUNS OUT</span>
     </div>
     <!-- Time Ticker Grid -->
-    <div class="grid grid-cols-4 gap-2 max-md:gap-1 text-center py-1">
-      <div class="flex flex-col items-center bg-surface-container p-2 max-md:p-1.5">
-        <span class="font-data-display text-headline-lg-mobile text-on-surface tabular-nums" id="countdown-days">--</span>
-        <span class="font-label-caps text-label-caps text-secondary-fixed-dim mt-0.5">DAYS</span>
+    <div class="grid grid-cols-4 gap-1.5 text-center py-0.5">
+      <div class="flex flex-col items-center bg-surface-container/60 py-1 px-1">
+        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-days">--</span>
+        <span class="font-label-caps text-[8.5px] text-secondary-fixed-dim mt-0.5">DAYS</span>
       </div>
-      <div class="flex flex-col items-center bg-surface-container p-2 max-md:p-1.5">
-        <span class="font-data-display text-headline-lg-mobile text-on-surface tabular-nums" id="countdown-hours">--</span>
-        <span class="font-label-caps text-label-caps text-secondary-fixed-dim mt-0.5">HOURS</span>
+      <div class="flex flex-col items-center bg-surface-container/60 py-1 px-1">
+        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-hours">--</span>
+        <span class="font-label-caps text-[8.5px] text-secondary-fixed-dim mt-0.5">HOURS</span>
       </div>
-      <div class="flex flex-col items-center bg-surface-container p-2 max-md:p-1.5">
-        <span class="font-data-display text-headline-lg-mobile text-on-surface tabular-nums" id="countdown-mins">--</span>
-        <span class="font-label-caps text-label-caps text-secondary-fixed-dim mt-0.5">MINS</span>
+      <div class="flex flex-col items-center bg-surface-container/60 py-1 px-1">
+        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-mins">--</span>
+        <span class="font-label-caps text-[8.5px] text-secondary-fixed-dim mt-0.5">MINS</span>
       </div>
-      <div class="flex flex-col items-center bg-surface-container p-2 max-md:p-1.5">
-        <span class="font-data-display text-headline-lg-mobile text-primary tabular-nums" id="countdown-secs">--</span>
-        <span class="font-label-caps text-label-caps text-secondary-fixed-dim mt-0.5">SECS</span>
+      <div class="flex flex-col items-center bg-surface-container/60 py-1 px-1">
+        <span class="font-data-display text-lg sm:text-2xl text-primary tabular-nums font-bold leading-none" id="countdown-secs">--</span>
+        <span class="font-label-caps text-[8.5px] text-secondary-fixed-dim mt-0.5">SECS</span>
       </div>
+    </div>
+    <div class="mt-1 flex items-center justify-between text-[10px]">
+      <span class="font-meta-sm text-outline italic" id="hero-countdown-note">If India plays the final</span>
+      <span class="font-mono text-[9px] text-outline/60">EST. OCT 2027</span>
     </div>
   </div>
 
   <!-- MONUMENTAL QUEST: GOAL FOR 100 INTERNATIONAL CENTURIES -->
-  <section class="w-full bg-surface-container-low/95 backdrop-blur-md border border-outline-variant/40 p-4 max-md:p-3 relative shadow-2xl flex flex-col justify-between" id="century-goal-section" aria-label="Goal for 100 International Centuries">
+  <section class="w-full bg-[#0a0a0a]/92 backdrop-blur-md border border-outline-variant/40 p-3 relative shadow-2xl flex flex-col justify-between" id="century-goal-section" aria-label="Goal for 100 International Centuries">
     <!-- Accent Corner Notches -->
     <div class="absolute -top-1 -left-1 w-2 h-2 bg-primary"></div>
     <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-primary"></div>
 
     <!-- Header Bar -->
-    <div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant/30 max-md:flex-wrap max-md:gap-y-1">
+    <div class="flex items-center justify-between pb-1.5 mb-1.5 border-b border-outline-variant/30">
       <div class="flex items-center space-x-2">
-        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-        <h3 class="font-label-caps text-label-caps text-primary tracking-[0.16em] max-md:tracking-[0.12em] uppercase font-bold m-0" id="century-goal-title">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        <h3 class="font-label-caps text-[10.5px] text-primary tracking-[0.16em] uppercase font-bold m-0" id="century-goal-title">
           THE FINAL QUEST // 100 INTERNATIONAL CENTURIES
         </h3>
       </div>
-      <span class="font-meta-sm text-meta-sm text-outline tracking-widest uppercase" id="century-goal-subtitle">
+      <span class="font-meta-sm text-[9px] text-outline tracking-widest uppercase hidden sm:inline" id="century-goal-subtitle">
         RACING AGAINST THE SETTING SUN
       </span>
     </div>
 
     <!-- Primary Metric Presentation -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 py-1">
+    <div class="flex items-center justify-between gap-3 py-0.5">
       <!-- Big Ratio Counter -->
-      <div class="flex items-baseline gap-2 sm:gap-3">
+      <div class="flex items-baseline gap-2">
         <div class="flex items-baseline">
-          <span class="font-data-display text-4xl sm:text-5xl text-primary font-bold tracking-tight tabular-nums leading-none" id="century-current">86</span>
-          <span class="font-data-display text-2xl sm:text-3xl text-outline-variant font-light mx-1 leading-none">/</span>
-          <span class="font-data-display text-3xl sm:text-4xl text-on-surface font-semibold tracking-tight tabular-nums leading-none" id="century-target">100</span>
+          <span class="font-data-display text-2xl sm:text-3xl text-primary font-bold tracking-tight tabular-nums leading-none" id="century-current">86</span>
+          <span class="font-data-display text-lg sm:text-xl text-outline-variant font-light mx-1 leading-none">/</span>
+          <span class="font-data-display text-xl sm:text-2xl text-on-surface font-semibold tracking-tight tabular-nums leading-none" id="century-target">100</span>
         </div>
         <div class="flex flex-col">
-          <span class="font-label-caps text-[9px] tracking-widest uppercase text-secondary">INTERNATIONAL</span>
-          <span class="font-label-caps text-[10px] tracking-widest uppercase text-primary font-bold">CENTURIES</span>
+          <span class="font-label-caps text-[8px] tracking-widest uppercase text-secondary">INTERNATIONAL</span>
+          <span class="font-label-caps text-[9px] tracking-widest uppercase text-primary font-bold">CENTURIES</span>
         </div>
       </div>
 
       <!-- Remaining Matches Pill & Details -->
-      <div class="sm:text-right flex flex-col sm:items-end">
-        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/60 px-3 py-1.5 shadow-[0_0_12px_rgba(205,168,81,0.2)] rounded-sm">
-          <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
-          <span class="font-label-caps text-label-caps text-primary tracking-wider uppercase font-bold text-[11px] sm:text-label-caps" id="century-matches-badge">
-            WITH <span class="bg-primary text-on-primary font-black px-1.5 py-0.5 rounded shadow-sm text-xs tracking-widest">~<span id="century-matches-count">30</span> APPROX.</span> MATCHES REMAINING
+      <div class="text-right flex flex-col items-end">
+        <div class="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/50 px-2 py-0.5 shadow-sm rounded-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+          <span class="font-label-caps text-primary tracking-wider uppercase font-bold text-[9.5px] sm:text-[10px]" id="century-matches-badge">
+            WITH <span class="bg-primary text-on-primary font-black px-1 py-0.2 rounded text-[10px]">~<span id="century-matches-count">30</span> APPROX.</span> MATCHES REMAINING
           </span>
         </div>
-        <span class="font-meta-sm text-meta-sm text-on-surface-variant/90 tracking-wider mt-1.5 text-[11px] block text-left sm:text-right" id="century-needed-caption">
-          <span id="century-needed-count" class="text-primary font-bold">14</span> centuries needed before the final curtain drops on his ODI career
+        <span class="font-meta-sm text-on-surface-variant/90 tracking-wider mt-0.5 text-[9.5px] block" id="century-needed-caption">
+          <span id="century-needed-count" class="text-primary font-bold">14</span> centuries needed before the final curtain drops
         </span>
       </div>
     </div>
 
     <!-- Progress Spectrum Bar -->
-    <div class="mt-3.5 w-full">
-      <div class="w-full bg-surface-container-high h-2 overflow-hidden relative">
+    <div class="mt-1.5 w-full">
+      <div class="w-full bg-surface-container-high h-1.5 overflow-hidden relative">
         <div class="bg-gradient-to-r from-primary-container via-primary to-primary-fixed h-full transition-all duration-700 shadow-[0_0_10px_rgba(205,168,81,0.3)]" id="century-progress-bar" style="width: 86%;"></div>
       </div>
-      <div class="flex justify-between items-center mt-1.5 font-meta-sm text-[10px] text-outline tracking-wider">
+      <div class="flex justify-between items-center mt-0.5 font-meta-sm text-[8.5px] text-outline tracking-wider">
         <span>DEBUT: 2008 (THE DAWN)</span>
-        <span class="text-primary font-semibold tracking-widest" id="century-progress-label">86% OF DESTINY WRITTEN</span>
+        <span class="text-primary font-semibold tracking-widest" id="century-progress-label">86% COMPLETED</span>
         <span>THE TWILIGHT (100 TONS)</span>
       </div>
     </div>
   </section>
 </div>
-<!-- Action Suite -->
-<div class="flex flex-col space-y-3 w-full">
-<!-- Primary Monumental CTA Button -->
-<a class="w-full bg-primary-container hover:bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.18em] py-4 px-6 max-md:px-3 flex items-center justify-between transition-colors duration-150 active:scale-[0.99]" href="../18_the_last_chapter_desktop_editorial/code.html">
-<span class="font-semibold tracking-[0.2em] max-md:tracking-[0.1em]">WITNESS THE LAST CHAPTER • ENTER ARCHIVE</span>
-<span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
-</a>
-<!-- Secondary Action Button -->
-<a class="w-full bg-surface-container-high hover:bg-surface-variant text-secondary-fixed font-label-caps text-label-caps uppercase tracking-[0.18em] py-3.5 px-6 flex items-center justify-center space-x-2 transition-colors duration-150" href="../18_the_innings_we_ll_never_forget_desktop/code.html">
-<span class="material-symbols-outlined text-base" aria-hidden="true">history_edu</span>
-<span>EXPLORE THE IMMORTAL INNINGS</span>
-</a>
 </div>
-<!-- Historical Citation / Footer Meta -->
-<div class="mt-6 pt-4 pb-4 flex flex-col items-center text-center space-y-3">
-<p class="font-label-caps text-label-caps text-outline uppercase tracking-[0.16em] max-w-sm">
+</div>
+
+<!-- Historical Citation & Scroll Prompt (Subtle Transition Zone Below Hero Fold) -->
+<div class="w-full py-8 px-4 flex flex-col items-center text-center space-y-3 border-t border-outline-variant/20 bg-surface-container-lowest">
+<p class="font-label-caps text-xs text-outline uppercase tracking-[0.16em] max-w-sm">
           AN ERA SLIPPING QUIETLY INTO MEMORY.<br/>
 <span class="text-primary/80">EVERY INNINGS NOW IS BORROWED TIME.</span>
 </p>
 <!-- Understated Scroll Prompt -->
-<a class="flex flex-col items-center space-y-1 opacity-70 hover:opacity-100 transition-opacity cursor-pointer group" href="../18_the_last_chapter_desktop_editorial/code.html">
-<span class="font-label-caps text-label-caps text-secondary-fixed-dim tracking-[0.25em] group-hover:text-primary transition-colors">SCROLL TO COMMENCE THE VIGIL</span>
+<a class="flex flex-col items-center space-y-1 opacity-75 hover:opacity-100 transition-opacity cursor-pointer group" href="../18_the_last_chapter_desktop_editorial/code.html">
+<span class="font-label-caps text-xs text-secondary-fixed-dim tracking-[0.25em] group-hover:text-primary transition-colors">SCROLL TO COMMENCE THE VIGIL</span>
 <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary animate-bounce text-sm" aria-hidden="true">keyboard_arrow_down</span>
 </a>
 </div>
+
 <!-- ARCHIVAL NOTICE & FAN TRIBUTE DISCLAIMER / TERMS -->
-<div class="mt-4 pt-4 pb-8 border-t border-outline-variant/30 text-center max-w-xl mx-auto flex flex-col items-center gap-2">
+<div class="py-8 px-4 border-t border-outline-variant/20 text-center max-w-xl mx-auto flex flex-col items-center gap-2 bg-surface-container-lowest" id="tribute-about">
 <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high border border-outline-variant/40 font-label-caps text-[9px] tracking-widest uppercase text-primary font-bold">
 <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
 <span>INDEPENDENT FAN TRIBUTE // NON-COMMERCIAL</span>
@@ -382,7 +401,6 @@
 <span>READ FULL ABOUT &amp; TERMS OF SERVICE</span>
 </button>
 </div>
-</section>
 </div>
 </div>
 <script>

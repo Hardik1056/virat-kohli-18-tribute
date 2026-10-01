@@ -739,9 +739,9 @@
   //   If null/'TBD', all countdowns and displays automatically show 'TBD'.
   // - worldCup2027StartTime: Start time string or null/'TBD' if unconfirmed.
   // - worldCup2027TournamentInfo: Central tournament details and metadata.
-  const worldCup2027FinalDate = '2027-11-21T17:00:00+05:30';
+  const worldCup2027FinalDate = '2027-11-21T00:00:00+05:30';
   const worldCup2027FinalNote = 'If India plays the final';
-  const worldCup2027StartDate = '2027-10-15T17:00:00+05:30';
+  const worldCup2027StartDate = '2027-10-15T00:00:00+05:30';
   const worldCup2027StartTime = '17:00 IST';
 
   const worldCup2027TournamentInfo = {
@@ -763,8 +763,8 @@
     title: '2027: HIS LAST WORLD CUP',
     subtitle: 'FOR INDIA',
     campaignTitle: 'THE FINAL ODI CHAPTER // FOR INDIA',
-    status: worldCup2027FinalDate ? 'CONFIRMED SCHEDULE' : 'TBD',
-    notes: 'Potential final date: 2027-11-21 (If India plays the final). Confirmed as his final World Cup for India. Excludes IPL and domestic franchise cricket.'
+    status: 'CONFIRMED SCHEDULE',
+    notes: 'Potential final date: 2027-11-21T00:00:00+05:30 (If India plays the final). Confirmed as his final World Cup for India. Excludes IPL and domestic franchise cricket.'
   };
 
   // =========================================================================
@@ -1011,11 +1011,12 @@
         worldCup2027TournamentInfo.startTime = val;
       },
       get targetDate() {
-        return VK18_DATA.worldCup2027FinalDate || VK18_DATA.worldCup2027StartDate;
+        return VK18_DATA.worldCup2027FinalDate || '2027-11-21T00:00:00+05:30';
       },
       set targetDate(val) {
         VK18_DATA.worldCup2027FinalDate = val;
         worldCup2027TournamentInfo.finalDate = val;
+        worldCup2027TournamentInfo.targetDate = val;
       },
       get year() {
         return worldCup2027TournamentInfo.year;
@@ -1096,10 +1097,10 @@
       sublabel: 'LIVE TIME-LOCK // FOR INDIA',
       note: worldCup2027FinalNote,
       get targetDate() {
-        return VK18_DATA.worldCup2027.targetDate;
+        return VK18_DATA.worldCup2027FinalDate || '2027-11-21T00:00:00+05:30';
       },
       set targetDate(val) {
-        VK18_DATA.worldCup2027.targetDate = val;
+        VK18_DATA.worldCup2027FinalDate = val;
       }
     },
 
@@ -1377,15 +1378,16 @@
    * Automatically formats values, handles null/TBD gracefully, and cleans up.
    */
   function startCountdown(options) {
-    const {
-      targetDate,
-      elements = {},
-      padZeros = true,
-      intervalMs = 1000,
-      onTick = null
-    } = options;
+    const defaultTarget = VK18_DATA.worldCup2027FinalDate || '2027-11-21T00:00:00+05:30';
+    const opts = options || {};
+    const targetDate = opts.targetDate !== undefined ? opts.targetDate : defaultTarget;
+    const elements = opts.elements || {};
+    const padZeros = opts.padZeros !== undefined ? opts.padZeros : true;
+    const intervalMs = opts.intervalMs || 1000;
+    const onTick = opts.onTick || null;
 
     function resolveEl(el) {
+      if (!el) return null;
       if (typeof el === 'string') return document.getElementById(el);
       return el;
     }
@@ -1440,6 +1442,20 @@
     return {
       stop: () => clearInterval(timerId)
     };
+  }
+
+  /**
+   * Specialized World Cup Countdown Helper
+   * Centralizes the World Cup Final target timestamp (2027-11-21T00:00:00+05:30).
+   */
+  function getWorldCupCountdown(elements, padZeros = true) {
+    const targetDate = VK18_DATA.worldCup2027FinalDate || '2027-11-21T00:00:00+05:30';
+    return startCountdown({
+      targetDate,
+      elements,
+      padZeros,
+      intervalMs: 1000
+    });
   }
 
   // Specialized Match Countdown Helper
@@ -1561,6 +1577,7 @@
       calculateCountdown,
       getDaysRemaining,
       startCountdown,
+      getWorldCupCountdown,
       getMatchCountdown,
       getMatchById,
       formatDate,

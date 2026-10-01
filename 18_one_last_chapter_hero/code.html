@@ -282,19 +282,19 @@
     <!-- Time Ticker Grid -->
     <div class="grid grid-cols-4 gap-1.5 text-center py-0.5">
       <div class="flex flex-col items-center bg-surface-container/60 py-1 px-1">
-        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-days">--</span>
+        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-days">415</span>
         <span class="font-label-caps text-[8.5px] text-secondary-fixed-dim mt-0.5">DAYS</span>
       </div>
       <div class="flex flex-col items-center bg-surface-container/60 py-1 px-1">
-        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-hours">--</span>
+        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-hours">09</span>
         <span class="font-label-caps text-[8.5px] text-secondary-fixed-dim mt-0.5">HOURS</span>
       </div>
       <div class="flex flex-col items-center bg-surface-container/60 py-1 px-1">
-        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-mins">--</span>
+        <span class="font-data-display text-lg sm:text-2xl text-on-surface tabular-nums font-bold leading-none" id="countdown-mins">53</span>
         <span class="font-label-caps text-[8.5px] text-secondary-fixed-dim mt-0.5">MINS</span>
       </div>
       <div class="flex flex-col items-center bg-surface-container/60 py-1 px-1">
-        <span class="font-data-display text-lg sm:text-2xl text-primary tabular-nums font-bold leading-none" id="countdown-secs">--</span>
+        <span class="font-data-display text-lg sm:text-2xl text-primary tabular-nums font-bold leading-none" id="countdown-secs">00</span>
         <span class="font-label-caps text-[8.5px] text-secondary-fixed-dim mt-0.5">SECS</span>
       </div>
     </div>
@@ -399,25 +399,37 @@
 </div>
 <script>
   (function () {
-    if (window.VK18Countdown && window.VK18Data) {
-      const target = (VK18Data.worldCup2027 && (VK18Data.worldCup2027.finalDate || VK18Data.worldCup2027.targetDate || VK18Data.worldCup2027.startDate))
-        || (VK18Data.heroCountdown && VK18Data.heroCountdown.targetDate);
+    function initHeroCountdown() {
+      if (window.VK18Countdown) {
+        const target = (window.VK18Data && window.VK18Data.worldCup2027 && (window.VK18Data.worldCup2027.finalDate || window.VK18Data.worldCup2027.targetDate))
+          || (window.VK18Data && window.VK18Data.heroCountdown && window.VK18Data.heroCountdown.targetDate)
+          || (window.VK18Data && window.VK18Data.worldCup2027FinalDate)
+          || '2027-11-21T00:00:00+05:30';
 
-      VK18Countdown.startCountdown({
-        targetDate: target,
-        elements: {
-          days: 'countdown-days',
-          hours: 'countdown-hours',
-          mins: 'countdown-mins',
-          secs: 'countdown-secs'
+        VK18Countdown.startCountdown({
+          targetDate: target,
+          elements: {
+            days: 'countdown-days',
+            hours: 'countdown-hours',
+            mins: 'countdown-mins',
+            secs: 'countdown-secs'
+          }
+        });
+
+        const noteEl = document.getElementById('hero-countdown-note');
+        const note = (window.VK18Data && window.VK18Data.heroCountdown && window.VK18Data.heroCountdown.note)
+          || (window.VK18Data && window.VK18Data.worldCup2027 && (window.VK18Data.worldCup2027.finalNote || window.VK18Data.worldCup2027.note))
+          || 'If India plays the final';
+        if (noteEl) {
+          noteEl.textContent = note;
         }
-      });
-
-      const noteEl = document.getElementById('hero-countdown-note');
-      const note = (VK18Data.heroCountdown && VK18Data.heroCountdown.note) || (VK18Data.worldCup2027 && (VK18Data.worldCup2027.finalNote || VK18Data.worldCup2027.note));
-      if (noteEl && note) {
-        noteEl.textContent = note;
       }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeroCountdown);
+    } else {
+      initHeroCountdown();
     }
 
     // Function to synchronize and render Century Goal UI from configurable centralized data

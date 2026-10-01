@@ -558,7 +558,7 @@
 </div>
 <div class="flex items-center gap-2 bg-primary-container/20 border border-primary-container/60 px-2.5 sm:px-3 py-1">
 <span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
-<span class="font-mono text-xs text-primary-container tracking-widest font-semibold" id="journey-wc-days">T-MINUS -- DAYS</span>
+<span class="font-mono text-xs text-primary-container tracking-widest font-semibold" id="journey-wc-days">T-MINUS 415 DAYS</span>
 </div>
 </div>
 <!-- MAIN CONTENT OF CLIMAX -->
@@ -649,19 +649,27 @@
 <!-- MINIMAL CAROUSEL INTERACTION SCRIPT -->
 <script>
     (function() {
-      // Dynamic Data Binding: World Cup 2027 Countdown Badge & Remaining ODIs
-      if (window.VK18Career) {
+      function syncJourneyData() {
+        if (!window.VK18Career && !window.VK18Data) return;
         const remOdisEl = document.getElementById('timeline-remaining-odis');
-        if (remOdisEl) {
+        if (remOdisEl && window.VK18Data) {
           remOdisEl.textContent = VK18Data.remainingIndiaODIs;
         }
 
         const wcDaysEl = document.getElementById('journey-wc-days');
-        if (wcDaysEl) {
-          const target = VK18Data.worldCup2027 && (VK18Data.worldCup2027.startDate || VK18Data.worldCup2027.targetDate);
+        if (wcDaysEl && window.VK18Countdown) {
+          const target = (window.VK18Data && window.VK18Data.worldCup2027 && (window.VK18Data.worldCup2027.finalDate || window.VK18Data.worldCup2027.targetDate))
+            || (window.VK18Data && window.VK18Data.worldCup2027FinalDate)
+            || '2027-11-21T00:00:00+05:30';
           const days = VK18Countdown.getDaysRemaining(target);
           wcDaysEl.textContent = (days === 'TBD' || !days) ? 'TBD' : `T-MINUS ${days} DAYS`;
         }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', syncJourneyData);
+      } else {
+        syncJourneyData();
       }
 
       const track = document.getElementById('timelineTrack');

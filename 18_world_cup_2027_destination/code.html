@@ -238,19 +238,19 @@
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-space-md">
 <div class="flex flex-col bg-surface-container/60 p-3 sm:p-space-md">
-<span class="font-data-display text-3xl sm:text-data-display text-primary leading-none" id="countdown-days">--</span>
+<span class="font-data-display text-3xl sm:text-data-display text-primary leading-none" id="countdown-days">415</span>
 <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest mt-space-xs">DAYS REMAINING</span>
 </div>
 <div class="flex flex-col bg-surface-container/60 p-3 sm:p-space-md">
-<span class="font-data-display text-3xl sm:text-data-display text-on-surface leading-none" id="countdown-hours">--</span>
+<span class="font-data-display text-3xl sm:text-data-display text-on-surface leading-none" id="countdown-hours">09</span>
 <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest mt-space-xs">HOURS</span>
 </div>
 <div class="flex flex-col bg-surface-container/60 p-3 sm:p-space-md">
-<span class="font-data-display text-3xl sm:text-data-display text-on-surface leading-none" id="countdown-minutes">--</span>
+<span class="font-data-display text-3xl sm:text-data-display text-on-surface leading-none" id="countdown-minutes">53</span>
 <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest mt-space-xs">MINUTES</span>
 </div>
 <div class="flex flex-col bg-surface-container/60 p-3 sm:p-space-md">
-<span class="font-data-display text-3xl sm:text-data-display text-primary-fixed-dim leading-none" id="countdown-seconds">--</span>
+<span class="font-data-display text-3xl sm:text-data-display text-primary-fixed-dim leading-none" id="countdown-seconds">00</span>
 <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest mt-space-xs">SECONDS</span>
 </div>
 </div>
@@ -588,13 +588,14 @@
 <!-- Interactive Inline Script for Dynamic Counter & Ledger Synchronization -->
 <script>
     (function initWorldCupLedger() {
-      if (window.VK18Career) {
-        const wcData = VK18Data.worldCup2027;
-        const target = wcData.finalDate || wcData.targetDate || wcData.startDate;
-        const isConfirmed = target && target !== 'TBD';
+      function syncCountdown() {
+        if (!window.VK18Countdown) return;
+        const target = (window.VK18Data && window.VK18Data.worldCup2027 && (window.VK18Data.worldCup2027.finalDate || window.VK18Data.worldCup2027.targetDate))
+          || (window.VK18Data && window.VK18Data.worldCup2027FinalDate)
+          || '2027-11-21T00:00:00+05:30';
 
         VK18Countdown.startCountdown({
-          targetDate: isConfirmed ? target : null,
+          targetDate: target,
           elements: {
             days: 'countdown-days',
             hours: 'countdown-hours',
@@ -606,23 +607,27 @@
 
         // Sync note if available in config
         const noteEl = document.getElementById('wc-countdown-note');
-        if (noteEl && (wcData.finalNote || wcData.note)) {
-          noteEl.textContent = wcData.finalNote || wcData.note;
+        if (noteEl) {
+          noteEl.textContent = (window.VK18Data && window.VK18Data.worldCup2027 && (window.VK18Data.worldCup2027.finalNote || window.VK18Data.worldCup2027.note)) || 'If India plays the final';
         }
 
         // Sync calendar status tag
         const syncEl = document.getElementById('wc-calendar-sync');
         if (syncEl) {
-          syncEl.textContent = isConfirmed
-            ? '• SYNCHRONIZED TO ICC CALENDAR'
-            : '• PENDING OFFICIAL ICC SCHEDULING (TBD)';
+          syncEl.textContent = '• SYNCHRONIZED TO ICC CALENDAR';
         }
 
         // Sync tournament calendar window slot
         const windowSlot = document.getElementById('wc-window-slot');
-        if (windowSlot && wcData.window) {
-          windowSlot.textContent = isConfirmed ? wcData.window.toUpperCase() : 'TBD';
+        if (windowSlot && window.VK18Data && window.VK18Data.worldCup2027 && window.VK18Data.worldCup2027.window) {
+          windowSlot.textContent = window.VK18Data.worldCup2027.window.toUpperCase();
         }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', syncCountdown);
+      } else {
+        syncCountdown();
       }
     })();
   </script>

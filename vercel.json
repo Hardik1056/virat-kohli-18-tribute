@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "cleanUrls": true,
+  "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
     { "source": "/", "destination": "/18_one_last_chapter_hero/code.html" },
@@ -14,7 +14,33 @@
     { "source": "/match-details", "destination": "/18_match_details_india_vs_australia/code.html" },
     { "source": "/be-there", "destination": "/18_be_there_for_it_desktop/code.html" },
     { "source": "/we-were-there", "destination": "/18_we_were_there_fan_memories_keepsake/code.html" },
-    { "source": "/keepsake", "destination": "/18_i_was_there_commemorative_keepsake_generator/code.html" }
+    { "source": "/keepsake", "destination": "/18_i_was_there_commemorative_keepsake_generator/code.html" },
+
+    { "source": "/18_one_last_chapter_hero/code", "destination": "/18_one_last_chapter_hero/code.html" },
+    { "source": "/18_the_last_chapter_desktop_editorial/code", "destination": "/18_the_last_chapter_desktop_editorial/code.html" },
+    { "source": "/18_the_journey_horizontal_documentary_timeline/code", "destination": "/18_the_journey_horizontal_documentary_timeline/code.html" },
+    { "source": "/18_the_innings_we_ll_never_forget_desktop/code", "destination": "/18_the_innings_we_ll_never_forget_desktop/code.html" },
+    { "source": "/18_the_last_ones_remaining_odis/code", "destination": "/18_the_last_ones_remaining_odis/code.html" },
+    { "source": "/18_world_cup_2027_destination/code", "destination": "/18_world_cup_2027_destination/code.html" },
+    { "source": "/18_career_stats_international/code", "destination": "/18_career_stats_international/code.html" },
+    { "source": "/18_82_vs_pakistan_melbourne_2022/code", "destination": "/18_82_vs_pakistan_melbourne_2022/code.html" },
+    { "source": "/18_match_details_india_vs_australia/code", "destination": "/18_match_details_india_vs_australia/code.html" },
+    { "source": "/18_be_there_for_it_desktop/code", "destination": "/18_be_there_for_it_desktop/code.html" },
+    { "source": "/18_we_were_there_fan_memories_keepsake/code", "destination": "/18_we_were_there_fan_memories_keepsake/code.html" },
+    { "source": "/18_i_was_there_commemorative_keepsake_generator/code", "destination": "/18_i_was_there_commemorative_keepsake_generator/code.html" },
+
+    { "source": "/18_one_last_chapter_hero", "destination": "/18_one_last_chapter_hero/code.html" },
+    { "source": "/18_the_last_chapter_desktop_editorial", "destination": "/18_the_last_chapter_desktop_editorial/code.html" },
+    { "source": "/18_the_journey_horizontal_documentary_timeline", "destination": "/18_the_journey_horizontal_documentary_timeline/code.html" },
+    { "source": "/18_the_innings_we_ll_never_forget_desktop", "destination": "/18_the_innings_we_ll_never_forget_desktop/code.html" },
+    { "source": "/18_the_last_ones_remaining_odis", "destination": "/18_the_last_ones_remaining_odis/code.html" },
+    { "source": "/18_world_cup_2027_destination", "destination": "/18_world_cup_2027_destination/code.html" },
+    { "source": "/18_career_stats_international", "destination": "/18_career_stats_international/code.html" },
+    { "source": "/18_82_vs_pakistan_melbourne_2022", "destination": "/18_82_vs_pakistan_melbourne_2022/code.html" },
+    { "source": "/18_match_details_india_vs_australia", "destination": "/18_match_details_india_vs_australia/code.html" },
+    { "source": "/18_be_there_for_it_desktop", "destination": "/18_be_there_for_it_desktop/code.html" },
+    { "source": "/18_we_were_there_fan_memories_keepsake", "destination": "/18_we_were_there_fan_memories_keepsake/code.html" },
+    { "source": "/18_i_was_there_commemorative_keepsake_generator", "destination": "/18_i_was_there_commemorative_keepsake_generator/code.html" }
   ],
   "headers": [
     {

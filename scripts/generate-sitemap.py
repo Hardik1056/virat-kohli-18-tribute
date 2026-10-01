@@ -7,7 +7,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-BASE_URL = "https://18-one-last-chapter.fan"
+BASE_URL = "https://www.thelastdance18.online"
 
 URL_ENTRIES = [
     {

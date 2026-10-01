@@ -14,7 +14,7 @@ import re
 import json
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-BASE_URL = "https://18-one-last-chapter.fan"
+BASE_URL = "https://www.thelastdance18.online"
 
 PAGE_METADATA = {
     "18_one_last_chapter_hero/code.html": {
@@ -22,8 +22,8 @@ PAGE_METADATA = {
         "name": "One Last Chapter — Hero",
         "path": "18_one_last_chapter_hero/code.html",
         "clean_path": "",
-        "og_image": "assets/images/world-cup-2023-portrait-bat-on-shoulder-alex-davidson.webp",
-        "og_image_alt": "Virat Kohli in India cricket uniform, bat on shoulder",
+        "og_image": "assets/images/og-share-card.jpg",
+        "og_image_alt": "18 | ONE LAST CHAPTER — Virat Kohli Farewell Monograph Social Share Card",
         "keywords": "Virat Kohli, cricket, India, One Last Chapter, 100 centuries, ODI centuries, 2027 World Cup, Indian cricket legend, VK18",
         "schema_type": "WebSite",
     },
@@ -52,7 +52,7 @@ PAGE_METADATA = {
         "name": "The Journey",
         "path": "18_the_journey_horizontal_documentary_timeline/code.html",
         "clean_path": "journey",
-        "og_image": "assets/images/delhi-airport-2008-u19-world-cup-trophy-arrival-timescontent.webp",
+        "og_image": "assets/images/delhi-airport-2008-u19-world-cup-trophy-arrival-timescontent.jpg",
         "og_image_alt": "Young Virat Kohli with the 2008 U-19 Cricket World Cup Trophy",
         "keywords": "Virat Kohli timeline, career journey, 2008 U19 World Cup, 2011 World Cup, captaincy era, 2024 T20 World Cup champion",
         "schema_type": "CollectionPage",
@@ -62,7 +62,7 @@ PAGE_METADATA = {
         "name": "Iconic Innings",
         "path": "18_the_innings_we_ll_never_forget_desktop/code.html",
         "clean_path": "innings",
-        "og_image": "assets/images/mcg-2022-kohli-prayer-finger-to-sky-martin-keep.webp",
+        "og_image": "assets/images/mcg-2022-kohli-prayer-finger-to-sky-martin-keep.jpg",
         "og_image_alt": "Virat Kohli pointing finger to the sky after 82* at Melbourne Cricket Ground",
         "keywords": "Virat Kohli best innings, 82 vs Pakistan MCG, 183 vs Pakistan Dhaka, 149 Edgbaston, 82 vs Australia Mohali, 50th century Wankhede, 133 Hobart",
         "schema_type": "CollectionPage",
@@ -92,7 +92,7 @@ PAGE_METADATA = {
         "name": "82* Melbourne Miracle",
         "path": "18_82_vs_pakistan_melbourne_2022/code.html",
         "clean_path": "82-melbourne",
-        "og_image": "assets/images/mcg-2022-kohli-flick-six-shot-william-west.webp",
+        "og_image": "assets/images/mcg-2022-kohli-flick-six-shot-william-west.jpg",
         "og_image_alt": "Virat Kohli hitting Haris Rauf for legendary straight six at MCG 2022",
         "keywords": "Virat Kohli 82 not out, India vs Pakistan MCG 2022, Haris Rauf six, T20 World Cup chase, Melbourne miracle",
         "schema_type": "SportsEvent",
@@ -247,21 +247,28 @@ def update_page_seo(rel_path, meta):
 
     # 2. Add / Update Open Graph & Twitter Image Tags
     img_url = f"{BASE_URL}/{meta['og_image']}"
+    mime_type = "image/png" if meta['og_image'].endswith('.png') else "image/jpeg"
     og_block = f"""  <!-- Enhanced SEO & Social Metadata -->
   <meta name="keywords" content="{meta['keywords']}"/>
   <meta name="author" content="18 | ONE LAST CHAPTER Curatorial Archive"/>
   <meta property="og:image" content="{img_url}"/>
+  <meta property="og:image:secure_url" content="{img_url}"/>
+  <meta property="og:image:type" content="{mime_type}"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta property="og:image:alt" content="{meta['og_image_alt']}"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:image" content="{img_url}"/>
   <meta name="twitter:image:alt" content="{meta['og_image_alt']}"/>"""
 
     # Remove existing og:image if present to prevent duplication
     content = re.sub(r'<meta property="og:image"[^>]*>\n?', '', content)
+    content = re.sub(r'<meta property="og:image:secure_url"[^>]*>\n?', '', content)
+    content = re.sub(r'<meta property="og:image:type"[^>]*>\n?', '', content)
     content = re.sub(r'<meta property="og:image:width"[^>]*>\n?', '', content)
     content = re.sub(r'<meta property="og:image:height"[^>]*>\n?', '', content)
     content = re.sub(r'<meta property="og:image:alt"[^>]*>\n?', '', content)
+    content = re.sub(r'<meta name="twitter:card"[^>]*>\n?', '', content)
     content = re.sub(r'<meta name="twitter:image"[^>]*>\n?', '', content)
     content = re.sub(r'<meta name="twitter:image:alt"[^>]*>\n?', '', content)
     content = re.sub(r'<meta name="keywords"[^>]*>\n?', '', content)

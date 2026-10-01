@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://18-one-last-chapter.fan/sitemap.xml
+Sitemap: https://www.thelastdance18.online/sitemap.xml

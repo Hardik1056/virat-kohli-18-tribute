@@ -177,9 +177,9 @@
     </div>
   </noscript>
 </div>
-<main class="flex flex-col relative w-full bg-surface min-h-screen max-md:min-h-[100svh]"><div class="flex flex-col w-full relative overflow-hidden bg-surface-container-lowest text-on-surface">
+<main class="flex flex-col relative w-full bg-surface min-h-screen"><div class="flex flex-col w-full relative overflow-x-hidden bg-surface-container-lowest text-on-surface">
 <!-- Documentary Full-Bleed Atmosphere Backdrop -->
-<div class="relative w-full overflow-hidden flex flex-col justify-between min-h-screen max-md:min-h-[100svh]">
+<div class="relative w-full overflow-x-hidden flex flex-col justify-between min-h-screen">
 <!-- Background Image Scrim Stack -->
 <div class="absolute inset-0 z-0">
 <img decoding="async" alt="Virat Kohli in documentary silhouette under stadium floodlights" class="w-full h-full filter grayscale contrast-125 brightness-95 scale-100 sm:scale-105 transition-all duration-700 pointer-events-none" style="object-fit: cover; object-position: 50% 0%;" data-vk-image="hero.mainBackdrop" src="../assets/images/world-cup-2023-portrait-bat-on-shoulder-alex-davidson.webp"/>
@@ -193,11 +193,11 @@
 </div>
 
 <!-- Editorial Header / Archival Registration Stamp -->
-<header class="relative z-10 w-full px-4 sm:px-6 pt-16 sm:pt-18 pb-2 flex items-center justify-between max-md:flex-wrap max-md:gap-y-1.5">
+<header class="relative z-10 w-full px-4 sm:px-6 pt-16 sm:pt-18 pb-2 flex items-center justify-between">
 <a class="flex items-center space-x-2 hover:opacity-80 transition-opacity" href="../18_the_last_chapter_desktop_editorial/code.html">
 <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-<p class="font-label-caps text-label-caps text-on-surface-variant tracking-[0.22em] max-md:tracking-[0.14em] uppercase text-xs">
-          ARCHIVAL RETROSPECTIVE <span class="text-primary-container mx-1">•</span> THE TWILIGHT ERA // ACT V
+<p class="font-label-caps text-on-surface-variant tracking-[0.16em] uppercase text-[11px] sm:text-xs">
+          ARCHIVAL RETROSPECTIVE <span class="hidden sm:inline text-primary-container mx-1">•</span> <span class="hidden sm:inline">THE TWILIGHT ERA // ACT V</span>
         </p>
 </a>
 <div class="flex items-center gap-3">
@@ -206,14 +206,14 @@
 <span class="block font-meta-sm text-[10px] text-secondary-fixed-dim tracking-wider">WANKHEDE • ADELAIDE • EDGBASTON</span>
 </div>
 <a class="flex items-center space-x-1.5 bg-surface-container-low hover:bg-surface-container px-2 py-0.5 border border-outline-variant/30 transition-colors" href="../18_the_journey_horizontal_documentary_timeline/code.html">
-<span class="font-meta-sm text-meta-sm text-tertiary tracking-widest font-mono text-xs">SER. #4518</span>
+<span class="font-meta-sm text-tertiary tracking-widest font-mono text-[10px] sm:text-xs">SER. #4518</span>
 </a>
 </div>
 </header>
 
 <!-- Monumental Editorial Zone (Right-Anchored on Desktop to Utilize the Open Visual Field) -->
-<section class="relative z-10 w-full px-4 sm:px-6 flex flex-col justify-center my-auto pt-2 pb-3">
-<div class="w-full max-w-xl flex flex-col lg:ml-auto lg:mr-4 xl:mr-10">
+<section class="relative z-10 w-full px-4 sm:px-6 flex flex-col justify-center my-auto pt-2 pb-6 min-h-[calc(100svh-5rem)] lg:min-h-0">
+<div class="w-full max-w-xl flex flex-col lg:ml-auto lg:mr-4 xl:mr-10 my-auto lg:my-0">
 <!-- Top Chronology Stamp -->
 <div class="flex items-center space-x-3 mb-1.5">
 <span class="h-px w-6 bg-outline-variant"></span>
@@ -231,9 +231,6 @@
 <h2 class="font-headline-xl-mobile text-headline-xl-mobile tracking-wide text-on-surface uppercase text-xl sm:text-2xl lg:text-3xl font-extrabold leading-tight">
               ONE LAST CHAPTER
             </h2>
-<span class="sm:hidden font-meta-sm text-[9px] text-secondary-fixed-dim tracking-widest uppercase mt-0.5">
-              WANKHEDE • ADELAIDE • EDGBASTON
-            </span>
 </div>
 </div>
 </div>
@@ -249,21 +246,29 @@
 </blockquote>
 
 <!-- Action Suite (Integrated in Editorial Column) -->
-<div class="flex flex-wrap items-center gap-2.5 w-full">
-<a class="bg-primary-container hover:bg-primary text-on-primary font-label-caps text-xs uppercase tracking-[0.16em] py-2.5 px-4 inline-flex items-center gap-2.5 transition-all duration-150 active:scale-[0.99] font-bold shadow-[0_4px_14px_rgba(205,168,81,0.25)]" href="../18_the_last_chapter_desktop_editorial/code.html">
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full">
+<a class="bg-primary-container hover:bg-primary text-on-primary font-label-caps text-xs uppercase tracking-[0.16em] py-3 px-4 flex items-center justify-center gap-2.5 transition-all duration-150 active:scale-[0.99] font-bold shadow-[0_4px_14px_rgba(205,168,81,0.25)] text-center" href="../18_the_last_chapter_desktop_editorial/code.html">
 <span>WITNESS THE LAST CHAPTER</span>
 <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
 </a>
-<a class="bg-surface-container-high/90 hover:bg-surface-variant text-secondary-fixed font-label-caps text-xs uppercase tracking-[0.16em] py-2.5 px-3.5 inline-flex items-center gap-1.5 border border-outline-variant/40 hover:border-primary/50 transition-colors duration-150" href="../18_the_innings_we_ll_never_forget_desktop/code.html">
+<a class="bg-surface-container-high/90 hover:bg-surface-variant text-secondary-fixed font-label-caps text-xs uppercase tracking-[0.16em] py-3 px-3.5 flex items-center justify-center gap-1.5 border border-outline-variant/40 hover:border-primary/50 transition-colors duration-150 text-center" href="../18_the_innings_we_ll_never_forget_desktop/code.html">
 <span class="material-symbols-outlined text-sm" aria-hidden="true">history_edu</span>
 <span>EXPLORE INNINGS</span>
+</a>
+</div>
+
+<!-- Mobile Scroll Indicator (Clean prompt down to Telemetry Cards) -->
+<div class="lg:hidden flex justify-center pt-5 pb-1">
+<a href="#telemetry-dock" class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container/90 backdrop-blur-md border border-primary/40 rounded-full text-primary hover:text-primary-fixed font-label-caps text-[9.5px] tracking-[0.16em] uppercase transition-colors shadow-lg">
+<span>SCROLL FOR 2027 COUNTDOWN &amp; QUEST</span>
+<span class="material-symbols-outlined text-xs animate-bounce" aria-hidden="true">keyboard_arrow_down</span>
 </a>
 </div>
 </div>
 </section>
 
-<!-- Bottom Telemetry HUD Dock (Docked at Base over Jersey, Below Kohli's Face) -->
-<div class="relative z-10 w-full px-4 sm:px-6 mt-auto pb-3">
+<!-- Bottom Telemetry HUD Dock (Docked at Base on Desktop, Scroll-Down Stage on Mobile) -->
+<div class="relative z-10 w-full px-4 sm:px-6 pt-4 lg:pt-0 lg:mt-auto pb-6 lg:pb-3" id="telemetry-dock">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 max-w-7xl mx-auto w-full items-stretch">
   <!-- Minimalist Countdown Module -->
   <div class="w-full bg-[#0a0a0a]/92 backdrop-blur-md p-3 relative shadow-2xl border border-outline-variant/40 flex flex-col justify-between">

@@ -47,9 +47,9 @@
       description: 'Documentary Hero Landmark'
     },
     {
-      id: 'last-chapter',
+      id: 'the-chapter',
       number: '02',
-      label: 'THE LAST CHAPTER',
+      label: 'THE CHAPTER',
       folder: '18_the_last_chapter_desktop_editorial',
       url: '../18_the_last_chapter_desktop_editorial/code.html',
       description: 'The Final Horizon Editorial'
@@ -65,7 +65,7 @@
     {
       id: 'innings',
       number: '04',
-      label: 'THE INNINGS',
+      label: 'INNINGS',
       folder: '18_the_innings_we_ll_never_forget_desktop',
       url: '../18_the_innings_we_ll_never_forget_desktop/code.html',
       description: 'Retrospective & 86 Centuries'
@@ -93,6 +93,15 @@
       folder: '18_career_stats_international',
       url: '../18_career_stats_international/code.html',
       description: 'International Career Records: Tests, ODIs & T20Is'
+    },
+    {
+      id: 'about',
+      number: '08',
+      label: 'ABOUT',
+      folder: 'about',
+      url: '../18_one_last_chapter_hero/code.html#tribute-about',
+      description: 'Archival Homage & Disclaimers',
+      isAbout: true
     }
   ];
 
@@ -114,52 +123,18 @@
       folder: '18_match_details_india_vs_australia',
       url: '../18_match_details_india_vs_australia/code.html',
       description: 'India vs Australia Wankhede Dossier'
-    },
-    {
-      id: 'keepsake-generator',
-      ref: 'REF. FOLIO-18',
-      badge: 'KEEPSAKE',
-      label: 'I WAS THERE',
-      folder: '18_i_was_there_commemorative_keepsake_generator',
-      url: '../18_i_was_there_commemorative_keepsake_generator/code.html',
-      description: 'Personalized Commemorative Keepsake'
-    },
-    {
-      id: 'be-there',
-      ref: 'REF. DISPATCH-07',
-      badge: 'BE THERE',
-      label: 'BE THERE',
-      folder: '18_be_there_for_it_desktop',
-      url: '../18_be_there_for_it_desktop/code.html',
-      description: 'Fan Expedition & Access Registration'
-    },
-    {
-      id: 'we-were-there',
-      ref: 'REF. ARCHIVE-08',
-      badge: 'FAN ARCHIVE',
-      label: 'WE WERE THERE',
-      folder: '18_we_were_there_fan_memories_keepsake',
-      url: '../18_we_were_there_fan_memories_keepsake/code.html',
-      description: 'Fan Memory Keepsake Archive'
     }
   ];
 
   // Pages with full-bleed hero artwork flowing behind translucent navbar.
-  // Only these have a <main> that starts at y=0 with no top padding.
   const FULL_BLEED_PAGES = [
-    '18_one_last_chapter_hero',
-    '18_be_there_for_it_desktop'
+    '18_one_last_chapter_hero'
   ];
 
   // Pages that already have pt-16 (64px) top padding on their main element.
-  // `18_82_vs_pakistan_melbourne_2022` was listed as FULL_BLEED but its <main>
-  // carries pt-16, so nothing bleeds behind the nav. It was suppressing the
-  // spacer from the wrong list; moved here where it belongs (net render is
-  // unchanged, both lists suppress the spacer — this corrects the semantics).
   const PADDED_MAIN_PAGES = [
     '18_match_details_india_vs_australia',
     '18_world_cup_2027_destination',
-    '18_i_was_there_commemorative_keepsake_generator',
     '18_82_vs_pakistan_melbourne_2022'
   ];
 
@@ -178,12 +153,13 @@
         }
       }
     }
-    const href = window.location.href || '';
-    const match = href.match(/18_[a-z0-9_]+/i);
     return match ? match[0] : '18_one_last_chapter_hero';
   }
 
   function isSectionActive(item, currentFolder) {
+    if (item.isAbout) {
+      return typeof window !== 'undefined' && window.location.hash === '#tribute-about';
+    }
     return item.folder === currentFolder;
   }
 
@@ -202,8 +178,11 @@
         ? 'text-primary font-bold border-b-2 border-primary bg-primary/10'
         : 'text-on-surface-variant/80 hover:text-primary hover:bg-surface-container-low/60 border-b-2 border-transparent';
 
+      const dataAttr = sec.isAbout ? 'data-vk-about-trigger="true"' : '';
+
       return `
         <a href="${sec.url}" 
+           ${dataAttr}
            class="vk-nav-link px-2 lg:px-2.5 py-1.5 flex items-center gap-1 font-label-caps text-[10.5px] 2xl:text-[11.5px] tracking-[0.14em] uppercase transition-all duration-150 shrink-0 ${activeClasses}"
            ${active ? 'aria-current="page"' : ''}
            title="${sec.number} — ${sec.label}: ${sec.description}">
@@ -267,8 +246,10 @@
   function renderMobileDrawer(currentFolder) {
     const primaryItems = PRIMARY_SECTIONS.map(sec => {
       const active = isSectionActive(sec, currentFolder);
+      const dataAttr = sec.isAbout ? 'data-vk-about-trigger="true"' : '';
       return `
         <a href="${sec.url}" 
+           ${dataAttr}
            class="flex items-center justify-between px-4 py-3 border-b border-[#1c1c1c] transition-colors ${active ? 'bg-primary/10 text-primary border-l-4 border-l-primary font-bold' : 'hover:bg-surface-container-low text-on-surface'}">
           <div class="flex items-center gap-3">
             <span class="font-mono text-xs ${active ? 'text-primary' : 'text-primary/60'}">${sec.number}</span>
@@ -301,26 +282,18 @@
            class="hidden fixed top-14 left-0 right-0 bottom-0 bg-[#0c0c0c]/98 backdrop-blur-xl border-b border-[#262626] overflow-y-auto z-40 select-none pb-12">
         <div class="w-full max-w-lg mx-auto flex flex-col pt-2">
           <div class="px-4 py-2 font-mono text-[10px] text-primary tracking-widest uppercase bg-surface-container-lowest/80 border-y border-[#1f1f1f]">
-            PRIMARY SECTIONS // 01 — 06
+            PRIMARY SECTIONS // 01 — 08
           </div>
           <nav aria-label="Mobile Primary Navigation" class="flex flex-col">
             ${primaryItems}
           </nav>
-          
-
 
           <div class="px-4 py-2 font-mono text-[10px] text-primary tracking-widest uppercase bg-surface-container-lowest/80 border-y border-[#1f1f1f] mt-4">
-            ARCHIVE INFORMATION
+            ARCHIVAL DOSSIERS
           </div>
-          <button id="vk-mobile-about-btn" 
-                  type="button"
-                  class="flex items-center justify-between px-4 py-3 border-b border-[#1c1c1c] text-left hover:bg-surface-container-low text-on-surface w-full transition-colors cursor-pointer">
-            <div class="flex items-center gap-2.5">
-              <span class="material-symbols-outlined text-sm text-primary" aria-hidden="true">info</span>
-              <span class="font-label-caps text-xs sm:text-sm tracking-widest uppercase text-primary font-bold">ABOUT / TERMS &amp; DISCLAIMER</span>
-            </div>
-            <span class="material-symbols-outlined text-sm text-outline/40" aria-hidden="true">arrow_forward</span>
-          </button>
+          <nav aria-label="Mobile Dossiers Navigation" class="flex flex-col">
+            ${detailItems}
+          </nav>
 
           <div class="p-6 text-center">
             <p class="font-meta-sm text-[10px] text-outline uppercase tracking-widest">
@@ -470,24 +443,23 @@
             </a>
           </div>
 
-          <!-- DESKTOP PRIMARY SECTIONS (01 - 06) -->
+          <!-- DESKTOP PRIMARY SECTIONS (01 - 08) -->
           <nav aria-label="Master Site Sections" class="hidden xl:flex items-center h-full overflow-x-auto no-scrollbar gap-0.5">
             ${renderDesktopNav(currentFolder)}
           </nav>
 
-          <!-- RIGHT ACTIONS: ABOUT, DOSSIERS & MOBILE TOGGLE -->
+          <!-- RIGHT ACTIONS: DOSSIERS QUICK LINKS & MOBILE TOGGLE -->
           <div class="flex items-center gap-2 shrink-0">
-            <!-- ABOUT / DISCLAIMER BUTTON (DESKTOP) -->
-            <button id="vk-about-btn" 
-                    type="button" 
-                    aria-label="About fan tribute and legal disclaimer"
-                    title="About this fan tribute, legal disclaimer & terms of service"
-                    class="hidden md:flex items-center gap-1.5 px-2.5 lg:px-3 py-1.5 bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 hover:border-primary/60 text-on-surface-variant hover:text-primary font-label-caps text-[11px] tracking-widest uppercase transition-all duration-150 cursor-pointer">
-              <span class="material-symbols-outlined text-[15px] text-primary" aria-hidden="true">info</span>
-              <span>ABOUT</span>
-            </button>
-
-            <!-- DOSSIERS DROPDOWN (HIDDEN PER USER REQUEST) -->
+            <a href="../18_82_vs_pakistan_melbourne_2022/code.html" 
+               class="hidden md:inline-flex items-center gap-1 px-2.5 py-1 border border-outline-variant/40 hover:border-primary/60 text-on-surface-variant hover:text-primary font-label-caps text-[10px] tracking-widest uppercase transition-colors ${currentFolder === '18_82_vs_pakistan_melbourne_2022' ? 'border-primary text-primary bg-primary/10' : ''}"
+               title="82* vs Pakistan — Melbourne 2022">
+              <span>82* MCG</span>
+            </a>
+            <a href="../18_match_details_india_vs_australia/code.html" 
+               class="hidden md:inline-flex items-center gap-1 px-2.5 py-1 border border-outline-variant/40 hover:border-primary/60 text-on-surface-variant hover:text-primary font-label-caps text-[10px] tracking-widest uppercase transition-colors ${currentFolder === '18_match_details_india_vs_australia' ? 'border-primary text-primary bg-primary/10' : ''}"
+               title="Match Details & Fixtures Dossier">
+              <span>FIXTURES</span>
+            </a>
 
             <!-- MOBILE TOGGLE BUTTON -->
             <button id="vk-mobile-toggle" 
@@ -631,6 +603,13 @@
     if (aboutBtn) {
       aboutBtn.addEventListener('click', openAboutModal);
     }
+
+    document.querySelectorAll('[data-vk-about-trigger="true"]').forEach(el => {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        openAboutModal();
+      });
+    });
 
     const mobileAboutBtn = document.getElementById('vk-mobile-about-btn');
     if (mobileAboutBtn) {

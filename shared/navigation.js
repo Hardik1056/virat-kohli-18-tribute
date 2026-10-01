@@ -387,7 +387,7 @@
                 05 // DATA ESTIMATES &amp; SCHEDULE DISCLOSURE
               </div>
               <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
-                Match countdowns, the goal for 100 international centuries (86/100), and the estimated ~30 remaining India ODIs are archival calculations compiled from public fixtures and projected 2027 World Cup schedules for fan appreciation. Official tournament scheduling and match selections remain at the sole authority of the ICC and BCCI.
+                Match countdowns, the goal for 100 international centuries (86/100), and the estimated ≈30 remaining India ODIs (Bilateral fixtures + 2027 World Cup) are archival calculations compiled from public fixtures and projected 2027 World Cup schedules for fan appreciation. Official tournament scheduling and match selections remain at the sole authority of the ICC and BCCI.
               </p>
             </div>
           </div>

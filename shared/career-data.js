@@ -773,12 +773,12 @@
   // Single source of truth for the broader remaining India ODI journey:
   // - Bilateral ODIs before the 2027 World Cup (currently announced schedule)
   // - PLUS India's potential 2027 World Cup ODIs
-  // - Around ~30 approximate fixtures (not claiming an exact final number is known)
+  // - Around ≈30 approximate fixtures (not claiming an exact final number is known)
   // Configurable so it can be updated as bilateral schedules and World Cup fixtures crystallize.
   const estimatedRemainingIndiaODIsConfig = {
     approximateTotal: 30,
-    displayCount: '~30',
-    label: 'Estimated remaining India ODIs',
+    displayCount: '≈30',
+    label: '≈30 ESTIMATED REMAINING INDIA ODIs',
     subtext: 'Bilateral fixtures + 2027 World Cup',
     notes: 'Estimated total combining currently announced bilateral fixtures and potential 2027 World Cup matches. Exact fixture count is not yet final.'
   };
@@ -793,8 +793,8 @@
     isApproximate: true,
     title: 'THE FINAL QUEST // 100 INTERNATIONAL CENTURIES',
     subtitle: 'RACING AGAINST THE SETTING SUN',
-    subtext: 'Bilateral fixtures + 2027 World Cup (~30 Approx. Matches)',
-    notes: 'Historical pursuit of 100 international centuries across estimated ~30 remaining India ODIs.'
+    subtext: 'Bilateral fixtures + 2027 World Cup (≈30 Approx. Matches)',
+    notes: 'Historical pursuit of 100 international centuries across estimated ≈30 remaining India ODIs.'
   };
 
   function notifyCenturyGoalUpdate() {
@@ -834,7 +834,7 @@
       },
       get display() {
         if (this._display !== undefined) return this._display;
-        return `~${this.count}`;
+        return `≈${this.count}`;
       },
       set display(val) {
         this._display = val;
@@ -883,7 +883,7 @@
         return (VK18_DATA.estimatedRemainingIndiaODIs && VK18_DATA.estimatedRemainingIndiaODIs.count) || centuryGoalConfig.matchesRemaining;
       },
       get matchesRemainingDisplay() {
-        return `~${this.matchesRemaining} APPROX.`;
+        return `≈${this.matchesRemaining} APPROX.`;
       },
       get isApproximate() {
         return true;
@@ -931,16 +931,20 @@
     },
     setCenturyGoal: setCenturyGoal,
 
-    // Dynamic Derivation of Remaining India ODIs
-    // Directly derived from upcoming fixtures in indiaODISchedule rather than maintained separately.
+    // Centralized Estimated Remaining India ODIs (Broader Journey: Bilateral + 2027 World Cup)
     get remainingIndiaODIs() {
       if (this._remainingIndiaODIsOverride !== undefined && this._remainingIndiaODIsOverride !== null) {
         return this._remainingIndiaODIsOverride;
       }
-      return deriveRemainingIndiaODIs(this.indiaODISchedule);
+      return (this.estimatedRemainingIndiaODIs && this.estimatedRemainingIndiaODIs.count) || 30;
     },
     set remainingIndiaODIs(val) {
       this._remainingIndiaODIsOverride = val;
+    },
+
+    // Announced Bilateral ODIs: directly derived from upcoming fixtures in indiaODISchedule
+    get announcedBilateralODIs() {
+      return deriveRemainingIndiaODIs(this.indiaODISchedule);
     },
 
     // Dynamic Upcoming Matches: playable fixtures ahead of the current date,
@@ -1073,7 +1077,7 @@
     },
 
     // Remaining ODI Ledger (India ODIs Only - Excludes IPL)
-    // Synchronized dynamically with derived VK18_DATA.remainingIndiaODIs
+    // Synchronized dynamically with centralized estimated remaining India ODIs
     remainingOdis: {
       get count() {
         return VK18_DATA.remainingIndiaODIs;
@@ -1085,7 +1089,8 @@
         return VK18_DATA.remainingIndiaODIs;
       },
       status: 'ACTIVE CADENCE',
-      label: 'Remaining ODIs for India',
+      label: '≈30 ESTIMATED REMAINING INDIA ODIs',
+      subtext: 'Bilateral fixtures + 2027 World Cup',
       scope: 'India International ODIs Only (Excludes IPL)'
     },
 
@@ -1504,6 +1509,9 @@
     },
     set remainingIndiaODIs(val) {
       VK18_DATA.remainingIndiaODIs = val;
+    },
+    get announcedBilateralODIs() {
+      return VK18_DATA.announcedBilateralODIs;
     },
     get upcomingMatches() {
       return VK18_DATA.upcomingMatches;

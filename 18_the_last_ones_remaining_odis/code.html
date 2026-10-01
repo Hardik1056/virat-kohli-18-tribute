@@ -208,7 +208,7 @@
 <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
 </span>
 <span class="font-meta-sm text-meta-sm font-semibold tracking-wider text-primary" id="remaining-count-badge">
-            REMAINING APPEARANCES: ~30 ODIs FOR INDIA (EST.)
+            REMAINING APPEARANCES: ≈30 ESTIMATED REMAINING INDIA ODIs (Bilateral fixtures + 2027 World Cup)
           </span>
 </div>
 </div>
@@ -572,7 +572,7 @@
     <p class="font-meta-sm text-meta-sm text-on-surface-variant/80 tracking-wide">
       <strong class="text-on-surface-variant">ESTIMATED JOURNEY:</strong>
       The combined bilateral confirmed fixtures plus potential World Cup appearances add up to an estimated
-      <strong class="text-primary">~30 India ODIs</strong> in this final chapter — not a fixed confirmed number.
+      <strong class="text-primary">≈30 ESTIMATED REMAINING INDIA ODIs</strong> (Bilateral fixtures + 2027 World Cup) in this final chapter — not a fixed confirmed number.
       As the ICC and BCCI announce additional series, this ledger will expand accordingly.
     </p>
   </div>
@@ -604,8 +604,7 @@
 
       const badge = document.getElementById('remaining-count-badge');
       if (badge) {
-        const estTotal = (VK18Data.estimatedRemainingIndiaODIs && VK18Data.estimatedRemainingIndiaODIs.display) || '~30';
-        badge.textContent = `REMAINING APPEARANCES: ${estTotal} ODIs FOR INDIA (EST.)`;
+        badge.textContent = 'REMAINING APPEARANCES: ≈30 ESTIMATED REMAINING INDIA ODIs (Bilateral fixtures + 2027 World Cup)';
       }
 
       // Single source of truth: the centralized schedule resolves the next
@@ -634,11 +633,11 @@
       // Sync Card 1 (Featured Next Match Section)
       const c1Badge = document.getElementById('card1-cadence-badge');
       if (c1Badge) {
-        c1Badge.textContent = `IMMUTABLE CADENCE // ${remOdis} ODIs REMAINING FOR INDIA`;
+        c1Badge.textContent = 'IMMUTABLE CADENCE // NEXT INDIA ODI';
       }
       const c1Index = document.getElementById('card1-index-badge');
       if (c1Index) {
-        c1Index.textContent = `INDEX: 01 / ${remOdis}`;
+        c1Index.textContent = 'INDEX: 01';
       }
       // Card 1 is the next India ODI slot: it renders TBD — never an
       // already-completed fixture — when nothing is ahead of today.
@@ -668,12 +667,11 @@
       const m2 = upcoming[1];
       const c2Badge = document.getElementById('card2-cadence-badge');
       if (c2Badge) {
-        const c2Remaining = Math.max(0, remOdis - 1);
-        c2Badge.textContent = `IMMUTABLE CADENCE // ${c2Remaining} ODIs REMAINING FOR INDIA`;
+        c2Badge.textContent = 'IMMUTABLE CADENCE // UPCOMING INDIA ODI';
       }
       const c2Index = document.getElementById('card2-index-badge');
       if (c2Index) {
-        c2Index.textContent = `INDEX: 02 / ${remOdis}`;
+        c2Index.textContent = 'INDEX: 02';
       }
       setText('card2-series-title', (m2 && m2.series) ? m2.series.toUpperCase() : 'SERIES TO BE CONFIRMED');
 
@@ -699,12 +697,11 @@
       const m3 = upcoming[2];
       const c3Badge = document.getElementById('card3-cadence-badge');
       if (c3Badge) {
-        const c3Remaining = Math.max(0, remOdis - 2);
-        c3Badge.textContent = `IMMUTABLE CADENCE // ${c3Remaining} ODIs REMAINING FOR INDIA`;
+        c3Badge.textContent = 'IMMUTABLE CADENCE // UPCOMING INDIA ODI';
       }
       const c3Index = document.getElementById('card3-index-badge');
       if (c3Index) {
-        c3Index.textContent = `INDEX: 03 / ${remOdis}`;
+        c3Index.textContent = 'INDEX: 03';
       }
       setText('card3-series-title', (m3 && m3.series) ? m3.series.toUpperCase() : 'SERIES TO BE CONFIRMED');
 

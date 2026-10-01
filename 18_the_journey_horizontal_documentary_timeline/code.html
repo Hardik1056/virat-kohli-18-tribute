@@ -576,7 +576,7 @@
               THE FINAL ODI CHAPTER
             </h2>
 <p class="font-body-lg text-base sm:text-body-lg text-white/90 leading-relaxed font-serif max-w-xl">
-              The final ODI horizon in Southern Africa. <span id="timeline-remaining-odis">24</span> remaining ODI fixtures for India. His last World Cup campaign, culminating his legendary 50-over journey in India’s blue.
+              The final ODI horizon in Southern Africa. <span id="timeline-remaining-odis" class="text-primary-container font-semibold">≈30 ESTIMATED REMAINING INDIA ODIs</span> (Bilateral fixtures + 2027 World Cup). His last World Cup campaign, culminating his legendary 50-over journey in India’s blue.
             </p>
 <div class="grid grid-cols-3 gap-2 sm:gap-4 my-4 sm:my-6 py-4 border-y border-white/10 max-w-lg">
 <div>
@@ -653,7 +653,8 @@
         if (!window.VK18Career && !window.VK18Data) return;
         const remOdisEl = document.getElementById('timeline-remaining-odis');
         if (remOdisEl && window.VK18Data) {
-          remOdisEl.textContent = VK18Data.remainingIndiaODIs;
+          const estConfig = window.VK18Data.estimatedRemainingIndiaODIs;
+          remOdisEl.textContent = (estConfig && estConfig.label) ? estConfig.label : '≈30 ESTIMATED REMAINING INDIA ODIs';
         }
 
         const wcDaysEl = document.getElementById('journey-wc-days');

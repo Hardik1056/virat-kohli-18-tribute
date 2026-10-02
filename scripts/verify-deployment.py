@@ -136,9 +136,41 @@ def check_security_headers():
         print("   ✓ Enterprise security headers verified: CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.")
     return errors
 
+def clean_routes():
+    """Root-absolute paths served by a rewrite rather than a real file.
+
+    Internal navigation uses canonical clean URLs (/stats, /journey, ...). Those
+    have no matching directory in the repo: Vercel serves them via the
+    vercel.json rewrites, Netlify via its redirects, and the GitHub Pages
+    workflow materialises them as directories at deploy time. Treating them as
+    missing files would fail the build on every correct internal link."""
+    routes = set()
+
+    vercel_path = ROOT_DIR / "vercel.json"
+    if vercel_path.is_file():
+        try:
+            rewrites = json.loads(vercel_path.read_text(encoding="utf-8")).get("rewrites", [])
+            for r in rewrites:
+                src = r.get("source", "")
+                # Skip dynamic patterns; only literal paths can be matched here.
+                if src.startswith("/") and "(" not in src and ":" not in src and "*" not in src:
+                    routes.add(src.rstrip("/") or "/")
+        except Exception:
+            pass
+
+    netlify_path = ROOT_DIR / "netlify.toml"
+    if netlify_path.is_file():
+        content = netlify_path.read_text(encoding="utf-8")
+        for src in re.findall(r'from\s*=\s*["\']([^"\']+)["\']', content):
+            if src.startswith("/") and ":" not in src and "*" not in src:
+                routes.add(src.rstrip("/") or "/")
+
+    return routes
+
 def check_html_links_and_assets():
     errors = []
     checked_refs = 0
+    routes = clean_routes()
     print("🔍 [4/7] Verifying local asset links and img sources across all HTML pages...")
 
     src_pattern = re.compile(r'(?:src|href)=["\']([^"\']+)["\']', re.IGNORECASE)
@@ -174,6 +206,10 @@ def check_html_links_and_assets():
             # Handle absolute root paths vs relative paths
             if clean_target.startswith("/"):
                 target_path = ROOT_DIR / clean_target.lstrip("/")
+                # A clean URL is valid if it is a configured rewrite route.
+                if not target_path.exists() and (clean_target.rstrip("/") or "/") in routes:
+                    checked_refs += 1
+                    continue
             else:
                 target_path = (page_dir / clean_target).resolve()
 

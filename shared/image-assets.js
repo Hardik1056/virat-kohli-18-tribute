@@ -14,15 +14,16 @@
  */
 
 (function (root, factory) {
+  const api = factory();
   if (typeof module === 'object' && module.exports) {
-    module.exports = factory();
-  } else {
-    const api = factory();
+    module.exports = api;
+  }
+  if (root) {
     root.VK18Images = api;
     // Support legacy or alternative accessors
     root.VK18AssetRegistry = api;
   }
-})(typeof self !== 'undefined' ? self : this, function () {
+})(typeof self !== 'undefined' ? self : (typeof globalThis !== 'undefined' ? globalThis : this), function () {
 
   // =========================================================================
   // CENTRALIZED IMAGE MAP (ORGANIZED BY PURPOSE, ERA, MATCH & VENUE)
@@ -79,8 +80,8 @@
         era: '1990s',
         page: '18_the_journey_horizontal_documentary_timeline',
         section: 'Milestone 01 (Childhood Roots & Father Prem Kohli)',
-        src: '../assets/images/childhood-young-virat-with-father-prem-kohli-deccan-herald.jpg',
-        fallback: '../assets/images/childhood-young-virat-with-father-prem-kohli-deccan-herald.jpg',
+        src: '../assets/images/childhood-young-virat-with-father-prem-kohli-centered.jpg',
+        fallback: '../assets/images/childhood-young-virat-with-father-prem-kohli-centered.jpg',
         sourceUrl: 'https://www.deccanherald.com/dh-galleries/photos/virat-kohli-birthday-special-check-out-some-of-his-rare-photos-1047542',
         photographer: 'Family Archive / Instagram @virat.kohli via Deccan Herald',
         caption: 'Young Virat Kohli as a toddler in light sweater supported by his father Prem Kohli in Delhi',
@@ -106,8 +107,8 @@
         era: '2004 — 2006',
         page: '18_the_journey_horizontal_documentary_timeline',
         section: 'Milestone 02 (Teenage / Early Delhi Ranji Trophy Proving Ground)',
-        src: '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-hindustan-times.jpg',
-        fallback: '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-hindustan-times.jpg',
+        src: '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-centered.jpg',
+        fallback: '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-centered.jpg',
         sourceUrl: 'https://www.hindustantimes.com/photos/how-delhis-virat-became-the-worlds-king-kohli-8-pictures-from-virat-kohlis-early-days-as-a-cricketer-101747044922239.html',
         photographer: 'Hindustan Times Archives',
         caption: '18-year-old Virat Kohli in Delhi Ranji Trophy flannels and maroon cap walking off Feroz Shah Kotla pitch with BDM bat and pads, 2006',
@@ -133,8 +134,8 @@
         era: '2008',
         page: '18_the_journey_horizontal_documentary_timeline',
         section: 'Milestone 03 (2008 U19 World Cup Victory)',
-        src: '../assets/images/kuala-lumpur-2008-u19-world-cup-trophy-petronas-towers-icc-getty.jpg',
-        fallback: '../assets/images/kuala-lumpur-2008-u19-world-cup-trophy-petronas-towers-icc-getty.jpg',
+        src: '../assets/images/kuala-lumpur-2008-u19-world-cup-trophy-centered.jpg',
+        fallback: '../assets/images/kuala-lumpur-2008-u19-world-cup-trophy-centered.jpg',
         sourceUrl: 'https://www.icc-cricket.com/photos/album/virat-kohli-with-the-2008-u19-cricket-world-cup',
         photographer: 'Getty Images - ICC (GettyImages-80086555)',
         caption: 'KUALA LUMPUR, MALAYSIA - MARCH 03: India U19 captain Virat Kohli poses with the ICC U/19 Cricket World Cup trophy in front of the Petronas Twin Towers on March 3, 2008 in Kuala Lumpur, Malaysia.',
@@ -160,10 +161,13 @@
         era: '2008 — 2011',
         page: '18_the_journey_horizontal_documentary_timeline',
         section: 'Milestone 04 (Early India Debut & 2011 World Cup Torch Passing)',
-        src: '../assets/images/wankhede-2011-world-cup-confetti-celebration.png',
-        fallback: '../assets/images/wankhede-2011-world-cup-confetti-celebration.png',
-        alt: 'Cinematic documentary wide photograph of iconic cricket stadium confetti celebration night, golden floodlights, silhouette of triumphant batsman carrying the national flag on shoulders, historic championship night 2011',
-        description: 'Wankhede Stadium championship celebration with blue and gold confetti shower on 2 April 2011, carrying Sachin Tendulkar on shoulders.'
+        src: '../assets/images/wankhede-2011-world-cup-trophy-celebration-centered.jpg',
+        fallback: '../assets/images/wankhede-2011-world-cup-trophy-celebration-centered.jpg',
+        sourceUrl: 'https://www.gettyimages.com/detail/news-photo/indian-cricket-team-celebrate-with-the-world-cup-trophy-news-photo/111436822',
+        photographer: 'Matthew Lewis / Getty Images (Photo ID 111436822)',
+        caption: 'MUMBAI, INDIA - APRIL 02: Indian cricket team celebrate with the ICC World Cup trophy after defeating Sri Lanka at Wankhede Stadium on April 02, 2011.',
+        alt: 'Indian cricket team including young Virat Kohli celebrating with the 2011 ICC Cricket World Cup trophy under floodlights at Wankhede Stadium',
+        description: 'Wankhede Stadium championship celebration with the World Cup trophy on 2 April 2011, carrying Sachin Tendulkar on shoulders.'
       },
       era2011_world_cup: {
         id: 'IMG-TIMELINE-02',
@@ -171,27 +175,97 @@
         era: '2008 — 2011',
         page: '18_the_journey_horizontal_documentary_timeline',
         section: 'Milestone 04 (Early India Debut & 2011 World Cup Torch Passing)',
-        src: '../assets/images/wankhede-2011-world-cup-confetti-celebration.png',
-        fallback: '../assets/images/wankhede-2011-world-cup-confetti-celebration.png',
-        alt: 'Cinematic documentary wide photograph of iconic cricket stadium confetti celebration night, golden floodlights, silhouette of triumphant batsman carrying the national flag on shoulders, historic championship night 2011',
-        description: 'Wankhede Stadium championship celebration with blue and gold confetti shower on 2 April 2011, carrying Sachin Tendulkar on shoulders.'
+        src: '../assets/images/wankhede-2011-world-cup-trophy-celebration-centered.jpg',
+        fallback: '../assets/images/wankhede-2011-world-cup-trophy-celebration-centered.jpg',
+        sourceUrl: 'https://www.gettyimages.com/detail/news-photo/indian-cricket-team-celebrate-with-the-world-cup-trophy-news-photo/111436822',
+        photographer: 'Matthew Lewis / Getty Images (Photo ID 111436822)',
+        caption: 'MUMBAI, INDIA - APRIL 02: Indian cricket team celebrate with the ICC World Cup trophy after defeating Sri Lanka at Wankhede Stadium on April 02, 2011.',
+        alt: 'Indian cricket team including young Virat Kohli celebrating with the 2011 ICC Cricket World Cup trophy under floodlights at Wankhede Stadium',
+        description: 'Wankhede Stadium championship celebration with the World Cup trophy on 2 April 2011, carrying Sachin Tendulkar on shoulders.'
       },
-      era2018_australia: {
-        id: 'IMG-TIMELINE-03',
+      era2013_chase: {
+        id: 'IMG-TIMELINE-05',
         purpose: 'journey',
-        era: '2018 / 2016',
+        era: '2012 — 2013',
         page: '18_the_journey_horizontal_documentary_timeline',
-        section: 'Milestone 07 (Australia Conquest & 82* Masterclass)',
-        src: '../assets/images/mohali-2016-australia-82-finger-to-sky.jpeg',
-        fallback: '../assets/images/mohali-2016-australia-82-finger-to-sky.jpeg',
+        section: 'Milestone 05 (The Chase Master)',
+        src: '../assets/images/dhaka-2012-kohli-183-bat-raised-roar-centered.jpg',
+        fallback: '../assets/images/dhaka-2012-kohli-183-bat-raised-roar-centered.jpg',
+        sourceUrl: 'https://www.espncricinfo.com/series/asia-cup-2011-12-524504/india-vs-pakistan-5th-match-535798/match-report',
+        photographer: 'AFP / Getty Images',
+        caption: 'DHAKA, BANGLADESH - MARCH 18: Virat Kohli roars in celebration with bat raised high during his epic 183 chase against Pakistan in the 2012 Asia Cup.',
+        alt: 'Virat Kohli roaring in celebration with bat raised high during his epic 183 chase against Pakistan in Dhaka 2012',
+        description: 'Epic pursuit masterclass of 183 against Pakistan establishing Kohli as the supreme chase architect in ODI history.'
+      },
+      era2016_transcendence: {
+        id: 'IMG-TIMELINE-06',
+        purpose: 'journey',
+        era: '2016',
+        page: '18_the_journey_horizontal_documentary_timeline',
+        section: 'Milestone 06 (A Defining Year — Peak Transcendence)',
+        src: '../assets/images/mohali-2016-australia-82-finger-to-sky-centered.jpg',
+        fallback: '../assets/images/mohali-2016-australia-82-finger-to-sky-centered.jpg',
         sourceUrl: 'https://www.mensxp.com/ampstories/buzz-on-web/latest/132586-ipl-2023-virat-kohli-and-his-love-for-82-not-out-in-big-games-rcb-vs-mi.html',
         photographer: 'ICC / AFP via MensXP',
         caption: 'MOHALI, INDIA - MARCH 27: Virat Kohli stands with right index finger pointed high toward the sky in relief and triumph after his iconic 82 not out against Australia in the 2016 World T20.',
-        alt: 'Virat Kohli standing with finger pointed to the sky after his 82* chase masterclass vs Australia in Mohali',
+        alt: 'Virat Kohli pointing right index finger to the sky in emotional transcendence after winning 82* vs Australia in Mohali 2016',
         description: 'Standing in gratitude with index finger pointed to the heavens after 82* vs Australia, capturing the emotional transcendence of the chase master.'
       },
+      era2018_command: {
+        id: 'IMG-TIMELINE-07',
+        purpose: 'journey',
+        era: '2018',
+        page: '18_the_journey_horizontal_documentary_timeline',
+        section: 'Milestone 07 (Australia Conquest & Test Command)',
+        src: '../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg',
+        fallback: '../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg',
+        sourceUrl: 'https://www.gettyimages.com',
+        photographer: 'Action Images via Reuters',
+        caption: 'BIRMINGHAM, ENGLAND - AUGUST 02: Virat Kohli celebrates with bat aloft in Indian Test whites during the historic 2018 Test tour.',
+        alt: 'Virat Kohli in Indian Test whites roaring in celebration with MRF bat and helmet outstretched after historic Test masterclass',
+        description: 'Virat Kohli in Indian Test whites roaring in celebration, capturing the fierce determination that powered India to their historic 2018/19 series conquest in Australia.'
+      },
+      era2018_australia: {
+        id: 'IMG-TIMELINE-07-ALIAS',
+        purpose: 'journey',
+        era: '2018',
+        page: '18_the_journey_horizontal_documentary_timeline',
+        section: 'Milestone 07 (Australia Conquest & Test Command)',
+        src: '../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg',
+        fallback: '../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg',
+        alt: 'Virat Kohli in Indian Test whites roaring in celebration with MRF bat and helmet outstretched after historic Test masterclass',
+        description: 'Virat Kohli in Indian Test whites roaring in celebration.'
+      },
+      era2023_summit: {
+        id: 'IMG-TIMELINE-08',
+        purpose: 'journey',
+        era: '2023',
+        page: '18_the_journey_horizontal_documentary_timeline',
+        section: 'Milestone 08 (World Cup Summit & 50th ODI Century)',
+        src: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg',
+        fallback: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg',
+        sourceUrl: 'https://www.gettyimages.co.uk/detail/news-photo/virat-kohli-of-india-celebrates-his-century-during-the-icc-news-photo/1792617651',
+        photographer: 'Punit Paranjpe / AFP via Getty Images',
+        caption: 'MUMBAI, INDIA - NOVEMBER 15: Virat Kohli celebrates after scoring his 50th ODI century during the ICC Men\'s Cricket World Cup India 2023 semi-final between India and New Zealand at Wankhede Stadium on November 15, 2023 in Mumbai, India.',
+        alt: 'Virat Kohli celebrating his record-breaking 50th ODI century with bat raised aloft before cheering crowd at Wankhede Stadium Mumbai',
+        description: 'Historical apex at Wankhede Stadium: Virat Kohli scoring his 50th ODI century to surpass Sachin Tendulkar, bowing in reverence before the icon in the stands.'
+      },
+      era2024_t20_culmination: {
+        id: 'IMG-TIMELINE-09',
+        purpose: 'journey',
+        era: '2024',
+        page: '18_the_journey_horizontal_documentary_timeline',
+        section: 'Milestone 09 (T20 World Cup Champion & Bridgetown Farewell)',
+        src: '../assets/images/barbados-2024-t20-world-cup-trophy-lift-centered.jpg',
+        fallback: '../assets/images/barbados-2024-t20-world-cup-trophy-lift-centered.jpg',
+        sourceUrl: 'https://www.gettyimages.com',
+        photographer: 'ICC / Getty Images',
+        caption: 'BRIDGETOWN, BARBADOS - JUNE 29: Virat Kohli holds the ICC Men\'s T20 World Cup 2024 trophy draped with the Indian tricolor flag after victory in the final at Kensington Oval on June 29, 2024 in Bridgetown, Barbados.',
+        alt: 'Virat Kohli holding the ICC Men\'s T20 World Cup 2024 trophy with Indian tricolor flag draped over shoulders in Bridgetown Barbados',
+        description: 'T20 International farewell triumph: Virat Kohli smiling with the World Cup trophy draped in the Indian tricolor flag at Kensington Oval.'
+      },
       era2027_destination: {
-        id: 'IMG-TIMELINE-04',
+        id: 'IMG-TIMELINE-10',
         purpose: 'journey',
         era: '2027',
         page: '18_the_journey_horizontal_documentary_timeline',
@@ -231,8 +305,8 @@
         match: 'vs England, Edgbaston 2018 (149)',
         page: '18_the_innings_we_ll_never_forget_desktop',
         section: 'Canon 06 Card (149 vs England)',
-        src: '../assets/images/edgbaston-2018-kohli-149-roar-celebration.jpg',
-        fallback: '../assets/images/edgbaston-2018-kohli-149-roar-celebration.jpg',
+        src: '../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg',
+        fallback: '../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg',
         alt: 'Virat Kohli in Indian Test whites roaring in celebration with MRF bat and helmet outstretched after scoring 149 at Edgbaston in 2018',
         description: 'Edgbaston, Birmingham August 2018. Defiant 149 against swinging Dukes balls in English mist.'
       },
@@ -242,8 +316,8 @@
         match: 'vs Australia, Mohali 2016 (82*)',
         page: '18_the_innings_we_ll_never_forget_desktop',
         section: 'Canon Mohali 82* Card',
-        src: '../assets/images/mohali-2016-australia-82-finger-to-sky.jpeg',
-        fallback: '../assets/images/mohali-2016-australia-82-finger-to-sky.jpeg',
+        src: '../assets/images/mohali-2016-australia-82-finger-to-sky-centered.jpg',
+        fallback: '../assets/images/mohali-2016-australia-82-finger-to-sky-centered.jpg',
         alt: 'Virat Kohli pointing skyward in ecstatic relief and triumph after winning 82* vs Australia in Mohali 2016',
         description: 'Mohali 2016 T20 World Cup knockout chase against Australia.'
       },
@@ -253,8 +327,8 @@
         match: 'vs Pakistan, Dhaka 2012 (183)',
         page: '18_the_innings_we_ll_never_forget_desktop',
         section: 'Canon Dhaka 183 Card',
-        src: '../assets/images/dhaka-2012-kohli-183-bat-raised-roar.jpg',
-        fallback: '../assets/images/dhaka-2012-kohli-183-bat-raised-roar.jpg',
+        src: '../assets/images/dhaka-2012-kohli-183-bat-raised-roar-centered.jpg',
+        fallback: '../assets/images/dhaka-2012-kohli-183-bat-raised-roar-centered.jpg',
         alt: 'Virat Kohli roaring in celebration with bat raised high after reaching century against Pakistan in Dhaka 2012',
         description: 'Career-best 183 off 148 balls chasing 330 against Pakistan in Asia Cup 2012.'
       },
@@ -264,8 +338,8 @@
         match: 'vs New Zealand, Mumbai 2023 (117)',
         page: '18_the_innings_we_ll_never_forget_desktop',
         section: 'Canon Wankhede 50th Century Card',
-        src: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp',
-        fallback: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp',
+        src: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg',
+        fallback: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg',
         alt: 'Virat Kohli looking up with MRF bat raised vertically in celebration after scoring his 50th ODI century at Wankhede Stadium',
         description: 'World record 50th ODI century in the World Cup semi-final at Wankhede Stadium.'
       },
@@ -275,8 +349,8 @@
         match: 'vs South Africa, Kolkata 2023 (101*)',
         page: '18_the_innings_we_ll_never_forget_desktop',
         section: 'Canon Eden Gardens 49th Century Card',
-        src: '../assets/images/eden-gardens-2023-century-49-celebration-surjeet-yadav.webp',
-        fallback: '../assets/images/eden-gardens-2023-century-49-celebration-surjeet-yadav.webp',
+        src: '../assets/images/eden-gardens-2023-century-49-celebration-centered.jpg',
+        fallback: '../assets/images/eden-gardens-2023-century-49-celebration-centered.jpg',
         alt: 'Virat Kohli celebrating his 49th ODI century against South Africa on his 35th birthday at Eden Gardens',
         description: 'Equalling Sachin Tendulkar\'s 49 ODI centuries at Eden Gardens in the 2023 World Cup.'
       }
@@ -358,110 +432,119 @@
         venue: 'Wankhede Stadium',
         city: 'Mumbai',
         territory: 'Maharashtra, Republic of India',
-        src: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp',
-        fallback: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp',
-        sourceUrl: 'https://www.gettyimages.ie/detail/news-photo/indias-virat-kohli-celebrates-after-scoring-a-century-news-photo/1783004094',
-        photographer: 'Punit Paranjpe / AFP via Getty Images',
-        caption: 'MUMBAI, INDIA - NOVEMBER 15: India\'s Virat Kohli celebrates after scoring his 50th ODI century at Wankhede Stadium.',
-        alt: 'Virat Kohli looking up with MRF bat raised vertically in celebration after scoring his 50th ODI century at Wankhede Stadium'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        sourceUrl: 'https://www.gettyimages.co.uk/detail/news-photo/virat-kohli-of-india-plays-a-defensive-shot-during-the-icc-news-photo/1794652371',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        caption: 'MUMBAI, INDIA - NOVEMBER 15: Virat Kohli of India plays a defensive shot during the ICC Men\'s Cricket World Cup India 2023 semi-final between India and New Zealand at Wankhede Stadium on November 15, 2023 in Mumbai, India.',
+        alt: 'Virat Kohli playing defensive shot with laser focus at Wankhede Stadium'
       },
       greenfield_trivandrum: {
         id: 'VENUE-GREENFIELD',
         venue: 'Greenfield International Stadium',
         city: 'Trivandrum',
         territory: 'Kerala, Republic of India',
-        src: '../assets/images/stadium-electric-packed-stands.png',
-        fallback: '../assets/images/stadium-electric-packed-stands.png',
-        alt: 'Greenfield International Stadium Trivandrum under floodlights'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli playing defensive push shot in full 50-over strokeplay focus'
       },
       barsapara_guwahati: {
         id: 'VENUE-BARSAPARA',
         venue: 'Barsapara Cricket Stadium',
         city: 'Guwahati',
         territory: 'Assam, Republic of India',
-        src: '../assets/images/stadium-electric-packed-stands.png',
-        fallback: '../assets/images/stadium-electric-packed-stands.png',
-        alt: 'Barsapara Cricket Stadium Guwahati under floodlights'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli playing exquisite defensive stroke in 50-over international cricket'
       },
       pcamullanpur_newchandigarh: {
         id: 'VENUE-PCAMULLANPUR',
         venue: 'IS Bindra PCA Stadium',
         city: 'New Chandigarh',
         territory: 'Punjab, Republic of India',
-        src: '../assets/images/stadium-legendary-packed-arena.png',
-        fallback: '../assets/images/stadium-legendary-packed-arena.png',
-        alt: 'IS Bindra PCA Stadium New Chandigarh arena bowl'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli in full strokeplay focus during India bilateral ODI series'
       },
       edenpark_auckland: {
         id: 'VENUE-EDENPARK',
         venue: 'Eden Park',
         city: 'Auckland',
         territory: 'Auckland, New Zealand',
-        src: '../assets/images/stadium-night-pitch-atmospheric-mist.png',
-        fallback: '../assets/images/stadium-night-pitch-atmospheric-mist.png',
-        alt: 'Eden Park Auckland floodlit stadium arena'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli batting in international 50-over cricket'
       },
       skystadium_wellington: {
         id: 'VENUE-SKYSTADIUM',
         venue: 'Sky Stadium',
         city: 'Wellington',
         territory: 'Wellington, New Zealand',
-        src: '../assets/images/stadium-night-pitch-atmospheric-mist.png',
-        fallback: '../assets/images/stadium-night-pitch-atmospheric-mist.png',
-        alt: 'Sky Stadium Wellington cake tin bowl floodlights'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli in action during bilateral 50-over ODI series'
       },
       seddonpark_hamilton: {
         id: 'VENUE-SEDDONPARK',
         venue: 'Seddon Park',
         city: 'Hamilton',
         territory: 'Waikato, New Zealand',
-        src: '../assets/images/stadium-legendary-ground-evening.png',
-        fallback: '../assets/images/stadium-legendary-ground-evening.png',
-        alt: 'Seddon Park Hamilton grass embankments and floodlights'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli playing defensive stroke with soft hands'
       },
       bayoval_mtmaunganui: {
         id: 'VENUE-BAYOVAL',
         venue: 'Bay Oval',
         city: 'Mount Maunganui',
         territory: 'Bay of Plenty, New Zealand',
-        src: '../assets/images/stadium-legendary-packed-arena.png',
-        fallback: '../assets/images/stadium-legendary-packed-arena.png',
-        alt: 'Bay Oval Mount Maunganui coastal cricket ground'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli batting in overseas ODI series'
       },
       arunjaitley_delhi: {
         id: 'VENUE-ARUNJAITLEY',
         venue: 'Arun Jaitley Stadium',
         city: 'Delhi',
         territory: 'Delhi, Republic of India',
-        src: '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-hindustan-times.jpg',
-        fallback: '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-hindustan-times.jpg',
-        alt: 'Arun Jaitley Stadium Delhi winter evening pavilion stands'
+        src: '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-centered.jpg',
+        fallback: '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-centered.jpg',
+        alt: '18-year-old Virat Kohli in Delhi Ranji Trophy flannels at Feroz Shah Kotla'
       },
       chinnaswamy_bengaluru: {
         id: 'VENUE-CHINNASWAMY',
         venue: 'M. Chinnaswamy Stadium',
         city: 'Bengaluru',
         territory: 'Karnataka, Republic of India',
-        src: '../assets/images/stadium-passionate-crowd-floodlights.png',
-        fallback: '../assets/images/stadium-passionate-crowd-floodlights.png',
-        alt: 'M. Chinnaswamy Stadium Bengaluru stands under floodlights'
+        src: '../assets/images/wankhede-2023-semi-final-post-match-walkoff-alex-davidson.jpg',
+        fallback: '../assets/images/wankhede-2023-semi-final-post-match-walkoff-alex-davidson.jpg',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli smiling in satisfied post-match walkoff in blue India kit'
       },
       narendramodi_ahmedabad: {
         id: 'VENUE-NARENDRAMODI',
         venue: 'Narendra Modi Stadium',
         city: 'Ahmedabad',
         territory: 'Gujarat, Republic of India',
-        src: '../assets/images/stadium-colossal-arena-panoramic.png',
-        fallback: '../assets/images/stadium-colossal-arena-panoramic.png',
-        alt: 'Narendra Modi Stadium Ahmedabad 132,000 colosseum bowl'
+        src: '../assets/images/world-cup-2023-portrait-fist-roar-alex-davidson.jpg',
+        fallback: '../assets/images/world-cup-2023-portrait-fist-roar-alex-davidson.jpg',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli roaring with clenched fists in official World Cup campaign portrait'
       },
       edengardens_kolkata: {
         id: 'VENUE-EDENGARDENS',
         venue: 'Eden Gardens',
         city: 'Kolkata',
         territory: 'West Bengal, Republic of India',
-        src: '../assets/images/eden-gardens-2023-century-49-celebration-surjeet-yadav.webp',
-        fallback: '../assets/images/eden-gardens-2023-century-49-celebration-surjeet-yadav.webp',
+        src: '../assets/images/eden-gardens-2023-century-49-celebration-centered.jpg',
+        fallback: '../assets/images/eden-gardens-2023-century-49-celebration-centered.jpg',
         sourceUrl: 'https://www.gettyimages.ie/detail/news-photo/virat-kohli-of-india-celebrates-their-century-to-equal-news-photo/1776191562',
         photographer: 'Surjeet Yadav / Getty Images',
         caption: 'KOLKATA, INDIA - NOVEMBER 05: Virat Kohli of India celebrates their century to equal Sachin Tendulkar\'s record for most ODI centuries for India at Eden Gardens on November 05, 2023.',
@@ -472,9 +555,60 @@
         venue: 'Rajiv Gandhi International Cricket Stadium',
         city: 'Hyderabad',
         territory: 'Telangana, Republic of India',
-        src: '../assets/images/stadium-passionate-crowd-floodlights.png',
-        fallback: '../assets/images/stadium-passionate-crowd-floodlights.png',
-        alt: 'Rajiv Gandhi International Cricket Stadium Hyderabad under floodlights'
+        src: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        fallback: '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli in full strokeplay focus during India bilateral ODI series'
+      },
+      newlands_capetown: {
+        id: 'VENUE-NEWLANDS',
+        venue: 'Newlands Cricket Ground',
+        city: 'Cape Town',
+        territory: 'Western Cape, South Africa',
+        src: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        fallback: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        photographer: 'Surjeet Yadav / IANS',
+        alt: 'Virat Kohli acknowledging the crowd after scoring his career-best 254*'
+      },
+      wanderers_johannesburg: {
+        id: 'VENUE-WANDERERS',
+        venue: 'The Wanderers Stadium',
+        city: 'Johannesburg',
+        territory: 'Gauteng, South Africa',
+        src: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        fallback: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        photographer: 'Surjeet Yadav / IANS',
+        alt: 'Virat Kohli acknowledging the crowd in Test match mastery'
+      },
+      supersport_centurion: {
+        id: 'VENUE-SUPERSPORT',
+        venue: 'SuperSport Park',
+        city: 'Centurion (Tshwane)',
+        territory: 'Gauteng, South Africa',
+        src: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        fallback: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        photographer: 'Surjeet Yadav / IANS',
+        alt: 'Virat Kohli in marathon double-century command'
+      },
+      mangaung_bloemfontein: {
+        id: 'VENUE-MANGAUNG',
+        venue: 'Mangaung Oval',
+        city: 'Bloemfontein',
+        territory: 'Free State, South Africa',
+        src: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        fallback: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        photographer: 'Surjeet Yadav / IANS',
+        alt: 'Virat Kohli acknowledging crowd applause'
+      },
+      victoriafalls_zimbabwe: {
+        id: 'VENUE-VICTORIAFALLS',
+        venue: 'Victoria Falls Stadium',
+        city: 'Victoria Falls',
+        territory: 'Matabeleland North, Zimbabwe',
+        src: '../assets/images/world-cup-2023-portrait-fist-roar-alex-davidson.jpg',
+        fallback: '../assets/images/world-cup-2023-portrait-fist-roar-alex-davidson.jpg',
+        photographer: 'Alex Davidson - ICC / Getty Images',
+        alt: 'Virat Kohli roaring in fierce determination ahead of the 2027 Africa campaign'
       }
     },
 
@@ -562,7 +696,7 @@
         match: 'India vs Pakistan • Melbourne 2022 (82*)',
         page: '18_i_was_there_commemorative_keepsake_generator',
         src: '../assets/images/mcg-2022-kohli-flick-six-shot-william-west.webp',
-        fallback: '../cinematic_sports_documentary_horizontal_wide_photography_of_a_legendary_packed/screen.png',
+        fallback: '../assets/images/mcg-2022-kohli-flick-six-shot-william-west.webp',
         sourceUrl: 'https://www.gettyimages.com.au/detail/news-photo/indias-virat-kohli-plays-a-shot-over-the-boundary-line-for-news-photo/1244168908',
         photographer: 'William West / AFP via Getty Images',
         caption: 'MELBOURNE, AUSTRALIA - OCTOBER 23: India\'s Virat Kohli plays a shot over the boundary line for six runs off Haris Rauf during the ICC Men\'s T20 World Cup match at MCG on October 23, 2022.',
@@ -574,8 +708,8 @@
         purpose: 'keepsake',
         match: 'India vs Australia • Mumbai 2025',
         page: '18_i_was_there_commemorative_keepsake_generator',
-        src: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp',
-        fallback: '../dramatic_cinematic_photograph_of_a_night_cricket_pitch_under_atmospheric_mist/screen.png',
+        src: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg',
+        fallback: '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg',
         sourceUrl: 'https://www.gettyimages.ie/detail/news-photo/indias-virat-kohli-celebrates-after-scoring-a-century-news-photo/1783004094',
         photographer: 'Punit Paranjpe / AFP via Getty Images',
         caption: 'Virat Kohli celebrating his landmark century at Wankhede Stadium.',
@@ -587,30 +721,39 @@
         purpose: 'keepsake',
         match: 'India vs England • Edgbaston 2018 (149)',
         page: '18_i_was_there_commemorative_keepsake_generator',
-        src: '../assets/images/edgbaston-2018-lone-batsman-walking-mist.png',
-        fallback: '../cinematic_sports_documentary_horizontal_photograph_of_a_solitary_batsman_in/screen.png',
-        alt: 'Archival frame capture: Edgbaston 2018 149',
-        description: 'Edgbaston 2018 English overcast and rain-swept outfield.'
+        src: '../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg',
+        fallback: '../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg',
+        sourceUrl: 'https://www.reuters.com',
+        photographer: 'Philip Brown / Reuters / Action Images',
+        caption: 'BIRMINGHAM, ENGLAND - AUGUST 02: Virat Kohli celebrates his century on Day 2 of the 1st Test between England and India at Edgbaston on August 2, 2018.',
+        alt: 'Virat Kohli in Indian Test whites roaring in celebration with MRF bat and helmet outstretched after scoring 149 at Edgbaston in 2018',
+        description: 'Edgbaston 2018 historic 149 masterclass against England in English overcast conditions.'
       },
       pune_2019: {
         id: 'IMG-KEEPSAKE-PUNE2019',
         purpose: 'keepsake',
         match: 'India vs South Africa • Pune 2019 (254*)',
         page: '18_i_was_there_commemorative_keepsake_generator',
-        src: '../cinematic_sports_documentary_wide_panoramic_photograph_of_a_colossal_cricket/screen.png',
-        fallback: '../cinematic_sports_documentary_wide_panoramic_photograph_of_a_colossal_cricket/screen.png',
-        alt: 'Archival frame capture: Pune 2019 254*',
-        description: 'Colossal open-tier arena panorama for the marathon 254* double century.'
+        src: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        fallback: '../assets/images/pune-2019-kohli-254-double-century-centered.jpg',
+        sourceUrl: 'https://www.gettyimages.com',
+        photographer: 'Surjeet Yadav / IANS',
+        caption: 'PUNE, INDIA - OCTOBER 11: Virat Kohli acknowledges the crowd after scoring his career-best 254* against South Africa at MCA Stadium Pune on October 11, 2019.',
+        alt: 'Virat Kohli acknowledging the crowd after scoring his career-highest 254* against South Africa in Pune',
+        description: 'Marathon 254* double century test masterclass in Pune.'
       },
       dubai_2022: {
         id: 'IMG-KEEPSAKE-DUBAI2022',
         purpose: 'keepsake',
         match: 'Asia Cup • Dubai 2022 (Maiden T20I / 71st Century)',
         page: '18_i_was_there_commemorative_keepsake_generator',
-        src: '../cinematic_sports_documentary_wide_photograph_of_an_electric_packed_cricket/screen.png',
-        fallback: '../cinematic_documentary_wide_photograph_of_iconic_cricket_stadium_confetti/screen.png',
-        alt: 'Archival frame capture: Dubai 2022 71st Century',
-        description: 'Dubai International Stadium floodlights for the emotional 71st century.'
+        src: '../assets/images/dubai-2022-kohli-122-century-centered.jpg',
+        fallback: '../assets/images/dubai-2022-kohli-122-century-centered.jpg',
+        sourceUrl: 'https://www.gettyimages.com/detail/news-photo/virat-kohli-of-india-celebrates-after-scoring-a-century-news-photo/1421950409',
+        photographer: 'Surjeet Yadav / AFP via Getty Images (Photo ID 1421950409)',
+        caption: 'DUBAI, UAE - SEPTEMBER 08: Virat Kohli of India celebrates after scoring a century (122*) during the Asia Cup match against Afghanistan at Dubai International Stadium on September 08, 2022.',
+        alt: 'Virat Kohli celebrating his maiden T20I century (122*) and 71st international hundred in Dubai 2022',
+        description: 'Dubai International Stadium floodlights for the emotional 71st international century.'
       },
       semi_final_2023: {
         id: 'IMG-KEEPSAKE-SEMIFINAL',

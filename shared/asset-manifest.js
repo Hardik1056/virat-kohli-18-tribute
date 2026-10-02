@@ -1,37 +1,16 @@
 /**
- * ===========================================================================
- * STATUS: UNREFERENCED — RETAINED DELIBERATELY, NOT LOADED BY ANY PAGE.
- * ---------------------------------------------------------------------------
- * Verified 2026-09-30: no <script>, no require(), no import and no dynamic
- * reference to this file exists anywhere in the project. Grepping
- * "asset-manifest" across all 11 pages and all shared JS returns nothing.
- *
- * It is kept rather than deleted because this project has NO GIT HISTORY, so
- * deleting it is unrecoverable. It is a useful inventory: it maps every
- * real-photography asset to its source, credit and fallback.
- *
- * The LIVE image data is shared/image-assets.js (window.VK18Images), which
- * every page loads and which resolves paths directly to ../assets/images/.
- * If you are looking for the image a page actually renders, go there.
- *
- * The parallel shared/asset-manifest.json carries the same notice.
- * ===========================================================================
+ * 18 | ONE LAST CHAPTER — COMPLETE PHOTOGRAPHY ASSET MANIFEST
+ * Machine-readable registry of verified real-photography assets.
  */
-/**
- * 18 | ONE LAST CHAPTER — CENTRALIZED IMAGE ASSET MANIFEST
- * =========================================================
- * Single source of truth for all website image assets across the 11 pages.
- * Facilitates straightforward asset replacement, auditing, and maintenance.
- */
-
 (function (root, factory) {
-  if (typeof module === 'object' && module.exports) {
+  if (typeof module === "object" && module.exports) {
     module.exports = factory();
   } else {
     root.VK18AssetManifest = factory();
   }
-})(typeof self !== 'undefined' ? self : this, function () {
-  const MANIFEST = {
+})(typeof self !== "undefined" ? self : this, function () {
+  return {
+  "_UNREFERENCED": "RETAINED DELIBERATELY \u2014 NOT LOADED BY ANY PAGE. Verified 2026-09-30: nothing in the project references asset-manifest.js or asset-manifest.json (no script tag, require, import or dynamic path). Kept because this project has no git history, so deletion is unrecoverable. The LIVE image data is shared/image-assets.js (window.VK18Images), which resolves paths directly to ../assets/images/ and does not use this file.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "VK18 Website Real Photography Image Asset Manifest",
   "description": "Centralized mapping of all real-photography images across the 11 pages of the Virat Kohli Cinematic Tribute website, including local asset paths, source URLs, photographer credits, editorial captions, dimensions, and fallbacks.",
@@ -105,12 +84,12 @@
           "section": "Milestone 01 (Childhood Roots & Father Prem Kohli)",
           "element": "img",
           "binding": "data-vk-image=\"journey.childhood\"",
-          "localFile": "assets/images/childhood-young-virat-with-father-prem-kohli-deccan-herald.jpg",
-          "currentSrc": "../assets/images/childhood-young-virat-with-father-prem-kohli-deccan-herald.jpg",
+          "localFile": "assets/images/childhood-young-virat-with-father-prem-kohli-centered.jpg",
+          "currentSrc": "../assets/images/childhood-young-virat-with-father-prem-kohli-centered.jpg",
           "sourceUrl": "https://www.deccanherald.com/dh-galleries/photos/virat-kohli-birthday-special-check-out-some-of-his-rare-photos-1047542",
           "photographer": "Family Archive / Instagram @virat.kohli via Deccan Herald",
           "caption": "Young Virat Kohli as a toddler in light sweater supported by his father Prem Kohli in Delhi",
-          "resolution": "1200x675",
+          "resolution": "720x405",
           "status": "integrated_real_photo"
         },
         {
@@ -120,12 +99,12 @@
           "section": "Milestone 02 (Teenage / Early Delhi Ranji Trophy Proving Ground)",
           "element": "img",
           "binding": "data-vk-image=\"journey.teenage_cricket\"",
-          "localFile": "assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-hindustan-times.jpg",
-          "currentSrc": "../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-hindustan-times.jpg",
+          "localFile": "assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-centered.jpg",
+          "currentSrc": "../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-centered.jpg",
           "sourceUrl": "https://www.hindustantimes.com/photos/how-delhis-virat-became-the-worlds-king-kohli-8-pictures-from-virat-kohlis-early-days-as-a-cricketer-101747044922239.html",
           "photographer": "Hindustan Times Archives",
           "caption": "18-year-old Virat Kohli in Delhi Ranji Trophy flannels and maroon cap walking off Feroz Shah Kotla pitch with BDM bat and pads, 2006",
-          "resolution": "1181x1966",
+          "resolution": "1181x664",
           "status": "integrated_real_photo"
         },
         {
@@ -135,12 +114,12 @@
           "section": "Milestone 03 (2008 U19 World Cup Victory)",
           "element": "img",
           "binding": "data-vk-image=\"journey.era2008_u19\"",
-          "localFile": "assets/images/kuala-lumpur-2008-u19-world-cup-trophy-petronas-towers-icc-getty.jpg",
-          "currentSrc": "../assets/images/kuala-lumpur-2008-u19-world-cup-trophy-petronas-towers-icc-getty.jpg",
+          "localFile": "assets/images/kuala-lumpur-2008-u19-world-cup-trophy-centered.jpg",
+          "currentSrc": "../assets/images/kuala-lumpur-2008-u19-world-cup-trophy-centered.jpg",
           "sourceUrl": "https://www.icc-cricket.com/photos/album/virat-kohli-with-the-2008-u19-cricket-world-cup",
           "photographer": "Getty Images - ICC (GettyImages-80086555)",
           "caption": "KUALA LUMPUR, MALAYSIA - MARCH 03: India U19 captain Virat Kohli poses with the ICC U/19 Cricket World Cup trophy in front of the Petronas Twin Towers on March 3, 2008 in Kuala Lumpur, Malaysia.",
-          "resolution": "2301x3000",
+          "resolution": "2301x1294",
           "status": "integrated_real_photo"
         },
         {
@@ -150,27 +129,88 @@
           "section": "Milestone 04 (Early India Debut & 2011 World Cup Torch Passing)",
           "element": "img",
           "binding": "data-vk-image=\"journey.era2011_world_cup\"",
-          "currentSrc": "../assets/images/wankhede-2011-world-cup-confetti-celebration.png",
-          "status": "archival_active"
-        },
-        {
-          "assetId": "IMG-TIMELINE-03",
-          "purpose": "journey",
-          "era": "2018 / 2016",
-          "section": "Milestone 07 (Australia Conquest & 82* Masterclass)",
-          "element": "img",
-          "binding": "data-vk-image=\"journey.era2018_australia\"",
-          "localFile": "assets/images/mohali-2016-australia-82-finger-to-sky.jpeg",
-          "currentSrc": "../assets/images/mohali-2016-australia-82-finger-to-sky.jpeg",
-          "fallbackSrc": "../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp",
-          "sourceUrl": "https://www.mensxp.com/ampstories/buzz-on-web/latest/132586-ipl-2023-virat-kohli-and-his-love-for-82-not-out-in-big-games-rcb-vs-mi.html",
-          "photographer": "ICC / AFP via MensXP",
-          "caption": "Virat Kohli stands with right index finger pointed high toward the sky in relief and triumph after his iconic 82 not out against Australia.",
-          "resolution": "720x1278",
+          "localFile": "assets/images/wankhede-2011-world-cup-trophy-celebration-centered.jpg",
+          "currentSrc": "../assets/images/wankhede-2011-world-cup-trophy-celebration-centered.jpg",
+          "resolution": "1376x768",
           "status": "integrated_real_photo"
         },
         {
-          "assetId": "IMG-TIMELINE-04",
+          "assetId": "IMG-TIMELINE-05",
+          "purpose": "journey",
+          "era": "2012 \u2014 2013",
+          "section": "Milestone 05 (The Chase Master)",
+          "element": "img",
+          "binding": "data-vk-image=\"journey.era2013_chase\"",
+          "localFile": "assets/images/dhaka-2012-kohli-183-bat-raised-roar-centered.jpg",
+          "currentSrc": "../assets/images/dhaka-2012-kohli-183-bat-raised-roar-centered.jpg",
+          "sourceUrl": "https://www.espncricinfo.com/series/asia-cup-2011-12-524504/india-vs-pakistan-5th-match-535798/match-report",
+          "photographer": "AFP / Getty Images",
+          "caption": "DHAKA, BANGLADESH - MARCH 18: Virat Kohli roars in celebration with bat raised high during his epic 183 chase against Pakistan in the 2012 Asia Cup.",
+          "resolution": "700x393",
+          "status": "integrated_real_photo"
+        },
+        {
+          "assetId": "IMG-TIMELINE-06",
+          "purpose": "journey",
+          "era": "2016",
+          "section": "Milestone 06 (A Defining Year \u2014 Peak Transcendence)",
+          "element": "img",
+          "binding": "data-vk-image=\"journey.era2016_transcendence\"",
+          "localFile": "assets/images/mohali-2016-australia-82-finger-to-sky-centered.jpg",
+          "currentSrc": "../assets/images/mohali-2016-australia-82-finger-to-sky-centered.jpg",
+          "sourceUrl": "https://www.mensxp.com/ampstories/buzz-on-web/latest/132586-ipl-2023-virat-kohli-and-his-love-for-82-not-out-in-big-games-rcb-vs-mi.html",
+          "photographer": "ICC / AFP via MensXP",
+          "caption": "MOHALI, INDIA - MARCH 27: Virat Kohli stands with right index finger pointed high toward the sky in relief and triumph after his iconic 82 not out against Australia in the 2016 World T20.",
+          "resolution": "720x405",
+          "status": "integrated_real_photo"
+        },
+        {
+          "assetId": "IMG-TIMELINE-07",
+          "purpose": "journey",
+          "era": "2018",
+          "section": "Milestone 07 (Australia Conquest & Test Command)",
+          "element": "img",
+          "binding": "data-vk-image=\"journey.era2018_command\"",
+          "localFile": "assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg",
+          "currentSrc": "../assets/images/edgbaston-2018-kohli-149-roar-celebration-centered.jpg",
+          "sourceUrl": "https://www.gettyimages.com",
+          "photographer": "Action Images via Reuters",
+          "caption": "BIRMINGHAM, ENGLAND - AUGUST 02: Virat Kohli celebrates with bat aloft in Indian Test whites during the historic 2018 Test tour.",
+          "resolution": "670x376",
+          "status": "integrated_real_photo"
+        },
+        {
+          "assetId": "IMG-TIMELINE-08",
+          "purpose": "journey",
+          "era": "2023",
+          "section": "Milestone 08 (World Cup Summit & 50th ODI Century)",
+          "element": "img",
+          "binding": "data-vk-image=\"journey.era2023_summit\"",
+          "localFile": "assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg",
+          "currentSrc": "../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg",
+          "sourceUrl": "https://www.gettyimages.co.uk/detail/news-photo/virat-kohli-of-india-celebrates-his-century-during-the-icc-news-photo/1792617651",
+          "photographer": "Punit Paranjpe / AFP via Getty Images",
+          "caption": "MUMBAI, INDIA - NOVEMBER 15: Virat Kohli celebrates after scoring his 50th ODI century during the ICC Men's Cricket World Cup India 2023 semi-final between India and New Zealand at Wankhede Stadium on November 15, 2023 in Mumbai, India.",
+          "resolution": "2048x1152",
+          "status": "integrated_real_photo"
+        },
+        {
+          "assetId": "IMG-TIMELINE-09",
+          "purpose": "journey",
+          "era": "2024",
+          "section": "Milestone 09 (T20 World Cup Champion & Bridgetown Farewell)",
+          "element": "img",
+          "binding": "data-vk-image=\"journey.era2024_t20_culmination\"",
+          "localFile": "assets/images/barbados-2024-t20-world-cup-trophy-lift-centered.jpg",
+          "currentSrc": "../assets/images/barbados-2024-t20-world-cup-trophy-lift-centered.jpg",
+          "sourceUrl": "https://www.gettyimages.com",
+          "photographer": "ICC / Getty Images",
+          "caption": "BRIDGETOWN, BARBADOS - JUNE 29: Virat Kohli holds the ICC Men's T20 World Cup 2024 trophy draped with the Indian tricolor flag after victory in the final at Kensington Oval on June 29, 2024 in Bridgetown, Barbados.",
+          "resolution": "594x334",
+          "status": "integrated_real_photo"
+        },
+        {
+          "assetId": "IMG-TIMELINE-10",
           "purpose": "journey",
           "era": "2027",
           "section": "Milestone 10 (2027 Final Chapter Swansong Climax Backdrop)",
@@ -381,7 +421,7 @@
           "match": "India vs Pakistan \u2022 Melbourne 2022 (82*)",
           "localFile": "assets/images/mcg-2022-kohli-flick-six-shot-william-west.webp",
           "currentSrc": "../assets/images/mcg-2022-kohli-flick-six-shot-william-west.webp",
-          "fallbackSrc": "../cinematic_sports_documentary_horizontal_wide_photography_of_a_legendary_packed/screen.png",
+          "fallbackSrc": "../assets/images/mcg-2022-kohli-flick-six-shot-william-west.webp",
           "sourceUrl": "https://www.gettyimages.com.au/photos/world-twenty-india-pakistan-v-australia",
           "photographer": "Quinn Rooney / Getty Images",
           "caption": "MELBOURNE, AUSTRALIA - OCTOBER 23: India's Virat Kohli plays a shot over the boundary line for six off Haris Rauf during the ICC Men's T20 World Cup match at MCG.",
@@ -394,7 +434,7 @@
           "match": "India vs Australia \u2022 Mumbai 2025",
           "localFile": "assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp",
           "currentSrc": "../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp",
-          "fallbackSrc": "../dramatic_cinematic_photograph_of_a_night_cricket_pitch_under_atmospheric_mist/screen.png",
+          "fallbackSrc": "../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp",
           "sourceUrl": "https://www.gettyimages.ie/detail/news-photo/indias-virat-kohli-celebrates-after-scoring-a-century-news-photo/1783004094",
           "photographer": "Punit Paranjpe / AFP via Getty Images",
           "resolution": "2048x1366",
@@ -415,5 +455,4 @@
     }
   }
 };
-  return MANIFEST;
 });

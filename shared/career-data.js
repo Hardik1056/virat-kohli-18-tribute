@@ -95,7 +95,8 @@
     'West Indies': { code: 'WI', flag: '🌴' },
     'Bangladesh': { code: 'BAN', flag: '🇧🇩' },
     'Afghanistan': { code: 'AFG', flag: '🇦🇫' },
-    'Zimbabwe': { code: 'ZIM', flag: '🇿🇼' }
+    'Zimbabwe': { code: 'ZIM', flag: '🇿🇼' },
+    'Qualifier A': { code: 'Q-A', flag: '🏏' }
   };
 
   function getOpponentInfo(opponent) {
@@ -125,7 +126,7 @@
         return VK18Images.venues[venueKey].src;
       }
     } catch (e) {}
-    return fallbackUrl || '../assets/images/stadium-colossal-arena-panoramic.png';
+    return fallbackUrl || '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp';
   }
 
   // =========================================================================
@@ -214,7 +215,7 @@
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'GREENFIELD ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('greenfield_trivandrum', '../assets/images/stadium-electric-packed-stands.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('greenfield_trivandrum', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-01',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-01',
@@ -240,14 +241,14 @@
       territory: 'Assam, Republic of India',
       capacity: 'Cap: 40,000 • East & West Stands',
       format: '50-Over ODI Bilateral Series — 2nd ODI',
-      status: 'upcoming',
-      allocationStatus: 'REGISTRATION OPEN',
-      statusText: 'REGISTRATION OPEN',
+      status: 'completed',
+      allocationStatus: 'COMPLETED',
+      statusText: 'COMPLETED',
       ticketPortal: 'BCCI OFFICIAL PORTAL',
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'BARSAPARA ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('barsapara_guwahati', '../assets/images/stadium-electric-packed-stands.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('barsapara_guwahati', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-02',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-02',
@@ -280,7 +281,7 @@
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'PCA MULLANPUR ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('pcamullanpur_newchandigarh', '../assets/images/stadium-legendary-packed-arena.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('pcamullanpur_newchandigarh', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-03',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-03',
@@ -315,7 +316,7 @@
       officialTicketUrl: 'https://www.nzc.nz/',
       ticketUrl: 'https://www.nzc.nz/',
       venueGuide: 'EDEN PARK ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('edenpark_auckland', '../assets/images/stadium-night-pitch-atmospheric-mist.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('edenpark_auckland', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-04',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-04',
@@ -348,7 +349,7 @@
       officialTicketUrl: 'https://www.nzc.nz/',
       ticketUrl: 'https://www.nzc.nz/',
       venueGuide: 'SKY STADIUM ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('skystadium_wellington', '../assets/images/stadium-night-pitch-atmospheric-mist.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('skystadium_wellington', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-05',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-05',
@@ -381,7 +382,7 @@
       officialTicketUrl: 'https://www.nzc.nz/',
       ticketUrl: 'https://www.nzc.nz/',
       venueGuide: 'SEDDON PARK ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('seddonpark_hamilton', '../assets/images/stadium-legendary-ground-evening.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('seddonpark_hamilton', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-06',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-06',
@@ -414,7 +415,7 @@
       officialTicketUrl: 'https://www.nzc.nz/',
       ticketUrl: 'https://www.nzc.nz/',
       venueGuide: 'BAY OVAL ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('bayoval_mtmaunganui', '../assets/images/stadium-legendary-packed-arena.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('bayoval_mtmaunganui', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-07',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-07',
@@ -447,7 +448,7 @@
       officialTicketUrl: 'https://www.nzc.nz/',
       ticketUrl: 'https://www.nzc.nz/',
       venueGuide: 'BAY OVAL ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('bayoval_mtmaunganui', '../assets/images/stadium-legendary-packed-arena.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('bayoval_mtmaunganui', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-08',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-08',
@@ -482,7 +483,7 @@
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'ARUN JAITLEY ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('arunjaitley_delhi', '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-hindustan-times.jpg'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('arunjaitley_delhi', '../assets/images/delhi-ranji-trophy-2006-debut-feroz-shah-kotla-centered.jpg'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-09',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-09',
@@ -515,7 +516,7 @@
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'CHINNASWAMY ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('chinnaswamy_bengaluru', '../assets/images/stadium-passionate-crowd-floodlights.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('chinnaswamy_bengaluru', '../assets/images/wankhede-2023-semi-final-post-match-walkoff-alex-davidson.jpg'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-10',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-10',
@@ -548,7 +549,7 @@
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'NARENDRA MODI STADIUM GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('narendramodi_ahmedabad', '../assets/images/stadium-colossal-arena-panoramic.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('narendramodi_ahmedabad', '../assets/images/world-cup-2023-portrait-fist-roar-alex-davidson.jpg'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-11',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-11',
@@ -583,7 +584,7 @@
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'EDEN GARDENS ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('edengardens_kolkata', '../assets/images/eden-gardens-2023-century-49-celebration-surjeet-yadav.webp'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('edengardens_kolkata', '../assets/images/eden-gardens-2023-century-49-celebration-centered.jpg'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-12',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-12',
@@ -616,7 +617,7 @@
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'RAJIV GANDHI STADIUM GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('rajivgandhi_hyderabad', '../assets/images/stadium-passionate-crowd-floodlights.png'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('rajivgandhi_hyderabad', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-13',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-13',
@@ -649,10 +650,187 @@
       officialTicketUrl: 'https://www.bcci.tv/',
       ticketUrl: 'https://www.bcci.tv/',
       venueGuide: 'MCA ARENA GUIDE',
-      get imageSrc() { return this._imageSrc || getVenueImage('wankhede_mumbai', '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp'); },
+      get imageSrc() { return this._imageSrc || getVenueImage('wankhede_mumbai', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
       set imageSrc(v) { this._imageSrc = v; },
       matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-14',
       detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-14',
+      homeTeam: { name: 'India', code: 'IND', flag: '🇮🇳' },
+      get awayTeam() { return getOpponentInfo(this.opponent); }
+    },
+
+    // ============================================================
+    // ICC MEN'S CRICKET WORLD CUP 2027 — GROUP A FIXTURES
+    // Source: Official ICC & Cricbuzz Tournament Schedule Announcement
+    // Window: 02 October – 21 November 2027 (57 ODIs across South Africa, Zimbabwe, Namibia)
+    // India placed in Group A with Australia, Pakistan, Afghanistan, Zimbabwe, and Qualifier A
+    // ============================================================
+    {
+      id: 'match-15',
+      index: 15,
+      appearanceNo: 478,
+      ref: 'ACT V • REF 18/CAPETOWN-AUS-CWC',
+      archiveRef: 'OD-2027-CWC-IND-AUS-001',
+      series: "ICC Men's Cricket World Cup 2027",
+      title: 'IND VS AUS — CWC GROUP A OPENER',
+      opponent: 'Australia',
+      date: '2027-10-07T17:00:00+05:30',
+      dateDisplay: '07 OCTOBER 2027',
+      dateSubtext: 'World Cup Group A Opener at Newlands',
+      time: '17:00 IST',
+      timeSubtext: 'Indian Standard Time (IST) • 17:00 IST (13:30 SAST)',
+      venue: 'Newlands Cricket Ground',
+      city: 'Cape Town',
+      territory: 'Western Cape, Republic of South Africa',
+      capacity: 'Cap: 25,000 • Under Table Mountain',
+      format: "50-Over ICC Men's Cricket World Cup — Group A Match 1",
+      stage: 'Group Stage — Group A',
+      status: 'upcoming',
+      allocationStatus: 'BALLOT REGISTRATION ANNOUNCED',
+      statusText: 'OFFICIALLY SCHEDULED',
+      ticketPortal: 'ICC OFFICIAL CWC TICKETING',
+      officialTicketUrl: 'https://tickets.cricketworldcup.com/',
+      ticketUrl: 'https://tickets.cricketworldcup.com/',
+      venueGuide: 'NEWLANDS CRICKET GROUND GUIDE',
+      get imageSrc() { return this._imageSrc || getVenueImage('newlands_capetown', '../assets/images/pune-2019-kohli-254-double-century-centered.jpg'); },
+      set imageSrc(v) { this._imageSrc = v; },
+      matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-15',
+      detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-15',
+      homeTeam: { name: 'India', code: 'IND', flag: '🇮🇳' },
+      get awayTeam() { return getOpponentInfo(this.opponent); }
+    },
+    {
+      id: 'match-16',
+      index: 16,
+      appearanceNo: 479,
+      ref: 'ACT V • REF 18/JOHANNESBURG-PAK-CWC',
+      archiveRef: 'OD-2027-CWC-IND-PAK-002',
+      series: "ICC Men's Cricket World Cup 2027",
+      title: 'IND VS PAK — CWC GROUP A BLOCKBUSTER',
+      opponent: 'Pakistan',
+      date: '2027-10-10T17:00:00+05:30',
+      dateDisplay: '10 OCTOBER 2027',
+      dateSubtext: 'World Cup Highveld Clash at The Bullring',
+      time: '17:00 IST',
+      timeSubtext: 'Indian Standard Time (IST) • 17:00 IST (13:30 SAST)',
+      venue: 'The Wanderers Stadium',
+      city: 'Johannesburg',
+      territory: 'Gauteng, Republic of South Africa',
+      capacity: 'Cap: 34,000 • The Bullring Highveld Arena',
+      format: "50-Over ICC Men's Cricket World Cup — Group A Match 2",
+      stage: 'Group Stage — Group A',
+      status: 'upcoming',
+      allocationStatus: 'BALLOT REGISTRATION ANNOUNCED',
+      statusText: 'OFFICIALLY SCHEDULED',
+      ticketPortal: 'ICC OFFICIAL CWC TICKETING',
+      officialTicketUrl: 'https://tickets.cricketworldcup.com/',
+      ticketUrl: 'https://tickets.cricketworldcup.com/',
+      venueGuide: 'WANDERERS STADIUM GUIDE',
+      get imageSrc() { return this._imageSrc || getVenueImage('wanderers_johannesburg', '../assets/images/world-cup-2023-portrait-fist-roar-alex-davidson.jpg'); },
+      set imageSrc(v) { this._imageSrc = v; },
+      matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-16',
+      detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-16',
+      homeTeam: { name: 'India', code: 'IND', flag: '🇮🇳' },
+      get awayTeam() { return getOpponentInfo(this.opponent); }
+    },
+    {
+      id: 'match-17',
+      index: 17,
+      appearanceNo: 480,
+      ref: 'ACT V • REF 18/TSHWANE-AFG-CWC',
+      archiveRef: 'OD-2027-CWC-IND-AFG-003',
+      series: "ICC Men's Cricket World Cup 2027",
+      title: 'IND VS AFG — CWC GROUP A',
+      opponent: 'Afghanistan',
+      date: '2027-10-14T17:00:00+05:30',
+      dateDisplay: '14 OCTOBER 2027',
+      dateSubtext: 'World Cup Day/Night Match at SuperSport Park',
+      time: '17:00 IST',
+      timeSubtext: 'Indian Standard Time (IST) • 17:00 IST (13:30 SAST)',
+      venue: 'SuperSport Park',
+      city: 'Centurion (Tshwane)',
+      territory: 'Gauteng, Republic of South Africa',
+      capacity: 'Cap: 22,000 • Centurion Embankments',
+      format: "50-Over ICC Men's Cricket World Cup — Group A Match 3",
+      stage: 'Group Stage — Group A',
+      status: 'upcoming',
+      allocationStatus: 'BALLOT REGISTRATION ANNOUNCED',
+      statusText: 'OFFICIALLY SCHEDULED',
+      ticketPortal: 'ICC OFFICIAL CWC TICKETING',
+      officialTicketUrl: 'https://tickets.cricketworldcup.com/',
+      ticketUrl: 'https://tickets.cricketworldcup.com/',
+      venueGuide: 'SUPERSPORT PARK GUIDE',
+      get imageSrc() { return this._imageSrc || getVenueImage('supersport_centurion', '../assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp'); },
+      set imageSrc(v) { this._imageSrc = v; },
+      matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-17',
+      detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-17',
+      homeTeam: { name: 'India', code: 'IND', flag: '🇮🇳' },
+      get awayTeam() { return getOpponentInfo(this.opponent); }
+    },
+    {
+      id: 'match-18',
+      index: 18,
+      appearanceNo: 481,
+      ref: 'ACT V • REF 18/BLOEMFONTEIN-QA-CWC',
+      archiveRef: 'OD-2027-CWC-IND-QA-004',
+      series: "ICC Men's Cricket World Cup 2027",
+      title: 'IND VS QUALIFIER A — CWC GROUP A',
+      opponent: 'Qualifier A',
+      date: '2027-10-17T17:00:00+05:30',
+      dateDisplay: '17 OCTOBER 2027',
+      dateSubtext: 'World Cup Match at Mangaung Oval',
+      time: '17:00 IST',
+      timeSubtext: 'Indian Standard Time (IST) • 17:00 IST (13:30 SAST)',
+      venue: 'Mangaung Oval',
+      city: 'Bloemfontein',
+      territory: 'Free State, Republic of South Africa',
+      capacity: 'Cap: 20,000 • Free State Oval',
+      format: "50-Over ICC Men's Cricket World Cup — Group A Match 4",
+      stage: 'Group Stage — Group A',
+      status: 'upcoming',
+      allocationStatus: 'BALLOT REGISTRATION ANNOUNCED',
+      statusText: 'OFFICIALLY SCHEDULED',
+      ticketPortal: 'ICC OFFICIAL CWC TICKETING',
+      officialTicketUrl: 'https://tickets.cricketworldcup.com/',
+      ticketUrl: 'https://tickets.cricketworldcup.com/',
+      venueGuide: 'MANGAUNG OVAL GUIDE',
+      get imageSrc() { return this._imageSrc || getVenueImage('mangaung_bloemfontein', '../assets/images/eden-gardens-2023-century-49-celebration-centered.jpg'); },
+      set imageSrc(v) { this._imageSrc = v; },
+      matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-18',
+      detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-18',
+      homeTeam: { name: 'India', code: 'IND', flag: '🇮🇳' },
+      get awayTeam() { return getOpponentInfo(this.opponent); }
+    },
+    {
+      id: 'match-19',
+      index: 19,
+      appearanceNo: 482,
+      ref: 'ACT V • REF 18/VICFALLS-ZIM-CWC',
+      archiveRef: 'OD-2027-CWC-IND-ZIM-005',
+      series: "ICC Men's Cricket World Cup 2027",
+      title: 'ZIM VS IND — CWC GROUP A FINALE',
+      opponent: 'Zimbabwe',
+      date: '2027-10-24T17:00:00+05:30',
+      dateDisplay: '24 OCTOBER 2027',
+      dateSubtext: 'World Cup Group A Finale at Victoria Falls',
+      time: '17:00 IST',
+      timeSubtext: 'Indian Standard Time (IST) • 17:00 IST (13:30 CAT)',
+      venue: 'Victoria Falls Stadium',
+      city: 'Victoria Falls',
+      territory: 'Matabeleland North, Zimbabwe',
+      capacity: 'Cap: 12,000 • Zambezi Basin Natural Arena',
+      format: "50-Over ICC Men's Cricket World Cup — Group A Match 5",
+      stage: 'Group Stage — Group A',
+      status: 'upcoming',
+      allocationStatus: 'BALLOT REGISTRATION ANNOUNCED',
+      statusText: 'OFFICIALLY SCHEDULED',
+      ticketPortal: 'ICC OFFICIAL CWC TICKETING',
+      officialTicketUrl: 'https://tickets.cricketworldcup.com/',
+      ticketUrl: 'https://tickets.cricketworldcup.com/',
+      venueGuide: 'VICTORIA FALLS CRICKET GUIDE',
+      get imageSrc() { return this._imageSrc || getVenueImage('victoriafalls_zimbabwe', '../assets/images/wankhede-2023-semi-final-post-match-walkoff-alex-davidson.jpg'); },
+      set imageSrc(v) { this._imageSrc = v; },
+      matchDetailsUrl: '../18_match_details_india_vs_australia/code.html?match=match-19',
+      detailsPage: '../18_match_details_india_vs_australia/code.html?match=match-19',
       homeTeam: { name: 'India', code: 'IND', flag: '🇮🇳' },
       get awayTeam() { return getOpponentInfo(this.opponent); }
     }
@@ -741,7 +919,8 @@
   // - worldCup2027TournamentInfo: Central tournament details and metadata.
   const worldCup2027FinalDate = '2027-11-21T00:00:00+05:30';
   const worldCup2027FinalNote = 'If India plays the final';
-  const worldCup2027StartDate = '2027-10-15T00:00:00+05:30';
+  const worldCup2027StartDate = '2027-10-02T00:00:00+05:30';
+  const worldCup2027IndiaStartDate = '2027-10-07T17:00:00+05:30';
   const worldCup2027StartTime = '17:00 IST';
 
   const worldCup2027TournamentInfo = {
@@ -749,12 +928,13 @@
     edition: '2027',
     year: 2027,
     startDate: worldCup2027StartDate,
+    indiaStartDate: worldCup2027IndiaStartDate,
     startTime: worldCup2027StartTime,
     finalDate: worldCup2027FinalDate,
     targetDate: worldCup2027FinalDate,
     finalNote: worldCup2027FinalNote,
     note: worldCup2027FinalNote,
-    window: 'October – November 2027',
+    window: '02 October – 21 November 2027',
     hosts: 'South Africa • Zimbabwe • Namibia',
     hostNations: ['South Africa', 'Zimbabwe', 'Namibia'],
     format: '50-Over One Day International (ODI)',
@@ -763,8 +943,36 @@
     title: '2027: HIS LAST WORLD CUP',
     subtitle: 'FOR INDIA',
     campaignTitle: 'THE FINAL ODI CHAPTER // FOR INDIA',
-    status: 'CONFIRMED SCHEDULE',
-    notes: 'Potential final date: 2027-11-21T00:00:00+05:30 (If India plays the final). Confirmed as his final World Cup for India. Excludes IPL and domestic franchise cricket.'
+    status: 'OFFICIAL SCHEDULE ANNOUNCED',
+    totalMatches: 57,
+    totalTeams: 14,
+    indiaGroup: 'Group A',
+    groupTeams: ['India', 'Australia', 'Pakistan', 'Afghanistan', 'Zimbabwe', 'Qualifier A'],
+    groupBTeams: ['South Africa', 'New Zealand', 'England', 'Sri Lanka', 'Bangladesh', 'Qualifier B'],
+    super7Window: '25 October – 14 November 2027',
+    semiFinal1: {
+      date: '2027-11-17T17:00:00+05:30',
+      dateDisplay: '17 NOVEMBER 2027',
+      venue: 'Newlands Cricket Ground',
+      city: 'Cape Town',
+      country: 'South Africa'
+    },
+    semiFinal2: {
+      date: '2027-11-18T17:00:00+05:30',
+      dateDisplay: '18 NOVEMBER 2027',
+      venue: 'SuperSport Park',
+      city: 'Centurion (Tshwane)',
+      country: 'South Africa'
+    },
+    finalVenue: 'The Wanderers Stadium, Johannesburg',
+    finalMatch: {
+      date: '2027-11-21T17:00:00+05:30',
+      dateDisplay: '21 NOVEMBER 2027',
+      venue: 'The Wanderers Stadium',
+      city: 'Johannesburg',
+      country: 'South Africa'
+    },
+    notes: 'Official ICC schedule announced. 57 ODIs across South Africa, Zimbabwe, and Namibia. India campaign commences 07 October 2027 vs Australia in Cape Town.'
   };
 
   // =========================================================================
@@ -942,9 +1150,43 @@
       this._remainingIndiaODIsOverride = val;
     },
 
-    // Announced Bilateral ODIs: directly derived from upcoming fixtures in indiaODISchedule
+    // Announced Bilateral ODIs: upcoming fixtures excluding World Cup
     get announcedBilateralODIs() {
+      if (!Array.isArray(this.indiaODISchedule)) return 0;
+      return this.indiaODISchedule.filter(fixture => {
+        if (!fixture || typeof fixture !== 'object') return false;
+        const isBilateral = !fixture.series || !fixture.series.includes("World Cup");
+        const s = String(fixture.status || '').toLowerCase().trim();
+        return isBilateral && (s === 'upcoming' || s === 'scheduled');
+      }).length;
+    },
+
+    // Announced World Cup ODIs: confirmed upcoming World Cup fixtures
+    get announcedWorldCupODIs() {
+      if (!Array.isArray(this.indiaODISchedule)) return 0;
+      return this.indiaODISchedule.filter(fixture => {
+        if (!fixture || typeof fixture !== 'object') return false;
+        const isWC = fixture.series && fixture.series.includes("World Cup");
+        const s = String(fixture.status || '').toLowerCase().trim();
+        return isWC && (s === 'upcoming' || s === 'scheduled');
+      }).length;
+    },
+
+    // Total confirmed upcoming fixtures across bilaterals and World Cup
+    get confirmedUpcomingODIs() {
       return deriveRemainingIndiaODIs(this.indiaODISchedule);
+    },
+
+    // World Cup 2027 fixtures
+    get worldCupMatches() {
+      if (!Array.isArray(this.indiaODISchedule)) return [];
+      return this.indiaODISchedule.filter(m => m.series && m.series.includes("World Cup"));
+    },
+
+    // Bilateral fixtures
+    get bilateralMatches() {
+      if (!Array.isArray(this.indiaODISchedule)) return [];
+      return this.indiaODISchedule.filter(m => !m.series || !m.series.includes("World Cup"));
     },
 
     // Dynamic Upcoming Matches: playable fixtures ahead of the current date,

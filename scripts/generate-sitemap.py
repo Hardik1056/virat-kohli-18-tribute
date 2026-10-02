@@ -20,8 +20,8 @@ URL_ENTRIES = [
                 "title": "Virat Kohli — 18 One Last Chapter Farewell Tribute"
             },
             {
-                "loc": f"{BASE_URL}/assets/images/portrait-solitary-champion-batsman.png",
-                "title": "Virat Kohli Cinematic Monolith Portrait"
+                "loc": f"{BASE_URL}/assets/images/world-cup-2023-portrait-folded-arms-alex-davidson.jpg",
+                "title": "Virat Kohli Iconic Studio Portrait"
             }
         ]
     },
@@ -73,7 +73,7 @@ URL_ENTRIES = [
         "changefreq": "monthly",
         "images": [
             {
-                "loc": f"{BASE_URL}/assets/images/solitary-batsman-tunnel-walk.png",
+                "loc": f"{BASE_URL}/assets/images/world-cup-2023-portrait-folded-arms-alex-davidson.jpg",
                 "title": "The Last Chapter — India Relentless Chaser Retrospective"
             }
         ]
@@ -99,7 +99,7 @@ URL_ENTRIES = [
         "changefreq": "daily",
         "images": [
             {
-                "loc": f"{BASE_URL}/assets/images/stadium-passionate-crowd-floodlights.png",
+                "loc": f"{BASE_URL}/assets/images/wankhede-2023-semi-final-defensive-shot-alex-davidson.webp",
                 "title": "Remaining India ODI Fixtures & 100 Centuries Countdown"
             }
         ]
@@ -110,7 +110,7 @@ URL_ENTRIES = [
         "changefreq": "weekly",
         "images": [
             {
-                "loc": f"{BASE_URL}/assets/images/stadium-colossal-arena-panoramic.png",
+                "loc": f"{BASE_URL}/assets/images/world-cup-2023-portrait-fist-roar-alex-davidson.jpg",
                 "title": "ICC World Cup 2027 Africa Campaign"
             }
         ]
@@ -132,7 +132,7 @@ URL_ENTRIES = [
         "changefreq": "weekly",
         "images": [
             {
-                "loc": f"{BASE_URL}/assets/images/stadium-night-pitch-atmospheric-mist.png",
+                "loc": f"{BASE_URL}/assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe.webp",
                 "title": "India vs Australia Fixture Dossier"
             }
         ]
@@ -143,7 +143,7 @@ URL_ENTRIES = [
         "changefreq": "monthly",
         "images": [
             {
-                "loc": f"{BASE_URL}/assets/images/stadium-electric-packed-stands.png",
+                "loc": f"{BASE_URL}/assets/images/mcg-2022-stadium-stands-wide-view-surjeet-yadav.jpg",
                 "title": "Be There — Stadium Dossiers & Witness Guide"
             }
         ]
@@ -165,7 +165,7 @@ URL_ENTRIES = [
         "changefreq": "monthly",
         "images": [
             {
-                "loc": f"{BASE_URL}/assets/images/vintage-youthful-cricket-batsman.png",
+                "loc": f"{BASE_URL}/assets/images/wankhede-2023-semi-final-post-match-walkoff-alex-davidson.jpg",
                 "title": "Virat Kohli Commemorative Keepsake Ticket Generator"
             }
         ]

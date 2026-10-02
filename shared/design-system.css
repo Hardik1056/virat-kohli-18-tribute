@@ -311,10 +311,13 @@ main > :last-child {
 }
 
 /* --- Visually Hidden ---
-   The compiled Tailwind build does not emit .sr-only, so the crawler-only
-   SEO block in 18_one_last_chapter_hero rendered as a wall of visible text.
-   Defined here rather than in compiled-tailwind.css so a recompile can't
-   drop it. Content stays in the DOM and stays crawlable. */
+   compiled-tailwind.css had gone stale: the crawler-only
+   <article class="sr-only"> added in d08e9b7 was never accompanied by a CSS
+   rebuild, so .sr-only was undefined and the block rendered as a wall of
+   visible text. Tailwind does emit .sr-only once the build is current — this
+   rule lives here, in the hand-authored layer, so the block cannot become
+   visible again merely because the generated sheet has drifted. Content
+   stays in the DOM and stays crawlable. */
 .sr-only {
   position: absolute;
   width: 1px;

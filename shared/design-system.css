@@ -309,3 +309,20 @@ main > :last-child {
   pointer-events: none;
   background: linear-gradient(to top, var(--color-surface-container-lowest), transparent 60%);
 }
+
+/* --- Visually Hidden ---
+   The compiled Tailwind build does not emit .sr-only, so the crawler-only
+   SEO block in 18_one_last_chapter_hero rendered as a wall of visible text.
+   Defined here rather than in compiled-tailwind.css so a recompile can't
+   drop it. Content stays in the DOM and stays crawlable. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

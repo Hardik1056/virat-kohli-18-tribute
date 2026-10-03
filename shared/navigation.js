@@ -171,7 +171,7 @@
         }
       }
     }
-    return match ? match[0] : '18_one_last_chapter_hero';
+    return '18_one_last_chapter_hero';
   }
 
   function isSectionActive(item, currentFolder) {

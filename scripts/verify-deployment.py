@@ -259,8 +259,28 @@ def check_seo_and_meta():
         if 'property="og:title"' not in content and 'name="og:title"' not in content:
             errors.append(f"[{page_rel}] Missing Open Graph og:title")
 
+        # Validate JSON-LD structured data
+        if '<script type="application/ld+json">' in content:
+            try:
+                for match in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', content, re.DOTALL):
+                    json_str = match.group(1).strip()
+                    ld_data = json.loads(json_str)
+                    items = ld_data if isinstance(ld_data, list) else [ld_data]
+                    for item in items:
+                        if item.get("@type") == "SportsEvent":
+                            for req_field in ["name", "startDate", "location", "offers", "eventStatus", "organizer", "performer", "image"]:
+                                if req_field not in item:
+                                    errors.append(f"[{page_rel}] SportsEvent missing Google Events field '{req_field}'")
+                            offers = item.get("offers", {})
+                            if isinstance(offers, dict):
+                                for offer_field in ["@type", "price", "priceCurrency", "url", "availability"]:
+                                    if offer_field not in offers:
+                                        errors.append(f"[{page_rel}] SportsEvent.offers missing field '{offer_field}'")
+            except Exception as e:
+                errors.append(f"[{page_rel}] JSON-LD syntax error: {e}")
+
     if not errors:
-        print(f"   ✓ All {len(pages_to_check)} content pages have proper titles, meta descriptions, and viewport settings.")
+        print(f"   ✓ All {len(pages_to_check)} content pages have proper titles, meta descriptions, viewport settings, and valid Schema.org JSON-LD.")
     return errors
 
 def check_deployment_configs():

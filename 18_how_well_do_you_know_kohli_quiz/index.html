@@ -1449,6 +1449,16 @@
         return `${lead} ${correctAnswersCount}/10 (${score.toLocaleString()} pts • ${rank}) on the Ultimate Virat Kohli Cricket IQ Challenge! 👑⚡\n\n4 options, 4 lifelines — think you know King Kohli better than me? Prove it:\n${shareUrl}\n\n#ViratKohli #KingKohli #VK18 #TheLastDance18`;
       }
 
+      // Clipboard payload. The URL MUST come last and nothing may follow it:
+      // apps that collapse newlines on paste (the browser address bar does this)
+      // would otherwise glue the trailing sentence onto the URL, making the whole
+      // blob the path — which 404s. Terminated by end-of-string it stays intact.
+      function getChallengeText() {
+        const rawName = (fanHandleInput && fanHandleInput.value.trim());
+        const challenger = rawName ? `${rawName}'s` : 'my';
+        return `Can you beat ${challenger} ${correctAnswersCount}/10 score (${score.toLocaleString()} pts) on the Virat Kohli Cricket IQ Challenge? 👑⚡\n${shareUrl}`;
+      }
+
       // Native Web Share API
       const btnShareNative = document.getElementById('btn-share-native');
       if (btnShareNative) {
@@ -1466,11 +1476,11 @@
               showToast('SHARED TO APPS SUCCESSFULLY!');
             } catch (err) {
               if (err.name !== 'AbortError') {
-                copyToClipboard(shareText);
+                copyToClipboard(getChallengeText());
               }
             }
           } else {
-            copyToClipboard(shareText);
+            copyToClipboard(getChallengeText());
           }
         });
       }
@@ -1538,9 +1548,7 @@
       if (btnCopyLink) {
         btnCopyLink.addEventListener('click', () => {
           playSound('click');
-          const rawName = (fanHandleInput && fanHandleInput.value.trim());
-          const challenger = rawName ? `${rawName}'s` : 'my';
-          copyToClipboard(`${shareUrl}\n\nCan you beat ${challenger} ${correctAnswersCount}/10 score (${score.toLocaleString()} pts) on the Virat Kohli Cricket IQ Challenge?`);
+          copyToClipboard(getChallengeText());
         });
       }
 

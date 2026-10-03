@@ -7,7 +7,8 @@
     "dev": "python3 -m http.server 3018",
     "serve": "npx -y serve . -l 3018",
     "build:css": "npx -y tailwindcss@3.4.17 -i ./shared/input.css -o ./shared/compiled-tailwind.css --minify",
-    "build": "npm run build:css",
+    "sync": "python3 -c \"from pathlib import Path; [(d / 'index.html').write_bytes((d / 'code.html').read_bytes()) for d in Path('.').iterdir() if d.is_dir() and (d / 'code.html').is_file() and (d / 'index.html').is_file()]; print('All page pairs synced.')\"",
+    "build": "npm run sync && npm run build:css",
     "check": "python3 scripts/verify-deployment.py"
   },
   "keywords": [

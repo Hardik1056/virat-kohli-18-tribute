@@ -37,6 +37,7 @@ PAGE_FILES = [
     "18_be_there_for_it_desktop/code.html",
     "18_we_were_there_fan_memories_keepsake/code.html",
     "18_i_was_there_commemorative_keepsake_generator/code.html",
+    "18_how_well_do_you_know_kohli_quiz/code.html",
 ]
 
 CRITICAL_SHARED_ASSETS = [
@@ -44,6 +45,7 @@ CRITICAL_SHARED_ASSETS = [
     "shared/design-system.css",
     "shared/navigation.js",
     "shared/career-data.js",
+    "shared/quiz-data.js",
     "shared/tailwind.config.js",
     "vercel.json",
     "netlify.toml",
@@ -67,7 +69,7 @@ REQUIRED_SECURITY_HEADERS = [
 
 def check_files_exist():
     errors = []
-    print("🔍 [1/7] Checking required files and templates...")
+    print("🔍 [1/8] Checking required files and templates...")
     for rel_path in PAGE_FILES:
         full_path = ROOT_DIR / rel_path
         if not full_path.is_file():
@@ -82,13 +84,29 @@ def check_files_exist():
         elif full_path.stat().st_size == 0:
             errors.append(f"Empty critical asset: {rel_path}")
 
+    # Check byte-level parity between code.html and index.html across all 18_* directories
+    for child in ROOT_DIR.iterdir():
+        if child.is_dir() and child.name.startswith("18_"):
+            code_f = child / "code.html"
+            index_f = child / "index.html"
+            if code_f.is_file() and index_f.is_file():
+                if code_f.read_bytes() != index_f.read_bytes():
+                    errors.append(f"[{child.name}] Desync between code.html and index.html. Run 'npm run sync'.")
+            elif code_f.is_file() and not index_f.is_file():
+                errors.append(f"[{child.name}] Missing index.html mirror for code.html. Run 'npm run sync'.")
+
+    # Ensure no redundant symlink at repo root
+    quiz_path = ROOT_DIR / "quiz"
+    if quiz_path.is_symlink() or quiz_path.exists():
+        errors.append("Redundant 'quiz' symlink or file found at repo root. Clean routes in deploy configs handle /quiz.")
+
     if not errors:
-        print(f"   ✓ All {len(PAGE_FILES)} pages and {len(CRITICAL_SHARED_ASSETS)} critical assets exist and are non-empty.")
+        print(f"   ✓ All {len(PAGE_FILES)} pages and {len(CRITICAL_SHARED_ASSETS)} critical assets exist, are non-empty, and maintain 100% code.html/index.html byte parity.")
     return errors
 
 def check_favicons():
     errors = []
-    print("🔍 [2/7] Checking Favicon & PWA configuration...")
+    print("🔍 [2/8] Checking Favicon & PWA configuration...")
     for page_rel in PAGE_FILES:
         full_page_path = ROOT_DIR / page_rel
         if not full_page_path.is_file():
@@ -105,7 +123,7 @@ def check_favicons():
 
 def check_security_headers():
     errors = []
-    print("🔍 [3/7] Auditing HTTP security headers across Vercel & Netlify...")
+    print("🔍 [3/8] Auditing HTTP security headers across Vercel & Netlify...")
     
     # Check vercel.json
     vercel_path = ROOT_DIR / "vercel.json"
@@ -171,7 +189,7 @@ def check_html_links_and_assets():
     errors = []
     checked_refs = 0
     routes = clean_routes()
-    print("🔍 [4/7] Verifying local asset links and img sources across all HTML pages...")
+    print("🔍 [4/8] Verifying local asset links and img sources across all HTML pages...")
 
     src_pattern = re.compile(r'(?:src|href)=["\']([^"\']+)["\']', re.IGNORECASE)
 
@@ -223,7 +241,7 @@ def check_html_links_and_assets():
 
 def check_seo_and_meta():
     errors = []
-    print("🔍 [5/7] Checking SEO meta tags, titles, and social previews...")
+    print("🔍 [5/8] Checking SEO meta tags, titles, and social previews...")
     pages_to_check = [p for p in PAGE_FILES if p != "index.html"]
 
     for page_rel in pages_to_check:
@@ -247,7 +265,7 @@ def check_seo_and_meta():
 
 def check_deployment_configs():
     errors = []
-    print("🔍 [6/7] Verifying Vercel & Netlify routing configs and sitemap...")
+    print("🔍 [6/8] Verifying Vercel & Netlify routing configs and sitemap...")
 
     # Check vercel.json rewrites
     vercel_path = ROOT_DIR / "vercel.json"
@@ -293,7 +311,7 @@ def check_deployment_configs():
 
 def check_policy_constraints():
     errors = []
-    print("🔍 [7/7] Enforcing strict domain policies (Zero IPL stats on international records)...")
+    print("🔍 [7/8] Enforcing strict domain policies (Zero IPL stats on international records)...")
     ipl_forbidden_patterns = [
         r"\bRoyal Challengers\b",
         r"\bRCB\b",
@@ -304,16 +322,119 @@ def check_policy_constraints():
         r"\bIPL Runs\b",
     ]
     
-    # Check stats page specifically
-    stats_page = ROOT_DIR / "18_career_stats_international/code.html"
-    if stats_page.is_file():
-        content = stats_page.read_text(encoding="utf-8")
-        for pat in ipl_forbidden_patterns:
-            if re.search(pat, content, re.IGNORECASE):
-                errors.append(f"[Policy Violation] Found '{pat}' match in 18_career_stats_international/code.html. Only international cricket allowed.")
+    # Check stats page, quiz engine, and quiz datasets
+    pure_records_files = [
+        "18_career_stats_international/code.html",
+        "shared/quiz-data.js",
+        "18_how_well_do_you_know_kohli_quiz/code.html",
+    ]
+    for rel_path in pure_records_files:
+        target_f = ROOT_DIR / rel_path
+        if target_f.is_file():
+            content = target_f.read_text(encoding="utf-8")
+            # Strip comments before checking so header disclaimer 'Zero IPL Content' is not flagged
+            clean_content = re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL)
+            clean_content = re.sub(r'//.*', '', clean_content)
+            for pat in ipl_forbidden_patterns:
+                if re.search(pat, clean_content, re.IGNORECASE):
+                    errors.append(f"[Policy Violation] Found '{pat}' match in {rel_path}. Only international cricket allowed.")
 
     if not errors:
         print("   ✓ Policy passed: Pure international cricket statistics strictly preserved.")
+    return errors
+
+def check_compiled_stylesheet():
+    """Verifies that shared/compiled-tailwind.css is up to date and covers all
+    utility class tokens authored across the site.
+
+    ARCHITECTURAL NOTE:
+    shared/tailwind.config.js exports THEME ONLY (no content array).
+    Content scanning globs live strictly in root tailwind.config.js.
+    """
+    errors = []
+    print("🔍 [8/8] Verifying compiled stylesheet freshness & class token coverage...")
+    print("   ℹ️  Note: shared/tailwind.config.js exports theme only (no content array); content globs live in root tailwind.config.js.")
+
+    css_path = ROOT_DIR / "shared/compiled-tailwind.css"
+    if not css_path.is_file():
+        errors.append("shared/compiled-tailwind.css does not exist. Run 'npm run build:css'.")
+        return errors
+
+    css_size = css_path.stat().st_size
+    if css_size < 50000:
+        errors.append(f"shared/compiled-tailwind.css is suspiciously small ({css_size} bytes). Run 'npm run build:css'.")
+        return errors
+
+    ds_path = ROOT_DIR / "shared/design-system.css"
+    co_path = ROOT_DIR / "shared/contrast-overrides.css"
+
+    combined_css = css_path.read_text(encoding="utf-8")
+    if ds_path.is_file():
+        combined_css += "\n" + ds_path.read_text(encoding="utf-8")
+    if co_path.is_file():
+        combined_css += "\n" + co_path.read_text(encoding="utf-8")
+
+    # Collect inline styles from HTML pages
+    inline_styles = ""
+    for p in PAGE_FILES:
+        f = ROOT_DIR / p
+        if f.is_file():
+            content = f.read_text(encoding="utf-8")
+            for sm in re.finditer(r'<style[^>]*>(.*?)</style>', content, re.DOTALL):
+                inline_styles += "\n" + sm.group(1)
+
+    # Strip CSS block comments so documentation comments never produce false-positive class matches
+    clean_combined_css = re.sub(r'/\*.*?\*/', '', combined_css, flags=re.DOTALL)
+    all_css = clean_combined_css + "\n" + inline_styles
+
+    def escape_class_for_css(cls):
+        escaped = cls
+        for ch in [':', '/', '[', ']', '#', '.', '%', '(', ')']:
+            escaped = escaped.replace(ch, '\\' + ch)
+        escaped = escaped.replace(',', '\\2c ')
+        return escaped
+
+    ignored_prefixes = ('vk-', 'material-', 'fa-', 'swiper-')
+    ignored_tokens = {'dark', 'format-tab-btn', 'mode-select-btn', 'option-btn', 'milestone-card'}
+
+    missing_by_page = {}
+    total_tokens_checked = 0
+
+    for page_rel in PAGE_FILES:
+        f = ROOT_DIR / page_rel
+        if not f.is_file():
+            continue
+        content = f.read_text(encoding="utf-8")
+        tokens = set()
+
+        for m in re.finditer(r'class=["\']([^"\']+)["\']', content):
+            for t in m.group(1).split():
+                t = t.strip()
+                if t and not t.startswith(ignored_prefixes) and t not in ignored_tokens and not t.startswith('${'):
+                    tokens.add(t)
+
+        for m in re.finditer(r'classList\.add\(([^)]+)\)', content):
+            for t in re.findall(r'["\']([^"\']+)["\']', m.group(1)):
+                t = t.strip()
+                if t and not t.startswith(ignored_prefixes) and t not in ignored_tokens:
+                    tokens.add(t)
+
+        total_tokens_checked += len(tokens)
+        missing = []
+        for t in sorted(tokens):
+            esc = escape_class_for_css(t)
+            if esc not in all_css and esc.replace('\\2c ', '\\2c') not in all_css:
+                missing.append(t)
+
+        if missing:
+            missing_by_page[page_rel] = missing
+
+    if missing_by_page:
+        for p, miss in missing_by_page.items():
+            errors.append(f"[{p}] Stale stylesheet! Found {len(miss)} uncompiled class(es): {', '.join(miss[:6])}. Run 'npm run build:css'.")
+    else:
+        print(f"   ✓ Verified {total_tokens_checked} class tokens across all {len(PAGE_FILES)} pages. 100% resolve in stylesheet.")
+
     return errors
 
 def main():
@@ -329,6 +450,7 @@ def main():
     all_errors.extend(check_seo_and_meta())
     all_errors.extend(check_deployment_configs())
     all_errors.extend(check_policy_constraints())
+    all_errors.extend(check_compiled_stylesheet())
 
     print("================================================================")
     if all_errors:

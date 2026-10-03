@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./*.html",
     "./18_*/**/*.html",
+    "./18_*/**/*.js",
     "./shared/**/*.js"
   ],
   // darkMode intentionally not set. It previously read

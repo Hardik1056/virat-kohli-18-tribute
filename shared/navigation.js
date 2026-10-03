@@ -95,8 +95,16 @@
       description: 'International Career Records: Tests, ODIs & T20Is'
     },
     {
-      id: 'about',
+      id: 'quiz',
       number: '08',
+      label: 'QUIZ',
+      folder: '18_how_well_do_you_know_kohli_quiz',
+      url: '../18_how_well_do_you_know_kohli_quiz/code.html',
+      description: 'The Ultimate Cricket IQ Challenge & 4 Lifelines'
+    },
+    {
+      id: 'about',
+      number: '09',
       label: 'ABOUT',
       folder: 'about',
       url: '../18_one_last_chapter_hero/code.html#tribute-about',
@@ -123,6 +131,15 @@
       folder: '18_match_details_india_vs_australia',
       url: '../18_match_details_india_vs_australia/code.html',
       description: 'India vs Australia Wankhede Dossier'
+    },
+    {
+      id: 'keepsake-generator',
+      ref: 'REF. KEEPSAKE',
+      badge: 'PASS',
+      label: 'Keepsake Ticket',
+      folder: '18_i_was_there_commemorative_keepsake_generator',
+      url: '../18_i_was_there_commemorative_keepsake_generator/code.html',
+      description: 'Archival Match Keepsake Ticket Generator'
     }
   ];
 
@@ -135,7 +152,8 @@
   const PADDED_MAIN_PAGES = [
     '18_match_details_india_vs_australia',
     '18_world_cup_2027_destination',
-    '18_82_vs_pakistan_melbourne_2022'
+    '18_82_vs_pakistan_melbourne_2022',
+    '18_how_well_do_you_know_kohli_quiz'
   ];
 
   // =========================================================================
@@ -282,7 +300,7 @@
            class="hidden fixed top-14 left-0 right-0 bottom-0 bg-[#0c0c0c]/98 backdrop-blur-xl border-b border-[#262626] overflow-y-auto z-40 select-none pb-12">
         <div class="w-full max-w-lg mx-auto flex flex-col pt-2">
           <div class="px-4 py-2 font-mono text-[10px] text-primary tracking-widest uppercase bg-surface-container-lowest/80 border-y border-[#1f1f1f]">
-            PRIMARY SECTIONS // 01 — 08
+            PRIMARY SECTIONS // 01 — 09
           </div>
           <nav aria-label="Mobile Primary Navigation" class="flex flex-col">
             ${primaryItems}
@@ -443,7 +461,7 @@
             </a>
           </div>
 
-          <!-- DESKTOP PRIMARY SECTIONS (01 - 08) -->
+          <!-- DESKTOP PRIMARY SECTIONS (01 - 09) -->
           <nav aria-label="Master Site Sections" class="hidden xl:flex items-center h-full overflow-x-auto no-scrollbar gap-0.5">
             ${renderDesktopNav(currentFolder)}
           </nav>

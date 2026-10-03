@@ -1,8 +1,13 @@
-/**
- * Obsidian & Gold Editorial - Centralized Tailwind Configuration
- * Tribute to Virat Kohli: "18 | ONE LAST CHAPTER"
- * Extracted from Google Stitch Master Design Specification (DESIGN.md)
- */
+// Obsidian & Gold Editorial - Centralized Tailwind Configuration
+// Tribute to Virat Kohli: "18 | ONE LAST CHAPTER"
+// Extracted from Google Stitch Master Design Specification (DESIGN.md)
+//
+// ARCHITECTURAL CONTRACT:
+// - This file exports THEME CONFIGURATION ONLY (colors, spacing, typography scale).
+// - It intentionally does NOT define the 'content' array.
+// - Content scanning globs (e.g. './*.html', './18_*/**/*.html', './shared/**/*.js') live
+//   strictly in the root tailwind.config.js.
+// - Always run `npm run build:css` after authoring new Tailwind utility classes across pages.
 
 (function () {
   const obsidianGoldTheme = {

@@ -845,6 +845,13 @@
         this.setAttribute('aria-pressed', 'true');
 
         updateMetrics(format);
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'stats_format_selected', {
+            event_category: 'stats',
+            format: format
+          });
+        }
       });
     });
   })();

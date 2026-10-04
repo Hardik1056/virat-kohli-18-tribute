@@ -823,6 +823,14 @@
 
             downloadCanvas(canvas, filename);
 
+            if (typeof gtag === 'function') {
+              gtag('event', 'ticket_generated', {
+                event_category: 'keepsake',
+                match_id: matchKey,
+                attendee_name: attendeeClean
+              });
+            }
+
             keepsakeCard.classList.add('scale-[1.01]');
             setTimeout(function() {
               keepsakeCard.classList.remove('scale-[1.01]');
@@ -861,6 +869,9 @@
           updateCard();
           if (keepsakeCard) keepsakeCard.classList.remove('scale-[1.01]', 'scale-[1.02]');
           hideToast();
+          if (typeof gtag === 'function') {
+            gtag('event', 'ticket_reset', { event_category: 'keepsake' });
+          }
         });
       }
 

@@ -952,6 +952,13 @@
         viewResultCard.classList.add('hidden');
         viewHotSeat.classList.remove('hidden');
 
+        if (typeof gtag === 'function') {
+          gtag('event', 'quiz_started', {
+            event_category: 'quiz',
+            mode: currentMode
+          });
+        }
+
         renderQuestion();
       }
 
@@ -1180,6 +1187,13 @@
           });
 
           showToast('50:50 ACTIVATED: 2 WRONG OPTIONS REMOVED');
+          if (typeof gtag === 'function') {
+            gtag('event', 'lifeline_used', {
+              event_category: 'quiz',
+              lifeline_type: '50_50',
+              question_number: currentQuestionIndex + 1
+            });
+          }
         });
       }
 
@@ -1194,6 +1208,14 @@
           const q = activeQuestionList[currentQuestionIndex];
           renderAudiencePoll(q);
           openQuizModal(modalPoll, '#btn-dismiss-poll');
+
+          if (typeof gtag === 'function') {
+            gtag('event', 'lifeline_used', {
+              event_category: 'quiz',
+              lifeline_type: 'audience_poll',
+              question_number: currentQuestionIndex + 1
+            });
+          }
         });
       }
 
@@ -1293,6 +1315,14 @@
             }
           }
           openQuizModal(modalExpert, '#btn-dismiss-expert');
+
+          if (typeof gtag === 'function') {
+            gtag('event', 'lifeline_used', {
+              event_category: 'quiz',
+              lifeline_type: 'expert_whisper',
+              question_number: currentQuestionIndex + 1
+            });
+          }
         });
       }
 
@@ -1311,6 +1341,14 @@
           lifelinesState.drsFlip = false;
           playSound('lifeline');
           updateLifelinesUI();
+
+          if (typeof gtag === 'function') {
+            gtag('event', 'lifeline_used', {
+              event_category: 'quiz',
+              lifeline_type: 'drs_flip',
+              question_number: currentQuestionIndex + 1
+            });
+          }
 
           const currentQ = activeQuestionList[currentQuestionIndex];
           const source = getQuizSource();
@@ -1403,6 +1441,20 @@
         viewHotSeat.classList.add('hidden');
         viewResultCard.classList.remove('hidden');
 
+        if (typeof gtag === 'function') {
+          gtag('event', 'quiz_completed', {
+            event_category: 'quiz',
+            score: score,
+            correct_count: correctAnswersCount,
+            accuracy_percent: accuracyPct,
+            fan_iq: fanIq,
+            rank: rankTag,
+            mode: currentMode,
+            lifelines_saved: lifelinesSavedCount,
+            duration_seconds: totalDurationSec
+          });
+        }
+
         // Scroll smoothly to top of card
         window.scrollTo({ top: 120, behavior: 'smooth' });
       }
@@ -1474,6 +1526,9 @@
                 url: shareUrl
               });
               showToast('SHARED TO APPS SUCCESSFULLY!');
+              if (typeof gtag === 'function') {
+                gtag('event', 'quiz_shared', { event_category: 'quiz', method: 'web_share', score: score });
+              }
             } catch (err) {
               if (err.name !== 'AbortError') {
                 copyToClipboard(getChallengeText());
@@ -1493,6 +1548,9 @@
           const text = encodeURIComponent(getShareText());
           const xUrl = `https://twitter.com/intent/tweet?text=${text}`;
           window.open(xUrl, '_blank', 'noopener,noreferrer,width=600,height=450');
+          if (typeof gtag === 'function') {
+            gtag('event', 'quiz_shared', { event_category: 'quiz', method: 'twitter_x', score: score });
+          }
         });
       }
 
@@ -1504,6 +1562,9 @@
           const text = encodeURIComponent(getShareText());
           const waUrl = `https://api.whatsapp.com/send?text=${text}`;
           window.open(waUrl, '_blank', 'noopener,noreferrer');
+          if (typeof gtag === 'function') {
+            gtag('event', 'quiz_shared', { event_category: 'quiz', method: 'whatsapp', score: score });
+          }
         });
       }
 
@@ -1534,6 +1595,9 @@
             link.href = canvas.toDataURL('image/png');
             link.click();
             showToast('HD SCORECARD SAVED TO CAMERA ROLL / DOWNLOADS!');
+            if (typeof gtag === 'function') {
+              gtag('event', 'quiz_card_downloaded', { event_category: 'quiz', score: score, correct_count: correctAnswersCount });
+            }
           } catch (e) {
             showToast('DOWNLOAD ERROR — PLEASE RETRY');
           } finally {
@@ -1549,6 +1613,9 @@
         btnCopyLink.addEventListener('click', () => {
           playSound('click');
           copyToClipboard(getChallengeText());
+          if (typeof gtag === 'function') {
+            gtag('event', 'quiz_shared', { event_category: 'quiz', method: 'clipboard_copy', score: score });
+          }
         });
       }
 

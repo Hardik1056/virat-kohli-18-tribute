@@ -683,6 +683,9 @@ CANCEL
         setToggleLabel(true);
         setStatus('');
         if (nameField) nameField.focus();
+        if (typeof gtag === 'function') {
+          gtag('event', 'witness_deck_opened', { event_category: 'witness' });
+        }
       }
 
       function closePanel() {
@@ -739,6 +742,14 @@ CANCEL
         renderMemories();
         updateCounter();
         renderClaimState();
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'memory_recorded', {
+            event_category: 'witness',
+            match_id: match,
+            depositor_city: city
+          });
+        }
 
         if (nameField) nameField.value = '';
         if (cityField) cityField.value = '';

@@ -33,6 +33,25 @@
   }
 })(typeof self !== 'undefined' ? self : this, function () {
 
+  // Telemetry helper for GA4 custom & key events
+  function trackEvent(eventName, params) {
+    try {
+      if (typeof window !== 'undefined') {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', eventName, params || {});
+        } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
+          window.dataLayer.push(Object.assign({ event: eventName }, params || {}));
+        }
+      }
+    } catch (e) {
+      // Safe failover
+    }
+  }
+
+  if (typeof window !== 'undefined') {
+    window.VK18Track = trackEvent;
+  }
+
   // =========================================================================
   // 1. CENTRALIZED NAVIGATION CONFIGURATION
   // =========================================================================
@@ -594,6 +613,7 @@
           if (focusable.length) focusable[0].focus();
         });
         document.addEventListener('keydown', _trapFocus);
+        trackEvent('about_modal_opened', { source: _aboutModalOpener ? (_aboutModalOpener.id || 'about_trigger') : 'unknown' });
       }
       if (mobileDrawer && !mobileDrawer.classList.contains('hidden')) {
         mobileDrawer.classList.add('hidden');

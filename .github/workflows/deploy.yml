@@ -42,7 +42,7 @@ jobs:
 
       - name: 🗂️ Setup Clean URLs for GitHub Pages
         run: |
-          mkdir -p stats journey innings remaining-odis world-cup-2027 82-melbourne match-details be-there we-were-there keepsake editorial
+          mkdir -p stats journey innings remaining-odis world-cup-2027 82-melbourne match-details be-there editorial
           cp 18_career_stats_international/code.html stats/index.html
           cp 18_the_journey_horizontal_documentary_timeline/code.html journey/index.html
           cp 18_the_innings_we_ll_never_forget_desktop/code.html innings/index.html
@@ -51,8 +51,6 @@ jobs:
           cp 18_82_vs_pakistan_melbourne_2022/code.html 82-melbourne/index.html
           cp 18_match_details_india_vs_australia/code.html match-details/index.html
           cp 18_be_there_for_it_desktop/code.html be-there/index.html
-          cp 18_we_were_there_fan_memories_keepsake/code.html we-were-there/index.html
-          cp 18_i_was_there_commemorative_keepsake_generator/code.html keepsake/index.html
           cp 18_the_last_chapter_desktop_editorial/code.html editorial/index.html
 
       - name: 📤 Upload Pages Artifact

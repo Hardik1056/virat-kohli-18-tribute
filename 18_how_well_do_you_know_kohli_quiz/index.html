@@ -354,18 +354,20 @@
         </div>
 
         <!-- THE SHAREABLE CARD (RENDERED AT 2X RETINA FOR SOCIAL SHARING) -->
-        <div id="scorecard-capture-target" class="w-full relative bg-surface-container-lowest p-5 sm:p-7 shadow-2xl card-border-gold transition-all" style="background: linear-gradient(180deg, #131316 0%, #070709 100%);">
+        <div id="scorecard-capture-target" class="w-full relative bg-surface-container-lowest p-5 sm:p-7 shadow-2xl card-border-gold transition-all" style="background: linear-gradient(160deg, #131317 0%, #0a0a0d 50%, #060608 100%);">
           
-          <!-- Metallic Top Ribbon & Accents -->
-          <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-90"></div>
-          <div class="absolute top-2 left-2 font-mono text-[9px] text-outline opacity-40 select-none">+</div>
-          <div class="absolute top-2 right-2 font-mono text-[9px] text-outline opacity-40 select-none">+</div>
-          <div class="absolute bottom-2 left-2 font-mono text-[9px] text-outline opacity-40 select-none">+</div>
-          <div class="absolute bottom-2 right-2 font-mono text-[9px] text-outline opacity-40 select-none">+</div>
+          <!-- Metallic Top Gold Ribbon -->
+          <div class="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-95"></div>
+
+          <!-- Crisp Corner Registration Hairlines -->
+          <div class="absolute top-2 left-2 w-2.5 h-2.5 border-t border-l border-primary/40 pointer-events-none" aria-hidden="true"></div>
+          <div class="absolute top-2 right-2 w-2.5 h-2.5 border-t border-r border-primary/40 pointer-events-none" aria-hidden="true"></div>
+          <div class="absolute bottom-2 left-2 w-2.5 h-2.5 border-b border-l border-primary/40 pointer-events-none" aria-hidden="true"></div>
+          <div class="absolute bottom-2 right-2 w-2.5 h-2.5 border-b border-r border-primary/40 pointer-events-none" aria-hidden="true"></div>
 
           <!-- Card Header -->
           <div class="flex items-start justify-between border-b border-surface-container-highest pb-3 mb-4">
-            <div class="flex flex-col">
+            <div class="flex flex-col pr-2">
               <span class="font-label-caps text-[9px] text-primary tracking-[0.22em] uppercase font-bold">
                 18 | OFFICIAL CRICKET IQ FOLIO
               </span>
@@ -373,65 +375,67 @@
                 CANDIDATE: THE FAITHFUL
               </span>
             </div>
-            <div class="flex flex-col items-end">
-              <span class="font-headline-xl text-4xl leading-none text-primary font-normal">18</span>
-              <span class="font-label-caps text-[8px] text-outline uppercase tracking-widest -mt-1">CANON CERTIFIED</span>
+            <div class="flex flex-col items-end justify-center shrink-0">
+              <div class="font-headline-xl text-3xl sm:text-4xl text-primary font-bold tracking-wider leading-none">18</div>
+              <div class="font-mono text-[7px] sm:text-[8px] text-outline uppercase tracking-[0.18em] mt-1 whitespace-nowrap">CANON CERTIFIED</div>
             </div>
           </div>
 
-          <!-- Trophy / Archetype Image Badge -->
-          <div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-low border border-outline-variant/40 mb-4">
-            <img src="../assets/images/mohali-2016-australia-82-finger-to-sky-centered.jpg"
-                 alt="Virat Kohli in celebration"
-                 class="w-full h-full object-cover object-center contrast-[1.1] grayscale-[15%]"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-85"></div>
+          <!-- Trophy / Archetype Image Showcase (Explicit height prevents aspect-ratio collapse in canvas) -->
+          <div class="relative w-full h-[190px] sm:h-[210px] overflow-hidden bg-surface-container-low border border-outline-variant/40 mb-4">
+            <img id="card-archetype-img"
+                 src="../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg"
+                 alt="Virat Kohli milestone celebration"
+                 class="w-full h-full object-cover object-center contrast-[1.05]"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#060608] via-[#060608]/40 to-transparent"></div>
             
-            <div class="absolute bottom-2 left-2 right-2 flex items-end justify-between">
-              <div class="bg-surface-container-lowest/90 px-2.5 py-1 border border-outline-variant/60">
-                <span id="card-rank-tag" class="block font-label-caps text-[9px] text-primary tracking-widest uppercase font-bold">
-                  APEX CANON HISTORIAN
+            <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-end justify-between gap-2">
+              <div class="flex flex-col">
+                <span id="card-rank-tag" class="block font-headline-lg text-sm sm:text-base text-primary tracking-wider uppercase font-bold drop-shadow">
+                  THE WANKHEDE FAITHFUL
                 </span>
-                <span id="card-score-summary" class="font-mono text-[11px] text-on-surface font-bold">
-                  10 / 10 • 1,650 PTS
+                <span id="card-score-summary" class="font-mono text-[10px] sm:text-[11px] text-on-surface font-medium tracking-wide">
+                  5 / 10 • 1,050 PTS (50%)
                 </span>
               </div>
-              <span id="card-iq-pill" class="font-mono text-xs text-primary bg-surface-container-lowest/90 px-2 py-0.5 border border-primary/40 font-bold">
-                IQ: 155
-              </span>
+              <div class="flex flex-col items-center justify-center bg-[#070709]/90 border border-primary/50 px-2 py-0.5 shrink-0 shadow-lg">
+                <span class="font-mono text-[7px] text-outline uppercase tracking-widest leading-none">CRICKET IQ</span>
+                <span id="card-iq-pill" class="font-headline-xl text-lg leading-none text-primary font-bold mt-0.5">122</span>
+              </div>
             </div>
           </div>
 
-          <!-- Primary Metric Dossier -->
-          <div class="space-y-2 mb-4 bg-surface-container-lowest/70 p-3 border border-outline-variant/30 font-mono text-[10px]">
-            <div class="flex justify-between items-center text-outline">
-              <span class="uppercase">TOTAL SCORE:</span>
-              <span id="card-stat-score" class="text-primary font-bold">1,650 PTS</span>
+          <!-- Primary Metric Dossier (2x2 Matrix) -->
+          <div class="grid grid-cols-2 gap-2 mb-4 bg-surface-container-lowest/80 p-3 border border-outline-variant/30 font-mono text-[10px]">
+            <div class="flex flex-col">
+              <span class="text-outline uppercase text-[8px] tracking-wider">TOTAL SCORE</span>
+              <span id="card-stat-score" class="text-primary font-bold text-xs sm:text-sm mt-0.5">1,050 PTS</span>
             </div>
-            <div class="flex justify-between items-center text-outline">
-              <span class="uppercase">CANON ACCURACY:</span>
-              <span id="card-stat-acc" class="text-on-surface font-semibold">100%</span>
+            <div class="flex flex-col">
+              <span class="text-outline uppercase text-[8px] tracking-wider">CANON ACCURACY</span>
+              <span id="card-stat-acc" class="text-on-surface font-semibold text-xs sm:text-sm mt-0.5">50%</span>
             </div>
-            <div class="flex justify-between items-center text-outline">
-              <span class="uppercase">TIME RECORD:</span>
-              <span id="card-stat-time" class="text-on-surface font-semibold">1m 42s</span>
+            <div class="flex flex-col pt-2 border-t border-outline-variant/20">
+              <span class="text-outline uppercase text-[8px] tracking-wider">TIME RECORD</span>
+              <span id="card-stat-time" class="text-on-surface font-semibold text-xs mt-0.5">2m 00s</span>
             </div>
-            <div class="flex justify-between items-center text-outline">
-              <span class="uppercase">LIFELINES SAVED:</span>
-              <span id="card-stat-lifelines" class="text-on-surface font-semibold">2 / 4 Saved (+100 Pts)</span>
+            <div class="flex flex-col pt-2 border-t border-outline-variant/20">
+              <span class="text-outline uppercase text-[8px] tracking-wider">LIFELINES SAVED</span>
+              <span id="card-stat-lifelines" class="text-on-surface font-semibold text-xs mt-0.5">1 / 4 Saved (+50 Pts)</span>
             </div>
           </div>
 
           <!-- Rank Quote -->
-          <blockquote id="card-rank-quote" class="font-serif italic text-xs text-on-surface-variant mb-4 border-l-2 border-primary/60 pl-3 leading-snug">
-            “Your cricket soul is forged in the fire of Melbourne and Hobart. A walking encyclopedia of King Kohli’s legacy.”
+          <blockquote id="card-rank-quote" class="font-serif italic text-xs text-on-surface-variant mb-4 border-l-2 border-primary/70 pl-3 leading-relaxed">
+            “Solid front-foot technique. You know his greatest moments, but a few archival masteries await you in the vaults.”
           </blockquote>
 
           <!-- Card Footer Stamp -->
-          <div class="pt-3 border-t border-surface-container-highest flex items-center justify-between text-outline font-mono text-[8px] uppercase">
-            <span id="card-serial-code">SPECIMEN // VK18-IQ-9821-CANON</span>
-            <div class="flex items-center gap-1 text-primary">
-              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              <span class="font-bold">WWW.THELASTDANCE18.ONLINE/QUIZ</span>
+          <div class="pt-3 border-t border-surface-container-highest flex items-center justify-between text-outline font-mono text-[8px] uppercase tracking-wider">
+            <span id="card-serial-code">SPECIMEN // VK18-IQ-122-2244</span>
+            <div class="flex items-center gap-1.5 text-primary font-semibold">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary" aria-hidden="true"></span>
+              <span>WWW.THELASTDANCE18.ONLINE/QUIZ</span>
             </div>
           </div>
 
@@ -1403,33 +1407,40 @@
         if (correctAnswersCount === 10) fanIq = 158;
 
         // Rank designation (reachable ladder without dead defaults)
-        let rankTag, rankQuote;
+        let rankTag, rankQuote, rankImg;
         if (correctAnswersCount === 10) {
           rankTag = 'THE IMMORTAL CANON ARCHIVIST';
           rankQuote = '“Perfection. You conquered all 10 deliveries with steel and ice. Not a single record escapes your memory.”';
+          rankImg = '../assets/images/barbados-2024-t20-world-cup-trophy-lift-centered.jpg';
         } else if (correctAnswersCount >= 8) {
           rankTag = 'APEX CANON HISTORIAN';
           rankQuote = '“Your cricket soul is forged in the fire of Melbourne and Hobart. A walking encyclopedia of King Kohli’s legacy.”';
+          rankImg = '../assets/images/mcg-2022-winning-run-celebration-darrian-traynor.jpg';
         } else if (correctAnswersCount >= 6) {
           rankTag = 'THE MASTER OF THE CHASE';
           rankQuote = '“Cold calculation and ruthless execution under pressure. You stand shoulder-to-shoulder with the finest cricket minds.”';
+          rankImg = '../assets/images/eden-gardens-2023-century-49-celebration-centered.jpg';
         } else if (correctAnswersCount >= 4) {
           rankTag = 'THE WANKHEDE FAITHFUL';
           rankQuote = '“Solid front-foot technique. You know his greatest moments, but a few archival masteries await you in the vaults.”';
+          rankImg = '../assets/images/wankhede-2023-century-50-bat-raised-punit-paranjpe-centered.jpg';
         } else {
           rankTag = 'THE ACADEMY DEBUTANT';
           rankQuote = '“Every legend begins in the nets. Head to the documentary timeline and study the sacred 18 lore once more.”';
+          rankImg = '../assets/images/kuala-lumpur-2008-u19-world-cup-trophy-centered.jpg';
         }
 
         // Populate card UI
+        const cardArchetypeImg = document.getElementById('card-archetype-img');
+        if (cardArchetypeImg && rankImg) cardArchetypeImg.src = rankImg;
         document.getElementById('card-rank-tag').textContent = rankTag;
         document.getElementById('card-score-summary').textContent = `${correctAnswersCount} / 10 • ${score.toLocaleString()} PTS (${accuracyPct}%)`;
         const cardStatScore = document.getElementById('card-stat-score');
         if (cardStatScore) cardStatScore.textContent = `${score.toLocaleString()} PTS`;
-        document.getElementById('card-iq-pill').textContent = `IQ: ${fanIq}`;
+        document.getElementById('card-iq-pill').textContent = fanIq;
         document.getElementById('card-stat-acc').textContent = `${accuracyPct}%`;
         document.getElementById('card-stat-time').textContent = timeFormatted;
-        document.getElementById('card-stat-lifelines').textContent = `${lifelinesSavedCount} / 4 SAVED (+${lifelineBonus} PTS)`;
+        document.getElementById('card-stat-lifelines').textContent = `${lifelinesSavedCount} / 4 Saved (+${lifelineBonus} Pts)`;
         document.getElementById('card-rank-quote').textContent = rankQuote;
         document.getElementById('card-serial-code').textContent = `SPECIMEN // VK18-IQ-${fanIq}-${Math.floor(1000 + Math.random() * 9000)}`;
 
@@ -1577,25 +1588,61 @@
           }
 
           btnDownloadHd.disabled = true;
-          btnDownloadHd.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span>EXPORTING...</span>';
+          btnDownloadHd.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span>EXPORTING HD...</span>';
 
           try {
+            // Save scroll coordinates
+            const scrollX = window.scrollX || window.pageXOffset || 0;
+            const scrollY = window.scrollY || window.pageYOffset || 0;
+
             const canvas = await html2canvas(target, {
               scale: 2,
               useCORS: true,
-              backgroundColor: '#070709',
-              logging: false
+              allowTaint: false,
+              backgroundColor: '#060608',
+              logging: false,
+              scrollX: -scrollX,
+              scrollY: -scrollY,
+              windowWidth: document.documentElement.offsetWidth,
+              windowHeight: document.documentElement.offsetHeight,
+              ignoreElements: (el) => {
+                if (!el) return false;
+                return (
+                  el.id === 'vk-global-nav' ||
+                  el.id === 'vk-audio-fab' ||
+                  el.id === 'toast-container' ||
+                  el.tagName === 'HEADER' ||
+                  el.classList.contains('fixed')
+                );
+              },
+              onclone: (clonedDoc, clonedElement) => {
+                // Completely purge sticky/fixed headers in the cloned render tree
+                const nav = clonedDoc.getElementById('vk-global-nav');
+                if (nav) nav.remove();
+                const headers = clonedDoc.querySelectorAll('header, #vk-audio-fab, #toast-container');
+                headers.forEach(h => h.remove());
+
+                // Lock the cloned card element to clean styles
+                clonedElement.style.maxWidth = '480px';
+                clonedElement.style.width = '480px';
+                clonedElement.style.margin = '0 auto';
+                clonedElement.style.transform = 'none';
+                clonedElement.style.transition = 'none';
+                clonedElement.style.animation = 'none';
+                clonedElement.style.boxShadow = 'none';
+              }
             });
 
             const link = document.createElement('a');
             link.download = `virat-kohli-cricket-iq-${correctAnswersCount}of10.png`;
-            link.href = canvas.toDataURL('image/png');
+            link.href = canvas.toDataURL('image/png', 1.0);
             link.click();
-            showToast('HD SCORECARD SAVED TO CAMERA ROLL / DOWNLOADS!');
+            showToast('HD SCORECARD SAVED TO DOWNLOADS!');
             if (typeof gtag === 'function') {
               gtag('event', 'quiz_card_downloaded', { event_category: 'quiz', score: score, correct_count: correctAnswersCount });
             }
           } catch (e) {
+            console.error('Scorecard download error:', e);
             showToast('DOWNLOAD ERROR — PLEASE RETRY');
           } finally {
             btnDownloadHd.disabled = false;

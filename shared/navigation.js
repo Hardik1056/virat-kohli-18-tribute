@@ -1,7 +1,7 @@
 /**
  * 18 | ONE LAST CHAPTER — CENTRALIZED WEBSITE NAVIGATION SYSTEM
  * ==============================================================
- * Master persistent desktop-first navigation for all 11 pages of the Virat Kohli tribute site.
+ * Master persistent desktop-first navigation for all 9 pages of the Virat Kohli tribute site.
  *
  * Primary Sections (Desktop-first):
  *   01 — HOME
@@ -10,13 +10,13 @@
  *   04 — THE INNINGS
  *   05 — REMAINING ODIs
  *   06 — WORLD CUP 2027
- *   07 — BE THERE
- *   08 — WE WERE THERE
+ *   07 — STATS
+ *   08 — QUIZ
+ *   09 — ABOUT
  *
  * Archival Dossiers & Detail Pages:
  *   - 82* vs Pakistan
  *   - Match Details
- *   - I WAS THERE keepsake generator
  *
  * Visual Language: Obsidian Gold Editorial
  * Palette: Canvas #070709, Surface #0d0d0f, Border #747476, Gold #cda851
@@ -150,15 +150,6 @@
       folder: '18_match_details_india_vs_australia',
       url: '../18_match_details_india_vs_australia/code.html',
       description: 'India vs Australia Wankhede Dossier'
-    },
-    {
-      id: 'keepsake-generator',
-      ref: 'REF. KEEPSAKE',
-      badge: 'PASS',
-      label: 'Keepsake Ticket',
-      folder: '18_i_was_there_commemorative_keepsake_generator',
-      url: '../18_i_was_there_commemorative_keepsake_generator/code.html',
-      description: 'Archival Match Keepsake Ticket Generator'
     }
   ];
 

@@ -35,8 +35,6 @@ PAGE_FILES = [
     "18_82_vs_pakistan_melbourne_2022/code.html",
     "18_match_details_india_vs_australia/code.html",
     "18_be_there_for_it_desktop/code.html",
-    "18_we_were_there_fan_memories_keepsake/code.html",
-    "18_i_was_there_commemorative_keepsake_generator/code.html",
     "18_how_well_do_you_know_kohli_quiz/code.html",
 ]
 

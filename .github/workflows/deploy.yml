@@ -42,16 +42,33 @@ jobs:
 
       - name: 🗂️ Setup Clean URLs for GitHub Pages
         run: |
-          mkdir -p stats journey innings remaining-odis world-cup-2027 82-melbourne match-details be-there editorial
-          cp 18_career_stats_international/code.html stats/index.html
-          cp 18_the_journey_horizontal_documentary_timeline/code.html journey/index.html
-          cp 18_the_innings_we_ll_never_forget_desktop/code.html innings/index.html
-          cp 18_the_last_ones_remaining_odis/code.html remaining-odis/index.html
-          cp 18_world_cup_2027_destination/code.html world-cup-2027/index.html
-          cp 18_82_vs_pakistan_melbourne_2022/code.html 82-melbourne/index.html
-          cp 18_match_details_india_vs_australia/code.html match-details/index.html
-          cp 18_be_there_for_it_desktop/code.html be-there/index.html
-          cp 18_the_last_chapter_desktop_editorial/code.html editorial/index.html
+          # Clean-URL routes are derived from vercel.json instead of being
+          # hand-listed. A hand-written list silently falls behind the site:
+          # /quiz and /trivia were both absent here while Vercel served them
+          # fine, so the mirror 404'd on two of the site's twelve routes.
+          python3 - <<'PY'
+          import json, os, shutil
+
+          with open('vercel.json', encoding='utf-8') as handle:
+              config = json.load(handle)
+
+          routes = {}
+          for rule in config.get('rewrites', []):
+              source = rule['source'].split('?')[0]
+              destination = rule['destination']
+              # Clean-URL aliases only: a slashless public path pointing at a
+              # page folder. The /18_* and /18_*/code paths need no folder here
+              # because the whole repo is uploaded as the Pages artifact.
+              if source == '/' or source.startswith('/18_') or not destination.endswith('/code.html'):
+                  continue
+              routes[source.strip('/')] = destination
+
+          for route, destination in sorted(routes.items()):
+              os.makedirs(route, exist_ok=True)
+              shutil.copyfile('.' + destination, os.path.join(route, 'index.html'))
+
+          print('Published %d clean URLs: %s' % (len(routes), ', '.join('/' + r for r in sorted(routes))))
+          PY
 
       - name: 📤 Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
